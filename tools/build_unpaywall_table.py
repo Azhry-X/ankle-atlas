@@ -42,11 +42,11 @@ chips = [
     {
         "page": "p6",
         "old_name": "ISMST Consensus",
-        "new_name": "ISMST Consensus",
+        "new_name": "ISMST Indications",
         "doi": None,
-        "title": "International Society for Medical Shockwave Treatment (ISMST) Consensus Guidelines",
+        "title": "International Society for Medical Shockwave Treatment (ISMST) Indications & Contraindications Guidelines",
         "year": "2016/2017",
-        "target_url": "https://shockwavetherapy.org/about-eswt/"
+        "target_url": "https://shockwavetherapy.org/indications/"
     },
     {
         "page": "p8",
@@ -60,7 +60,7 @@ chips = [
     {
         "page": "p8",
         "old_name": "HSR Protocol",
-        "new_name": "HSR Protocol",
+        "new_name": "HSR Protocol (abstract)",
         "doi": "10.1177/0363546515584760",
         "title": "Heavy Slow Resistance Versus Eccentric Training as Treatment for Achilles Tendinopathy",
         "year": "2015",
@@ -69,11 +69,11 @@ chips = [
     {
         "page": "p8",
         "old_name": "Owens BFR Guide",
-        "new_name": "Owens BFR Guide",
-        "doi": None,
-        "title": "Owens Recovery Science BFR Clinical Guidelines & Certification",
-        "year": "2018",
-        "target_url": "https://www.owensrecoveryscience.com/"
+        "new_name": "BFR Position Stand 2019",
+        "doi": "10.3389/fphys.2019.00533",
+        "title": "Blood Flow Restriction Exercise: Considerations of Methodology, Application, and Safety",
+        "year": "2019",
+        "target_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6530612/"
     }
 ]
 

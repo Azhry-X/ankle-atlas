@@ -58,12 +58,16 @@ if (Test-Path $pdf) {
     $root = Split-Path -Parent $MyInvocation.MyCommand.Path
     $checker = Join-Path $root "tools\check_dossier.py"
     $cards = Join-Path $root "tools\check_cards.py"
+    $routerCheck = Join-Path $root "tools\check_router_border.py"
     if (-not (Test-Path $checker)) { throw "Missing tools\check_dossier.py" }
     if (-not (Test-Path $cards)) { throw "Missing tools\check_cards.py" }
+    if (-not (Test-Path $routerCheck)) { throw "Missing tools\check_router_border.py" }
     python $checker $pdf $src
     if ($LASTEXITCODE -ne 0) { throw "check_dossier.py failed with exit $LASTEXITCODE. If the error says pdfplumber is missing: pip install pdfplumber pypdf" }
     python $cards $src
     if ($LASTEXITCODE -ne 0) { throw "check_cards.py failed with exit $LASTEXITCODE" }
+    python $routerCheck
+    if ($LASTEXITCODE -ne 0) { throw "check_router_border.py failed with exit $LASTEXITCODE" }
 } else {
     Write-Host "Error: PDF was not generated."
 }

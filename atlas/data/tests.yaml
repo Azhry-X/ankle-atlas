@@ -1672,8 +1672,7 @@
   video_url: null
   image: null
   sources:
-  - Owens Recovery Science
-  - Patterson SD et al. (2019) Front Physiol
+  - Patterson SD et al. (2019) Front Physiol (PMC6530612)
   - Loenneke JP et al. (2012)
   review_status: draft
 - id: tendon-loading-stages

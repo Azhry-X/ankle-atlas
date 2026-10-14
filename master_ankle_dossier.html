@@ -147,8 +147,9 @@
   .router-row{ display:grid; grid-template-columns:minmax(0,25fr) minmax(0,45fr) minmax(0,30fr); gap:1.2mm; min-height:9.0mm; align-items:center; }
   .router-col{ display:flex; align-items:center; flex-wrap:nowrap; gap:0.4mm; min-height:9.0mm; white-space:nowrap; }
   .rchip{ display:inline-flex; align-items:center; justify-content:center; width:4.8mm; min-width:4.8mm; height:9.0mm; min-height:9.0mm;
-    position:relative; background:transparent; color:var(--navy); font-weight:800; font-size:7.4px; text-decoration:none; line-height:1; }
-  .rchip::before{ content:""; position:absolute; width:4.4mm; height:4.4mm; border-radius:1mm; border:1px solid var(--line); background:#fff; z-index:-1; box-sizing:border-box; }
+    position:relative; background:transparent; color:var(--navy); font-weight:800; font-size:7.4px; text-decoration:none; line-height:1;
+    isolation:isolate; z-index:1; }
+  .rchip::before{ content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:4.4mm; height:4.4mm; border-radius:1mm; border:1px solid var(--line); background:#fff; z-index:-1; box-sizing:border-box; }
   .router-col > span{ font-size:7.0px; color:#64748b; font-weight:700; user-select:none; }
 
   /* Atlas Test Name Link (subtle blue, no extra button) */
@@ -614,7 +615,7 @@
       <section class="card" id="p2-anterior">
         <div class="card-h"><span>3 &middot; Anterior Ankle</span><span class="tag">2 TARGETS</span></div>
         <div class="card-b">
-          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#syndesmotic-high-ankle-sprain"><b>Syndesmotic High Ankle Sprain</b></a> &mdash; <span class="cio"><span class="cb"></span>AITFL</span><span class="cio"><span class="cb"></span>PITFL</span><span class="cio"><span class="cb"></span>Kleiger ER</span><span class="cio"><span class="cb"></span>Hopkins Squeeze</span><br>
+          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#syndesmotic-high-ankle-sprain"><b>Syndesmotic High Ankle Sprain</b></a> &mdash; <span class="cio"><span class="cb"></span>AITFL</span><span class="cio"><span class="cb"></span>PITFL</span><span class="cio"><span class="cb"></span><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#kleiger-test">Kleiger ER</a></span><span class="cio"><span class="cb"></span><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#squeeze-test">Hopkins Squeeze</a></span><br>
             Interosseous tenderness height <span class="fl s"></span> cm above joint line <span class="mut xs">(&uarr; height = &uarr; time to RTS)</span></div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#anterior-impingement"><b>Anterior Impingement</b></a> &mdash; <span class="cio"><span class="cb"></span>Bony (tibiotalar osteophytes)</span><span class="cio"><span class="cb"></span>Synovial meniscoid</span></div></div>
         </div>
@@ -1152,7 +1153,7 @@
 
   <main class="pg-body">
     <section class="card" id="p6-eswt">
-      <div class="card-h"><span>Extracorporeal Shockwave Therapy (ESWT) <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#eswt-parameters" title="ESWT Parameters & Evidence Protocols"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <a href="https://shockwavetherapy.org/about-eswt/" class="guide-badge" data-modal="eswt" target="_blank">&#128196; ISMST Consensus</a></span><span class="tag">3&ndash;5 SESSIONS &middot; 7-DAY INTERVALS</span></div>
+      <div class="card-h"><span>Extracorporeal Shockwave Therapy (ESWT) <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#eswt-parameters" title="ESWT Parameters & Evidence Protocols"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <a href="https://shockwavetherapy.org/indications/" class="guide-badge" data-modal="eswt" target="_blank">&#128196; ISMST Indications</a></span><span class="tag">3&ndash;5 SESSIONS &middot; 7-DAY INTERVALS</span></div>
       <div class="card-b">
         <table class="t dense">
           <thead><tr><th class="c">Rx</th><th>Indication</th><th>Type</th><th>Energy</th><th>Pulses</th><th>Freq</th><th>Probe / Technique</th></tr></thead>
@@ -1424,7 +1425,7 @@
           </tbody>
         </table>
 
-        <div class="sh mt-[3px]"><span>Beyer HSR 12-Week Progression &amp; Load Log <a href="https://europepmc.org/article/MED/26018970" class="guide-badge" data-modal="beyer-hsr" target="_blank">&#128196; HSR Protocol</a></span><span class="stat">3 &times; 15 &rarr; 4 &times; 6 &middot; 3 sessions / wk</span></div>
+        <div class="sh mt-[3px]"><span>Beyer HSR 12-Week Progression &amp; Load Log <a href="https://europepmc.org/article/MED/26018970" class="guide-badge" data-modal="beyer-hsr" target="_blank">&#128196; HSR Protocol (abstract)</a></span><span class="stat">3 &times; 15 &rarr; 4 &times; 6 &middot; 3 sessions / wk</span></div>
         <table class="t dense">
           <thead><tr><th>Block</th><th class="c">Wk 1</th><th class="c">Wks 2&ndash;3</th><th class="c">Wks 4&ndash;5</th><th class="c">Wks 6&ndash;8</th><th class="c">Wks 9&ndash;12</th></tr></thead>
           <tbody>
@@ -1443,7 +1444,7 @@
     </section>
 
     <section class="card" id="p8-bfr">
-      <div class="card-h"><span>Blood Flow Restriction (BFR) Training <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#bfr-aop-calc" title="BFR 80% AOP Calculation & Safety"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <a href="https://www.owensrecoveryscience.com/" class="guide-badge" data-modal="bfr" target="_blank">&#128196; Owens BFR Guide</a></span><span class="tag">AOP &middot; DOPPLER</span></div>
+      <div class="card-h"><span>Blood Flow Restriction (BFR) Training <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#bfr-aop-calc" title="BFR 80% AOP Calculation & Safety"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6530612/" class="guide-badge" data-modal="bfr" target="_blank">&#128196; BFR Position Stand 2019</a></span><span class="tag">AOP &middot; DOPPLER</span></div>
       <div class="card-b grid grid-cols-12 gap-x-3">
         <div class="col-span-7">
           <div class="ci"><span class="cb"></span><div><b>80% AOP Doppler calculation</b> (posterior tibial artery, supine, cuff on proximal thigh):<br>AOP <span class="fl m"></span> mmHg &times; 0.80 = <span class="fl m"></span> mmHg working pressure</div></div>
@@ -2159,7 +2160,7 @@ const CLINICAL_REGISTRY = {
   "eswt": {
     title: "Extracorporeal Shockwave Therapy (ESWT) ISMST Guidelines",
     badge: { text: "Modalities & Electrophysical Agents", type: "guide" },
-    extUrl: "https://shockwavetherapy.org/about-eswt/",
+    extUrl: "https://shockwavetherapy.org/indications/",
     stats: { "Sessions": "3-5", "Interval": "7 Days", "Plantar Fascia": "0.15-0.28 mJ/mm\u00b2", "Midportion AT": "2.0-3.5 Bar" },
     procedure: [
       "<b>Plantar Fasciopathy:</b> fESWT 0.15-0.28 mJ/mm\u00b2 (or rESWT 2.0-3.5 Bar), 2000 pulses, 4-8 Hz at medial calcaneal tubercle.",
@@ -2170,9 +2171,9 @@ const CLINICAL_REGISTRY = {
     alert: "Contraindications: Pregnancy, malignancy in target area, active infection, severe bleeding disorders."
   },
   "bfr": {
-    title: "Blood Flow Restriction (BFR) Training Guide",
-    badge: { text: "Hypertrophy & Offload Conditioning", type: "guide" },
-    extUrl: "https://www.owensrecoveryscience.com/",
+    title: "Blood Flow Restriction (BFR) Exercise Position Stand (Patterson 2019)",
+    badge: { text: "Methodology & Safety Position Stand", type: "guide" },
+    extUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6530612/",
     stats: { "AOP Target": "80% AOP", "Protocol": "30-15-15-15", "Intensity": "20-30% 1RM", "Rest": "30s Inter-set" },
     procedure: [
       "<b>AOP Calculation:</b> Determine 100% Arterial Occlusion Pressure (AOP) via handheld Doppler on posterior tibial artery in supine position.",
@@ -2197,7 +2198,7 @@ const CLINICAL_REGISTRY = {
   },
   "beyer-hsr": {
     title: "Beyer HSR (Heavy Slow Resistance) Protocol",
-    badge: { text: "12-Week Progressive Overload", type: "guide" },
+    badge: { text: "12-Week Progressive Overload (Abstract Only)", type: "guide" },
     extUrl: "https://europepmc.org/article/MED/26018970",
     stats: { "Cadence": "3s Up / 3s Down", "Frequency": "3 days / week", "Target RM": "15RM → 6RM", "Pain Floor": "Green 0-2/10" },
     procedure: [
