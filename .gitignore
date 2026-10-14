@@ -1,0 +1,8 @@
+# Temporary files
+dom.html
+err.txt
+err2.txt
+measure.html
+*.log
+__pycache__/
+.DS_Store
