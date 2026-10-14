@@ -1,0 +1,10 @@
+# Unlinked Test Names Allow-List (tools/unlinked_ok.txt)
+# Format: Test Name | Location | Clinical Reason / Decision
+
+Acute Lateral Sprain | Page 2 (Lateral Ankle row) | Diagnostic category triage row with multi-grade checkboxes (Gr I micro / Gr II partial / Gr III complete rupture). Not an individual physical test; evidence-based guideline reference provided via 📄 BJSM Guideline 2018 chip.
+Peroneal Tendon | Page 2 (Lateral Ankle row) | Pathological entity summary row with subtype checkboxes (Subluxation / Longitudinal split / Pain resisted Ev in DF). Not an individual physical test; dedicated provocative tests are linked elsewhere.
+Hopkins Squeeze | Page 2 (Syndesmotic High Ankle row) | Inline triage checkbox within the syndesmotic sprain summary row; the definitive standalone test is fully linked on Page 4 (#squeeze-test).
+Kleiger ER | Page 2 (Syndesmotic High Ankle row) | Inline triage checkbox within the syndesmotic sprain summary row; the definitive standalone test is fully linked on Page 4 (#kleiger-test).
+Heel Walk | Page 1 (Fast-Track Assessment grid) | Rapid L4/L5 motor and gait screening task within the 2-minute fast-track pathway router, not an isolated orthopaedic test card.
+Toe Walk | Page 1 (Fast-Track Assessment grid) | Rapid S1 motor and gastrocnemius-soleus screening task within the 2-minute fast-track pathway router, not an isolated orthopaedic test card.
+Single-Leg Stance | Page 1 (Fast-Track Assessment grid) | Rapid 10-second static balance screening task within the 2-minute fast-track pathway router, not an isolated orthopaedic test card.

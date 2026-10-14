@@ -153,6 +153,7 @@
 
   /* Atlas Test Name Link (subtle blue, no extra button) */
   .test-link{ color:inherit; text-decoration:underline; text-decoration-color:rgba(30,58,138,0.45); text-underline-offset:2px; font-weight:inherit; transition:color 0.15s, text-decoration-color 0.15s; }
+    .test-link.has-video::after{ content:" \25B8"; font-size:0.82em; color:#1e3a8a; display:inline-block; text-decoration:none !important; font-weight:700; margin-left:1.5px; }
   .test-link:hover{ color:#1e3a8a; text-decoration-color:#1e3a8a; }
 
   /* Atlas Info Icon (visual ~4 mm, tappable area >= 7 mm) */
@@ -328,7 +329,7 @@
 
           <!-- High-Risk Fractures -->
           <div class="sh r" style="margin:1px 0 0.5px; font-size:7.4px;"><span>High-Risk Fracture Checklist</span><span class="stat r">Do not miss</span></div>
-          <div class="ci" style="padding:0.2mm 0;"><span class="cb r"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#lisfranc"><b class="clickable-test" data-modal="lisfranc">Lisfranc</b></a> <span class="eb eb-l">[L*]</span> &mdash; <span class="cio"><span class="cb r"></span>Plantar ecchymosis</span><span class="cio"><span class="cb r"></span>Piano-key</span><span class="cio"><span class="cb r"></span>1st&ndash;2nd MT diastasis</span></div></div>
+          <div class="ci" style="padding:0.2mm 0;"><span class="cb r"></span><div><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#lisfranc"><b class="clickable-test" data-modal="lisfranc">Lisfranc</b></a> <span class="eb eb-l">[L*]</span> &mdash; <span class="cio"><span class="cb r"></span>Plantar ecchymosis</span><span class="cio"><span class="cb r"></span>Piano-key</span><span class="cio"><span class="cb r"></span>1st&ndash;2nd MT diastasis</span></div></div>
           <div class="ci" style="padding:0.2mm 0;"><span class="cb r"></span><div><b>Zone 2 Jones Fx</b> (watershed non-union) &bull; <b>Maisonneuve</b> (palpate fibular neck)</div></div>
           <div class="ci" style="padding:0.2mm 0;"><span class="cb r"></span><div><b>Calcaneal Stress Fx</b> ((+) Squeeze) &bull; <b>Talar Dome / OCL</b> (joint pain in full PF)</div></div>
           <div class="ci" style="padding:0.2mm 0;"><span class="cb r"></span><div><b>SKELETALLY IMMATURE?</b> &rarr; distal fibular tenderness = <span class="crim b">Salter-Harris</span>, not sprain</div></div>
@@ -338,7 +339,7 @@
           <div class="sh r" style="margin:0 0 0.5px; font-size:7.4px;"><span>Non-Orthopaedic Red Flags</span><span class="stat r">Systemic</span></div>
           <div class="ci" style="padding:0.2mm 0;"><span class="cb r"></span><div><b class="clickable-test" data-modal="wells-dvt">Wells DVT:</b> <input type="checkbox" class="triage-checkbox"> &ge; 2 (Duplex US) &bull; <input type="checkbox" class="triage-checkbox"> &lt; 2 (Unlikely) &middot; Score: <span class="fl s"></span> <a href="https://www.mdcalc.com/calc/362/wells-criteria-dvt" class="calc-badge" data-modal="wells-dvt" target="_blank">&#129518; MDCalc</a></div></div>
           <div data-card-box="delta-p">
-          <div class="ci" style="padding:0.2mm 0;"><span class="cb r"></span><div><b>Compartment Syndrome &mdash; 6 Ps:</b>
+          <div class="ci" style="padding:0.2mm 0;"><span class="cb r"></span><div><b>Compartment Syndrome &mdash; 6 Ps:</b> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#compartment-delta-p" title="Compartment Syndrome 6 Ps & Delta P Threshold"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a>
             <span class="cio"><span class="cb r"></span>Pain on stretch</span><span class="cio"><span class="cb r"></span>Paresthesia</span><span class="cio"><span class="cb r"></span>Pallor</span><span class="cio"><span class="cb r"></span>Paralysis</span><span class="cio"><span class="cb r"></span>Pulseless</span><span class="cio"><span class="cb r"></span>Poikilothermia</span></div></div>
           <div data-card="delta-p" style="font-weight:800; color:#991b1b; line-height:1.2; margin:0.4mm 0 0.6mm;">ΔP (Diastolic BP − Compartment Pressure) = ___ mmHg → ≤ 30 mmHg = EMERGENCY FASCIOTOMY INDICATED</div>
           </div>
@@ -361,9 +362,9 @@
 
           <div class="sh r" style="margin:1px 0 0.5px; font-size:7.4px;"><span>Achilles Rupture Emergency Triad <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#achilles-triad" title="Achilles Rupture Emergency Triad"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></span><span class="stat r">&ge; 2 POSITIVE (Sn/Sp &gt; 98%)</span></div>
           <div class="flex flex-wrap gap-x-2 text-[7.2px]" style="line-height:1.2;">
-            <div class="ci" style="padding:0;"><span class="cb r"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#thompson"><b class="clickable-test" data-modal="thompson">Thompson</b></a></div></div>
-            <div class="ci" style="padding:0;"><span class="cb r"></span><div><b>Palpable Gap (2&ndash;6 cm)</b></div></div>
-            <div class="ci" style="padding:0;"><span class="cb r"></span><div><b>Matles Test</b> (prone 90&deg;)</div></div>
+            <div class="ci" style="padding:0;"><span class="cb r"></span><div><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#thompson"><b class="clickable-test" data-modal="thompson">Thompson</b></a></div></div>
+            <div class="ci" style="padding:0;"><span class="cb r"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#achilles-triad"><b>Palpable Gap (2&ndash;6 cm)</b></a></div></div>
+            <div class="ci" style="padding:0;"><span class="cb r"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#achilles-triad"><b>Matles Test</b> (prone 90&deg;)</a></div></div>
           </div>
           <div class="xs crim italic pl-[2px]" style="margin:0.3px 0; font-size:6.7px;">Gap may be obscured by haematoma after 24&ndash;48 h; negative late palpation does not exclude rupture.</div>
           <div class="crit mt-[0.5px]" style="font-size:7.2px; padding:0.4mm 1.2mm;"><svg viewBox="0 0 12 12"><path d="M3.5 .5h5l3 3v5l-3 3h-5l-3-3v-5z" fill="#991b1b"/><rect x="3" y="5.2" width="6" height="1.6" fill="#fff"/></svg><span>&ge; 2 POSITIVE: Equinus boot + urgent orthopaedic referral (&lt; 48 h). No loading.</span></div>
@@ -592,7 +593,7 @@
         <div class="card-h"><span>1 &middot; Lateral Ankle</span><span class="tag">5 TARGETS</span></div>
         <div class="card-b">
           <div class="ci"><span class="cb n"></span><div><b class="clickable-test" data-modal="esska-lateral">Acute Lateral Sprain</b> &mdash; <span class="cio"><span class="cb"></span>Gr I micro</span><span class="cio"><span class="cb"></span>Gr II partial</span><span class="cio"><span class="cb"></span>Gr III complete rupture</span></div></div>
-          <div class="ci"><span class="cb n"></span><div><b>Peroneal Tendon</b> &mdash; <span class="cio"><span class="cb"></span>Subluxation</span><span class="cio"><span class="cb"></span>Longitudinal split</span><span class="cio"><span class="cb"></span>Pain resisted Ev in DF</span> <a href="https://doi.org/10.1007/s00167-018-4971-x" class="guide-badge" data-modal="esska-lateral" target="_blank">&#128196; ESSKA Consensus</a></div></div>
+          <div class="ci"><span class="cb n"></span><div><b>Peroneal Tendon</b> &mdash; <span class="cio"><span class="cb"></span>Subluxation</span><span class="cio"><span class="cb"></span>Longitudinal split</span><span class="cio"><span class="cb"></span>Pain resisted Ev in DF</span> <a href="https://bjsm.bmj.com/content/52/15/956" class="guide-badge" data-modal="bjsm-guideline" target="_blank">&#128196; BJSM Guideline 2018</a></div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#sinus-tarsi-syndrome"><b>Sinus Tarsi Syndrome</b></a> &mdash; palpation 1 cm anterior to lateral malleolus; relief with lidocaine</div></div>
           <div class="ci"><span class="cb n"></span><div><b>Anterolateral Impingement</b> &mdash; (+) <a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#molloy-bendall">Molloy-Bendall sign</a> (pressure + forced DF)</div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#lateral-process-talus"><b>Lateral Process of Talus Fx</b></a> &mdash; &ldquo;snowboarder&rsquo;s&rdquo;; tender just distal to fibular tip</div></div>
@@ -613,7 +614,7 @@
       <section class="card" id="p2-anterior">
         <div class="card-h"><span>3 &middot; Anterior Ankle</span><span class="tag">2 TARGETS</span></div>
         <div class="card-b">
-          <div class="ci"><span class="cb n"></span><div><b>Syndesmotic High Ankle Sprain</b> &mdash; <span class="cio"><span class="cb"></span>AITFL</span><span class="cio"><span class="cb"></span>PITFL</span><span class="cio"><span class="cb"></span>Kleiger ER</span><span class="cio"><span class="cb"></span>Hopkins Squeeze</span><br>
+          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#syndesmotic-high-ankle-sprain"><b>Syndesmotic High Ankle Sprain</b></a> &mdash; <span class="cio"><span class="cb"></span>AITFL</span><span class="cio"><span class="cb"></span>PITFL</span><span class="cio"><span class="cb"></span>Kleiger ER</span><span class="cio"><span class="cb"></span>Hopkins Squeeze</span><br>
             Interosseous tenderness height <span class="fl s"></span> cm above joint line <span class="mut xs">(&uarr; height = &uarr; time to RTS)</span></div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#anterior-impingement"><b>Anterior Impingement</b></a> &mdash; <span class="cio"><span class="cb"></span>Bony (tibiotalar osteophytes)</span><span class="cio"><span class="cb"></span>Synovial meniscoid</span></div></div>
         </div>
@@ -622,7 +623,7 @@
       <section class="card" id="p2-posterior">
         <div class="card-h"><span>4 &middot; Posterior Ankle</span><span class="tag">4 TARGETS</span></div>
         <div class="card-b">
-          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#midportion-achilles-exam"><b>Midportion Achilles</b></a> &mdash; 2&ndash;6 cm watershed; <span class="cio"><span class="cb"></span><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#royal-london-test">Royal London (+ in DF)</a></span><span class="cio"><span class="cb"></span><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#arc-sign-test">Arc sign</a></span></div></div>
+          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#midportion-achilles-exam"><b>Midportion Achilles</b></a> &mdash; 2&ndash;6 cm watershed; <span class="cio"><span class="cb"></span><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#royal-london-test">Royal London (+ in DF)</a></span><span class="cio"><span class="cb"></span><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#arc-sign-test">Arc sign</a></span></div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#insertional-achilles-exam"><b>Insertional Achilles</b></a> &mdash; <span class="cio"><span class="cb"></span>Enthesopathy</span><span class="cio"><span class="cb"></span>Haglund&rsquo;s</span><span class="cio"><span class="cb"></span>2-Finger Pinch (bursa)</span></div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#os-trigonum-test"><b>Os Trigonum / Posterior Impingement</b></a> &mdash; pain on forced PF</div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#severs-apophysitis-squeeze"><b>Sever&rsquo;s Apophysitis</b></a> &mdash; adolescents; (+) <a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#calcaneal-squeeze-test">calcaneal squeeze</a></div></div>
@@ -632,11 +633,11 @@
       <section class="card" id="p2-plantar">
         <div class="card-h"><span>5 &middot; Plantar &amp; Midfoot</span><span class="tag">7 TARGETS</span></div>
         <div class="card-b">
-          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#plantar-fasciopathy-palpation"><b>Plantar Fasciopathy</b></a> &mdash; medial calcaneal tubercle; (+) <a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#windlass-test">Windlass test</a></div></div>
+          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#plantar-fasciopathy-palpation"><b>Plantar Fasciopathy</b></a> &mdash; medial calcaneal tubercle; (+) <a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#windlass-test">Windlass test</a></div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#baxters-nerve-exam"><b>Baxter&rsquo;s Nerve Entrapment</b></a> &mdash; medial abductor hallucis border; ADM weakness; <b>no</b> start-up pain</div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#medial-calcaneal-nerve-exam"><b>Medial Calcaneal Nerve</b></a> &mdash; burning medial heel, Tinel (+)</div></div>
-          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#mortons-neuroma-exam"><b>Morton&rsquo;s Neuroma</b></a> &mdash; <a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#mulders-click-test">Mulder&rsquo;s click</a>; 3rd web space</div></div>
-          <div class="ci"><span class="cb r"></span><div><b class="clickable-test" data-modal="navicular-fx">Navicular Stress Fracture</b> &mdash; <span class="crim b">&ldquo;N-spot&rdquo; tenderness</span> (dorsal proximal navicular)</div></div>
+          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#mortons-neuroma-exam"><b>Morton&rsquo;s Neuroma</b></a> &mdash; <a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#mulders-click-test">Mulder&rsquo;s click</a>; 3rd web space</div></div>
+          <div class="ci"><span class="cb r"></span><div><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#navicular-stress-fracture"><b class="clickable-test" data-modal="navicular-fx">Navicular Stress Fracture</b></a> &mdash; <span class="crim b">&ldquo;N-spot&rdquo; tenderness</span> (dorsal proximal navicular)</div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#accessory-navicular-exam"><b>Accessory Navicular</b></a> &mdash; prominent medial navicular, tender synchondrosis</div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#cuboid-syndrome-exam"><b>Cuboid Syndrome</b></a> &mdash; lateral midfoot, plantar cuboid tender, post-inversion</div></div>
         </div>
@@ -681,7 +682,7 @@
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#ted-tibial">TED &mdash; Tibial</a></td><td>SLR + ankle DF + Eversion (+ toe ext)</td><td class="c w"><span class="lr">L<span class="fl m"></span>R<span class="fl m"></span></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#sid-sural">SID &mdash; Sural</a></td><td>SLR + ankle DF + Inversion</td><td class="c w"><span class="lr">L<span class="fl m"></span>R<span class="fl m"></span></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#pip-peroneal">PIP &mdash; Peroneal</a></td><td>SLR + ankle PF + Inversion</td><td class="c w"><span class="lr">L<span class="fl m"></span>R<span class="fl m"></span></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span></td></tr>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#slump-test"><span class="clickable-test" data-modal="slump-test">Slump Test</span></a></td><td>Thoracic + cervical flex, knee ext, DF &rarr; release neck</td><td class="c w"><span class="lr">L<span class="fl m"></span>R<span class="fl m"></span></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span> <span class="xs mut">Sx &darr; on neck ext</span></td></tr>
+            <tr><td class="k"><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#slump-test"><span class="clickable-test" data-modal="slump-test">Slump Test</span></a></td><td>Thoracic + cervical flex, knee ext, DF &rarr; release neck</td><td class="c w"><span class="lr">L<span class="fl m"></span>R<span class="fl m"></span></span></td><td class="c"><span class="cb"></span></td><td class="c"><span class="cb"></span> <span class="xs mut">Sx &darr; on neck ext</span></td></tr>
           </tbody>
         </table>
         <div class="flex flex-wrap items-center mt-[3px]">
@@ -745,11 +746,11 @@
         <table class="t">
           <thead><tr><th style="width:29%">Measure</th><th style="width:29%">Normative / Threshold</th><th class="c" style="width:9%">Left</th><th class="c" style="width:9%">Right</th><th class="c" style="width:8%">&Delta; / LSI</th><th class="c">Flag / Interpretation</th></tr></thead>
           <tbody>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#wblt"><span class="clickable-test" data-modal="wblt">WBLT Knee-to-Wall &mdash; Distance (cm)</span></a></td><td>&ge; 10&ndash;12.5 cm &middot; <span class="crim b">Asym &gt; 1.5 cm</span></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="c"><span class="cb r"></span></td></tr>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#wblt">WBLT &mdash; Inclinometer (&deg;)</a></td><td>35&ndash;45&deg; &middot; <span class="crim b">Asym &gt; 4.7&deg;</span></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="c"><span class="cb r"></span></td></tr>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-test"><span class="clickable-test" data-modal="silfverskiold">Silfversk&ouml;ld &mdash; DF Knee 0&deg; (&deg;)</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-info" title="Silfverskiöld Interpretation"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></td><td>Gastrocnemius + soleus length</td><td class="w"></td><td class="w"></td><td class="w"></td><td rowspan="3" class="xs"><span class="ci"><span class="cb"></span><span>Gain &ge; 10&deg; = <b>Isolated Gastrocnemius</b></span></span><span class="ci"><span class="cb"></span><span>Gain &lt; 5&deg; = <b>Soleus / Capsule</b></span></span></td></tr>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-test">Silfversk&ouml;ld &mdash; DF Knee 90&deg; (&deg;)</a></td><td>Soleus / capsular length</td><td class="w"></td><td class="w"></td><td class="w"></td></tr>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-test">Silfversk&ouml;ld Gain (90&deg; &minus; 0&deg;)</a></td><td>Gain &ge; 10&deg; (Gastroc) &middot; Gain &lt; 5&deg; (Soleus/Capsule)</td><td class="w"></td><td class="w"></td><td class="w"></td></tr>
+            <tr><td class="k"><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#wblt"><span class="clickable-test" data-modal="wblt">WBLT Knee-to-Wall &mdash; Distance (cm)</span></a></td><td>&ge; 10&ndash;12.5 cm &middot; <span class="crim b">Asym &gt; 1.5 cm</span></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="c"><span class="cb r"></span></td></tr>
+            <tr><td class="k"><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#wblt">WBLT &mdash; Inclinometer (&deg;)</a></td><td>35&ndash;45&deg; &middot; <span class="crim b">Asym &gt; 4.7&deg;</span></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="c"><span class="cb r"></span></td></tr>
+            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-test"><span class="clickable-test" data-modal="silfverskiold">Silfverski&ouml;ld &mdash; DF Knee 0&deg; (&deg;)</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-info" title="Silfverskiöld Interpretation"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></td><td>Gastrocnemius + soleus length</td><td class="w"></td><td class="w"></td><td class="w"></td><td rowspan="3" class="xs"><span class="ci"><span class="cb"></span><span>Gain &ge; 10&deg; = <b>Isolated Gastrocnemius</b></span></span><span class="ci"><span class="cb"></span><span>Gain &lt; 5&deg; = <b>Soleus / Capsule</b></span></span></td></tr>
+            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-test">Silfverski&ouml;ld &mdash; DF Knee 90&deg; (&deg;)</a></td><td>Soleus / capsular length</td><td class="w"></td><td class="w"></td><td class="w"></td></tr>
+            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-test">Silfverski&ouml;ld Gain (90&deg; &minus; 0&deg;)</a></td><td>Gain &ge; 10&deg; (Gastroc) &middot; Gain &lt; 5&deg; (Soleus/Capsule)</td><td class="w"></td><td class="w"></td><td class="w"></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#subtalar-rom">Subtalar Inversion (&deg;)</a></td><td>20&ndash;30&deg;</td><td class="w"></td><td class="w"></td><td class="w"></td><td rowspan="2" class="xs">Inv : Ev ratio <b>2 : 1</b> &nbsp; L <span class="fl s"></span> R <span class="fl s"></span></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#subtalar-rom">Subtalar Eversion (&deg;)</a></td><td>10&ndash;15&deg;</td><td class="w"></td><td class="w"></td><td class="w"></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#calcaneal-glides">Calcaneal Glides (Med / Lat)</a></td><td>Hypo &middot; Normal &middot; Hyper</td><td class="w c"><span class="circ"><span>&darr;</span><span>N</span><span>&uarr;</span></span></td><td class="w c"><span class="circ"><span>&darr;</span><span>N</span><span>&uarr;</span></span></td><td class="w"></td><td class="c"><span class="cb"></span></td></tr>
@@ -757,7 +758,7 @@
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#first-mtp-extension">1st MTP Extension &mdash; NWB (&deg;)</a></td><td>&ge; 60&ndash;65&deg; gait &middot; 70&ndash;90&deg; sprinting</td><td class="w"></td><td class="w"></td><td class="w"></td><td rowspan="2" class="xs"><span class="ci"><span class="cb"></span><span><b>Functional Hallux Limitus</b> (&ge; 60&deg; NWB, &darr; WB)</span></span><span class="ci"><span class="cb r"></span><span><b>Hallux Rigidus</b> (&lt; 30&deg;)</span></span></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#first-mtp-extension">1st MTP Extension &mdash; WB (&deg;)</a></td><td>Jack&rsquo;s / Hubscher manoeuvre</td><td class="w"></td><td class="w"></td><td class="w"></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#fpi-6-test"><span class="clickable-test" data-modal="fpi6">Foot Posture Index (FPI-6)</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#fpi-6-info" title="FPI-6 Calculator & Criteria"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <a href="https://Azhry-X.github.io/ankle-atlas#fpi-6-info" class="guide-badge" target="_blank">&#128196; FPI Guide</a></td><td>&minus;12 to +12 &middot; Neutral 0 to +5 &middot; Pron +6 to +9 &middot; Highly pronated &ge; +10</td><td class="w"></td><td class="w"></td><td class="w"></td><td class="xs"><span class="cio"><span class="cb"></span>Sup</span><span class="cio"><span class="cb"></span>Neu</span><span class="cio"><span class="cb"></span>Pron</span><span class="cio"><span class="cb"></span>High</span></td></tr>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#navicular-drop-test"><span class="clickable-test" data-modal="navicular-drop">Navicular Drop Test (mm)</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#navicular-drop-info" title="Navicular Drop Measurement & Pronation Cutoffs"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></td><td>Normal 6&ndash;10 mm &middot; <span class="crim b">Hyperpronation &gt; 10 mm</span></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="c"><span class="cb r"></span></td></tr>
+            <tr><td class="k"><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#navicular-drop-test"><span class="clickable-test" data-modal="navicular-drop">Navicular Drop Test (mm)</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#navicular-drop-info" title="Navicular Drop Measurement & Pronation Cutoffs"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></td><td>Normal 6&ndash;10 mm &middot; <span class="crim b">Hyperpronation &gt; 10 mm</span></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="c"><span class="cb r"></span></td></tr>
           </tbody>
         </table>
         <div class="xs mut mt-[1px]">Measurement error: goniometry &plusmn; 5&deg; &minus; inclinometer &plusmn; 2&ndash;3&deg; &mdash; differences smaller than this are not clinically meaningful.</div>
@@ -870,7 +871,8 @@
     <div class="note xs flex flex-wrap items-center justify-between gap-y-1">
       <div class="flex flex-wrap items-center gap-x-2">
         <b class="nav">Interactive references:</b>
-        <span class="ref-badge">&#9654; Video</span> verified demonstration
+        <span><u>Underline</u> Atlas card</span>
+        <span><u>Underline</u> &plus; &blacktriangleright; Verified video</span>
         <span class="calc-badge">&#129518; Calc</span> digital calculator
         <span class="guide-badge">&#128196; Guide</span> CPG &amp; consensus
       </div>
@@ -885,13 +887,13 @@
 
     <div class="grid grid-cols-2 gap-[1.5mm]">
       <section class="card" id="p4-lateral">
-        <div class="card-h"><span>Lateral Ligament &mdash; van Dijk Day-5 Cluster <span class="eb eb-m">[M*]</span></span><span class="tag">DELAYED EXAM</span></div>
+        <div class="card-h"><span>Lateral Ligament &mdash; van Dijk Day-5 Cluster <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#van-dijk-cluster" title="Van Dijk Day-5 Diagnostic Cluster"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <span class="eb eb-m">[M*]</span></span><span class="tag">DELAYED EXAM</span></div>
         <div class="card-b">
           <div class="flex flex-wrap gap-1 mb-[2px]"><span class="stat">Sn 100%</span><span class="stat">Sp 77%</span><span class="stat">+LR 4.35</span><span class="stat">&minus;LR &asymp; 0.00</span></div>
           <div class="ci"><span class="cb n"></span><div><b>ATFL palpation pain</b></div></div>
           <div class="ci"><span class="cb n"></span><div><b>Lateral haematoma</b> / discolouration</div></div>
-          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#anterior-drawer-test"><b class="clickable-test" data-modal="anterior-drawer">Anterior Drawer</b> (+) at day 4&ndash;5</a></div></div>
-          <div class="ci"><span class="cb"></span><div class="mut">Adjunct: <a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#talar-tilt-test"><b class="clickable-test" data-modal="talar-tilt">Talar Tilt</b> (CFL)</a></div></div>
+          <div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#anterior-drawer-test"><b class="clickable-test" data-modal="anterior-drawer">Anterior Drawer</b> (+) at day 4&ndash;5</a></div></div>
+          <div class="ci"><span class="cb"></span><div class="mut">Adjunct: <a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#talar-tilt-test"><b class="clickable-test" data-modal="talar-tilt">Talar Tilt</b> (CFL)</a></div></div>
           <div class="fr"><span class="lb">Cluster</span><span class="cio"><span class="cb r"></span>(+) ATFL rupture likely</span><span class="cio"><span class="cb g"></span>(&minus;)</span></div>
         </div>
       </section>
@@ -901,20 +903,20 @@
         <div class="card-b">
           <div class="flex flex-wrap gap-1 mb-[2px]"><span class="stat">Sp 96%</span><span class="stat">OR 13.8</span><span class="stat r">Refer MRI if (+)</span></div>
           <div class="ci"><span class="cb n"></span><div><b>AITFL tenderness</b></div></div>
-          <div class="ci"><span class="cb n"></span><div><b class="clickable-test" data-modal="kleiger">DF-External Rotation (Kleiger)</b> (+)</div></div>
-          <div class="ci"><span class="cb n"></span><div><b class="clickable-test" data-modal="squeeze-test">Squeeze test (Hopkins)</b> (+)</div></div>
-          <div class="ci"><span class="cb"></span><div class="mut">Adjunct: <a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#fibular-translation-test"><b class="clickable-test" data-modal="fibular-trans">Fibular Translation</b></a></div></div>
+          <div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#kleiger-test"><b class="clickable-test" data-modal="kleiger">DF-External Rotation (Kleiger)</b></a> (+)</div></div>
+          <div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#squeeze-test"><b class="clickable-test" data-modal="squeeze-test">Squeeze test (Hopkins)</b></a> (+)</div></div>
+          <div class="ci"><span class="cb"></span><div class="mut">Adjunct: <a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#fibular-translation-test"><b class="clickable-test" data-modal="fibular-trans">Fibular Translation</b></a></div></div>
           <div class="fr"><span class="lb">Cluster</span><span class="cio"><span class="cb r"></span>(+) Syndesmotic injury</span><span class="cio"><span class="cb g"></span>(&minus;)</span></div>
         </div>
       </section>
 
       <section class="card" id="p4-achilles">
-        <div class="card-h"><span>Achilles Midportion Cluster <span class="eb eb-m">[M*]</span></span><span class="tag">TENDINOPATHY</span></div>
+        <div class="card-h"><span>Achilles Midportion Cluster <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#achilles-midportion-cluster" title="Achilles Midportion Diagnostic Cluster"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <span class="eb eb-m">[M*]</span></span><span class="tag">TENDINOPATHY</span></div>
         <div class="card-b">
           <div class="flex flex-wrap gap-1 mb-[2px]"><span class="stat">Sn 84%</span><span class="stat">Sp 83%</span><span class="stat">+LR 4.94 <span class="eb eb-m">[M*]</span></span><span class="stat">&minus;LR 0.19</span></div>
           <div class="ci"><span class="cb n"></span><div><b>Palpable thickening</b> (2&ndash;6 cm proximal to insertion)</div></div>
           <div class="ci"><span class="cb n"></span><div><b>Localised tenderness</b> on palpation</div></div>
-          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#royal-london-test"><b class="clickable-test" data-modal="royal-london">(+) Royal London Hospital</b></a> <i>or</i> <a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#arc-sign-test"><b class="clickable-test" data-modal="arc-sign">(+) Arc sign</b></a></div></div>
+          <div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#royal-london-test"><b class="clickable-test" data-modal="royal-london">(+) Royal London Hospital</b></a> <i>or</i> <a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#arc-sign-test"><b class="clickable-test" data-modal="arc-sign">(+) Arc sign</b></a></div></div>
           <div class="fr"><span class="lb">Cluster</span><span class="cio"><span class="cb r"></span>(+) Midportion AT</span><span class="cio"><span class="cb g"></span>(&minus;)</span></div>
         </div>
       </section>
@@ -924,7 +926,7 @@
         <div class="card-b">
           <div class="flex flex-wrap gap-1 mb-[2px]"><span class="stat">WB Windlass Sp 100% <span class="eb eb-h">[H]</span></span><span class="stat">Rule-in test</span></div>
           <div class="ci"><span class="cb n"></span><div><b>Medial calcaneal tubercle tenderness</b></div></div>
-          <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#windlass-test"><b class="clickable-test" data-modal="windlass">(+) Weight-bearing Windlass</b></a> <span class="eb eb-h">[H]</span></div></div>
+          <div class="ci"><span class="cb n"></span><div><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#windlass-test"><b class="clickable-test" data-modal="windlass">(+) Weight-bearing Windlass</b></a> <span class="eb eb-h">[H]</span></div></div>
           <div class="ci"><span class="cb n"></span><div><b>Absence</b> of DF-Eversion neurodynamic pain <span class="xs mut">(excludes TTS / Baxter&rsquo;s)</span></div></div>
           <div class="fr"><span class="lb">Cluster</span><span class="cio"><span class="cb r"></span>(+) Plantar fasciopathy</span><span class="cio"><span class="cb g"></span>(&minus;)</span></div>
         </div>
@@ -948,7 +950,7 @@
         <table class="t dense">
           <thead><tr><th>Test</th><th class="c">L</th><th class="c">R</th><th>Test</th><th class="c">L</th><th class="c">R</th><th>Test</th><th class="c">L</th><th class="c">R</th></tr></thead>
           <tbody>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#anterolateral-drawer">Anterolateral Drawer</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#thompson">Thompson</a></td><td class="w"></td><td class="w"></td><td class="k"><span class="clickable-test" data-modal="mulder">Mulder&rsquo;s Click</span></td><td class="w"></td><td class="w"></td></tr>
+            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#anterolateral-drawer">Anterolateral Drawer</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#thompson">Thompson</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link has-video" href="https://Azhry-X.github.io/ankle-atlas#mulders-click-test"><span class="clickable-test" data-modal="mulder">Mulder&rsquo;s Click</span></a></td><td class="w"></td><td class="w"></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#eversion-stress-deltoid">Eversion Stress (Deltoid)</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#single-leg-hop-test">Single-Leg Hop (pain)</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#tinel-tarsal-tunnel">Tinel &mdash; Tarsal Tunnel</a></td><td class="w"></td><td class="w"></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#peroneal-subluxation-test">Peroneal Subluxation</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#too-many-toes-test">Too-Many-Toes</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#calcaneal-squeeze-test">Calcaneal Squeeze</a></td><td class="w"></td><td class="w"></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#cotton-test">Cotton (Lateral Talar Shift)</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#sl-heel-rise-pttd">SL Heel Rise (PTTD)</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#forced-pf-test">Forced PF (Posterior)</a></td><td class="w"></td><td class="w"></td></tr>
@@ -1034,7 +1036,7 @@
     </div>
 
     <section class="card" id="p5-brostrom">
-      <div class="card-h"><span>1 &middot; Lateral Ligament &mdash; Brostr&ouml;m vs InternalBrace <a href="https://doi.org/10.1007/s00167-016-4051-z" class="guide-badge" data-modal="brostrom" target="_blank">&#128196; ESSKA Consensus</a></span><span class="fr"><span class="cio"><span class="cb w"></span>A</span><span class="cio"><span class="cb w"></span>B</span></span></div>
+      <div class="card-h"><span>1 &middot; Lateral Ligament &mdash; Brostr&ouml;m vs InternalBrace <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7309402/" class="guide-badge" data-modal="brostrom" target="_blank">&#128196; OJSM Ligament 2020</a></span><span class="fr"><span class="cio"><span class="cb w"></span>A</span><span class="cio"><span class="cb w"></span>B</span></span></div>
       <div class="card-b">
         <table class="t dense">
           <thead><tr><th style="width:19%">Parameter</th><th style="width:36%">A &middot; Isolated Modified Brostr&ouml;m-Gould</th><th style="width:36%">B &middot; Brostr&ouml;m + InternalBrace Augmentation</th><th class="c">Met</th></tr></thead>
@@ -1050,7 +1052,7 @@
     </section>
 
     <section class="card" id="p5-achilles">
-      <div class="card-h"><span>2 &middot; Achilles Tendon Repair &mdash; Open vs MIS <a href="https://doi.org/10.2519/jospt.2018.0302" class="guide-badge" data-modal="achilles-repair" target="_blank">&#128196; JOSPT CPG</a></span><span class="fr"><span class="cio"><span class="cb w"></span>Open</span><span class="cio"><span class="cb w"></span>MIS</span></span></div>
+      <div class="card-h"><span>2 &middot; Achilles Tendon Repair &mdash; Open vs MIS <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6878623/" class="guide-badge" data-modal="achilles-repair" target="_blank">&#128196; OJSM Achilles 2019</a></span><span class="fr"><span class="cio"><span class="cb w"></span>Open</span><span class="cio"><span class="cb w"></span>MIS</span></span></div>
       <div class="card-b">
         <table class="t dense">
           <thead><tr><th style="width:19%">Parameter</th><th style="width:36%">Open Repair</th><th style="width:36%">Percutaneous / MIS Repair</th><th class="c">Met</th></tr></thead>
@@ -1150,7 +1152,7 @@
 
   <main class="pg-body">
     <section class="card" id="p6-eswt">
-      <div class="card-h"><span>Extracorporeal Shockwave Therapy (ESWT) <a href="https://shockwavetherapy.org/about-eswt/" class="guide-badge" data-modal="eswt" target="_blank">&#128196; ISMST Consensus</a></span><span class="tag">3&ndash;5 SESSIONS &middot; 7-DAY INTERVALS</span></div>
+      <div class="card-h"><span>Extracorporeal Shockwave Therapy (ESWT) <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#eswt-parameters" title="ESWT Parameters & Evidence Protocols"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <a href="https://shockwavetherapy.org/about-eswt/" class="guide-badge" data-modal="eswt" target="_blank">&#128196; ISMST Consensus</a></span><span class="tag">3&ndash;5 SESSIONS &middot; 7-DAY INTERVALS</span></div>
       <div class="card-b">
         <table class="t dense">
           <thead><tr><th class="c">Rx</th><th>Indication</th><th>Type</th><th>Energy</th><th>Pulses</th><th>Freq</th><th>Probe / Technique</th></tr></thead>
@@ -1232,7 +1234,7 @@
     
     
     <section class="card" id="p6-electro">
-      <div class="card-h"><span>Electrotherapy — TENS · IFC · NMES · HVPC · Iontophoresis</span></div>
+      <div class="card-h"><span>Electrotherapy — TENS <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#tens-dosing" title="TENS Dosing & Tolerance Prevention"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> · IFC · NMES <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#nmes-setup" title="NMES Setup & Parameters"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> · HVPC · Iontophoresis</span></div>
       <div class="card-b">
         <table class="t dense">
           <thead><tr><th class="c">Rx</th><th>Goal</th><th>Current</th><th>Frequency</th><th>Pulse / Carrier</th><th>Intensity</th><th>Dose</th><th>Evidence</th></tr></thead>
@@ -1410,7 +1412,7 @@
 
   <main class="pg-body">
     <section class="card" id="p7-continuum">
-      <div class="card-h"><span>Tendon Loading Continuum &mdash; Cook &amp; Purdam 4-Stage Model <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#tendon-loading-stages" title="Tendon Loading Continuum Stages"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <a href="https://doi.org/10.1136/bjsm.2008.051193" class="guide-badge" data-modal="cook-purdam" target="_blank">&#128196; Continuum</a></span><span class="tag">TICK CURRENT STAGE</span></div>
+      <div class="card-h"><span>Tendon Loading Continuum &mdash; Cook &amp; Purdam 4-Stage Model <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#tendon-loading-stages" title="Tendon Loading Continuum Stages"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <a href="https://bjsm.bmj.com/content/bjsports/43/6/409.full.pdf" class="guide-badge" data-modal="cook-purdam" target="_blank">&#128196; Continuum</a></span><span class="tag">TICK CURRENT STAGE</span></div>
       <div class="card-b">
         <table class="t dense">
           <thead><tr><th class="c">Now</th><th>Stage</th><th>Parameters</th><th>Progression Criteria</th></tr></thead>
@@ -1422,7 +1424,7 @@
           </tbody>
         </table>
 
-        <div class="sh mt-[3px]"><span>Beyer HSR 12-Week Progression &amp; Load Log <a href="https://doi.org/10.1177/0363546515584760" class="guide-badge" data-modal="beyer-hsr" target="_blank">&#128196; HSR Protocol</a></span><span class="stat">3 &times; 15 &rarr; 4 &times; 6 &middot; 3 sessions / wk</span></div>
+        <div class="sh mt-[3px]"><span>Beyer HSR 12-Week Progression &amp; Load Log <a href="https://europepmc.org/article/MED/26018970" class="guide-badge" data-modal="beyer-hsr" target="_blank">&#128196; HSR Protocol</a></span><span class="stat">3 &times; 15 &rarr; 4 &times; 6 &middot; 3 sessions / wk</span></div>
         <table class="t dense">
           <thead><tr><th>Block</th><th class="c">Wk 1</th><th class="c">Wks 2&ndash;3</th><th class="c">Wks 4&ndash;5</th><th class="c">Wks 6&ndash;8</th><th class="c">Wks 9&ndash;12</th></tr></thead>
           <tbody>
@@ -1468,7 +1470,7 @@
     </section>
 
     <section class="card green" id="p7-rts">
-      <div class="card-h"><span>Comprehensive Athletic RTS Testing Battery <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#rts-hop-battery" title="Athletic RTS Hop Battery Protocol"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></span><span class="tag">PASS: LSI &ge; 90&ndash;95%</span></div>
+      <div class="card-h"><span>Comprehensive Athletic RTS Testing Battery <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#rts-hop-battery" title="Athletic RTS Hop Battery Protocol"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></span><span class="tag">PASS: LSI &ge; 90&ndash;95% <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#lsi-caution" title="LSI Caution & Uninvolved Limb Deconditioning"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></span></div>
       <div class="card-b">
         <table class="t green">
           <thead><tr><th style="width:27%">Test</th><th style="width:31%">Pass Criterion</th><th class="c">Left</th><th class="c">Right</th><th class="c">LSI %</th><th class="c">Pass</th></tr></thead>
@@ -1851,15 +1853,28 @@ const CLINICAL_REGISTRY = {
     alert: "\u2265 2 Positive Findings: Immobilize immediately in 30\u00b0 equinus CAM boot / splint and refer urgently to orthopaedic surgery (< 48 h). Strictly NO weight-bearing."
   },
   "esska-lateral": {
-    title: "ESSKA Lateral Ankle Ligament Consensus & Classification",
-    badge: { text: "International CPG & Consensus", type: "guide" },
-    extUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5355418/",
-    stats: { "Level": "Consensus", "Exam Timing": "Day 4-5", "Sn (Day 5)": "96%", "Evidence": "Grade A" },
+    title: "BJSM Ankle Sprain Clinical Guideline (Vuurberg et al. 2018)",
+    badge: { text: "Evidence-Based Clinical Guideline", type: "guide" },
+    extUrl: "https://bjsm.bmj.com/content/52/15/956",
+    stats: { "Level": "Gold Open Access", "Exam Timing": "Day 4-5", "Sn (Day 5)": "96%", "Evidence": "Grade A" },
     procedure: [
       "<b>Diagnostic Timing:</b> Delayed physical examination at 4 to 5 days post-injury provides superior diagnostic accuracy compared to Day 1.",
       "<b>Van Dijk Triad:</b> 1) Pain on ATFL palpation, 2) Lateral hematoma/ecchymosis, 3) Positive Anterior Drawer test.",
       "<b>Classification:</b> Grade I (micro-tear, no laxity), Grade II (partial tear, mild laxity), Grade III (complete rupture, gross anterior translation).",
       "<b>Management:</b> Early functional rehabilitation with semi-rigid / lace-up bracing outperforms rigid immobilization for Grade I-II sprains."
+    ],
+    alert: "Palpate fibular neck to rule out Maisonneuve fracture in every significant ankle sprain."
+  },
+  "bjsm-guideline": {
+    title: "BJSM Ankle Sprain Clinical Guideline (Vuurberg et al. 2018)",
+    badge: { text: "Evidence-Based Clinical Guideline", type: "guide" },
+    extUrl: "https://bjsm.bmj.com/content/52/15/956",
+    stats: { "Level": "Gold Open Access", "Exam Timing": "Day 4-5", "Sn (Day 5)": "96%", "Evidence": "Grade A" },
+    procedure: [
+      "<b>Diagnostic Timing:</b> Delayed physical examination at 4 to 5 days post-injury provides superior diagnostic accuracy compared to Day 1.",
+      "<b>Van Dijk Triad:</b> 1) Pain on ATFL palpation, 2) Lateral hematoma/ecchymosis, 3) Positive Anterior Drawer test.",
+      "<b>Classification:</b> Grade I (micro-tear, no laxity), Grade II (partial tear, mild laxity), Grade III (complete rupture, gross anterior translation).",
+      "<b>Management:</b> Functional treatment with tape/brace combined with exercise therapy is superior to passive modalities."
     ],
     alert: "Palpate fibular neck to rule out Maisonneuve fracture in every significant ankle sprain."
   },
@@ -2118,7 +2133,7 @@ const CLINICAL_REGISTRY = {
   "brostrom": {
     title: "Brostr\u00f6m vs InternalBrace Rehabilitation Protocol",
     badge: { text: "Post-Surgical Criteria Protocol", type: "guide" },
-    extUrl: "https://doi.org/10.1007/s00167-016-4051-z",
+    extUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7309402/",
     stats: { "Modified Brostr\u00f6m": "NWB 0-2wks", "InternalBrace": "WBAT Day 10-14", "Inversion Stop": "0-6 wks", "RTS Target": "CAIT \u2265 27" },
     procedure: [
       "<b>Modified Brostr\u00f6m-Gould:</b> NWB in splint 0-2 weeks → CAM boot PWB 2-4 wks → FWB in boot 4-6 wks.",
@@ -2131,7 +2146,7 @@ const CLINICAL_REGISTRY = {
   "achilles-repair": {
     title: "Achilles Tendon Repair (Open vs MIS) Protocol",
     badge: { text: "Post-Surgical Criteria Protocol", type: "guide" },
-    extUrl: "https://doi.org/10.2519/jospt.2018.0302",
+    extUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6878623/",
     stats: { "Boot Setup": "3 Wedges (30\u00b0)", "Wedge Wean": "1 per 2 wks", "Neutral DF": "Wks 6-8", "Critical Line": "NO DF > 0\u00b0 until W8-10" },
     procedure: [
       "<b>Equinus Boot:</b> CAM boot with 3 heel wedges (3 x 1 cm \u2248 30\u00b0 equinus).",
@@ -2170,7 +2185,7 @@ const CLINICAL_REGISTRY = {
   "cook-purdam": {
     title: "Cook & Purdam Tendon Pathology Continuum",
     badge: { text: "Tendon Loading Architecture", type: "guide" },
-    extUrl: "https://www.physio-pedia.com/Tendon_Pathology",
+    extUrl: "https://bjsm.bmj.com/content/bjsports/43/6/409.full.pdf",
     stats: { "Stage 1": "Isometrics", "Stage 2": "Heavy Slow Res.", "Stage 3": "Energy Storage", "Stage 4": "RTS Sports" },
     procedure: [
       "<b>Stage 1 (Isometrics):</b> 5 x 45 s holds at 70% MVC (Rio analgesic protocol). Knee 90\u00b0 for soleus, 0\u00b0 for gastroc. Pain relief post-set.",
@@ -2183,7 +2198,7 @@ const CLINICAL_REGISTRY = {
   "beyer-hsr": {
     title: "Beyer HSR (Heavy Slow Resistance) Protocol",
     badge: { text: "12-Week Progressive Overload", type: "guide" },
-    extUrl: "https://www.physio-pedia.com/Achilles_Tendinopathy",
+    extUrl: "https://europepmc.org/article/MED/26018970",
     stats: { "Cadence": "3s Up / 3s Down", "Frequency": "3 days / week", "Target RM": "15RM → 6RM", "Pain Floor": "Green 0-2/10" },
     procedure: [
       "<b>Wk 1:</b> 15RM x 3 sets (3s concentric, 3s eccentric).",

@@ -253,13 +253,36 @@ def generate_atlas_html(entries, base_dir):
             color: var(--text-main);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            padding-top: 32px;
             padding-bottom: 60px;
+        }}
+
+        /* Fixed Top Clinical Education Banner */
+        .clinical-banner {{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 32px;
+            background: #78350f;
+            color: #fef3c7;
+            border-bottom: 1px solid #92400e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            padding: 0 16px;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
         }}
 
         /* Header & Navigation */
         .atlas-header {{
             position: sticky;
-            top: 0;
+            top: 32px;
             z-index: 100;
             background: rgba(11, 15, 25, 0.92);
             backdrop-filter: blur(12px);
@@ -679,6 +702,10 @@ def generate_atlas_html(entries, base_dir):
     </style>
 </head>
 <body>
+
+    <div class="clinical-banner">
+        <span>Clinical education reference — draft under clinical review. Not a substitute for clinical judgement.</span>
+    </div>
 
     <header class="atlas-header">
         <div class="header-content">

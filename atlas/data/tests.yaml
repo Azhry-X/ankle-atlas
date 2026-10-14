@@ -763,7 +763,7 @@
   - Calculate dorsiflexion gain from knee 0° to 90°.
   positive: Gain ≥ 10° DF with knee flexed indicates isolated gastrocnemius contracture;
     Gain < 5° indicates soleus/capsular restriction.
-  metrics: Silfversköld — DF Knee 0° (°) Gastrocnemius + soleus length | DF Knee 90°
+  metrics: Silfverskiöld — DF Knee 0° (°) Gastrocnemius + soleus length | DF Knee 90°
     (°) Soleus / capsular length | Gain ≥ 10° (Gastroc) · Gain < 5° (Soleus/Capsule)
   video_url: null
   image: null

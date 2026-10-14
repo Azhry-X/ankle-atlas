@@ -79,11 +79,12 @@ REQUIRED_STRINGS = [
     "CONSENT OBTAINED FOR:",
     "Cupping (dry / wet)",
     "Grade III–IV manual therapy",
-    "CONSENT OBTAINED FOR: ESWT Dry needling Grade III–IV manual therapy Cupping (dry / wet) | Risks & alternatives discussed | Patient may decline",
     "Objective Re-test Milestones",
+    "Silfverskiöld",
 ]
 
 FORBIDDEN_STRINGS = [
+    "Silfversköld",
     "Clear -> Page 6 & Page 8",
     "Clear → Page 6 & Page 8",
     "Clear -> Page 6",

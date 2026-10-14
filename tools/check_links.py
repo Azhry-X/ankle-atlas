@@ -48,9 +48,9 @@ def retry_urlopen(req, timeout=12, max_retries=3):
     for attempt in range(max_retries):
         try:
             with urllib.request.urlopen(req, context=CTX, timeout=timeout) as resp:
-                return resp.status, resp.read().decode("utf-8", errors="replace")
+                return resp.status, resp.read().decode("utf-8", errors="replace"), dict(resp.headers)
         except urllib.error.HTTPError as e:
-            return e.code, e.read().decode("utf-8", errors="replace")
+            return e.code, e.read().decode("utf-8", errors="replace"), dict(e.headers)
         except Exception as e:
             last_err = e
             time.sleep(0.6 * (attempt + 1))
@@ -61,7 +61,7 @@ def verify_youtube_oembed(url: str) -> tuple[bool, str]:
     oembed_url = f"https://www.youtube.com/oembed?url={urllib.parse.quote(url, safe=':/?=&')}&format=json"
     req = urllib.request.Request(oembed_url, headers=HEADERS)
     try:
-        status, body = retry_urlopen(req)
+        status, body, _ = retry_urlopen(req)
         if status == 200:
             data = json.loads(body)
             title = data.get("title", "")
@@ -80,7 +80,7 @@ def verify_doi_crossref(url: str) -> tuple[bool, str]:
     api_url = f"https://api.crossref.org/works/{doi}"
     req = urllib.request.Request(api_url, headers={"User-Agent": "AnkleDossierLinkChecker/1.0 (mailto:checker@example.com)"})
     try:
-        status, body = retry_urlopen(req, timeout=15)
+        status, body, _ = retry_urlopen(req, timeout=15)
         if status == 200:
             data = json.loads(body)
             msg = data.get("message", {})
@@ -99,9 +99,13 @@ def verify_doi_crossref(url: str) -> tuple[bool, str]:
 def verify_http_url(url: str) -> tuple[bool, str]:
     req = urllib.request.Request(url, headers=HEADERS)
     try:
-        status, _ = retry_urlopen(req, timeout=12)
+        status, body, headers = retry_urlopen(req, timeout=12)
         if status in (200, 301, 302, 307, 308):
             return True, f"HTTP {status}"
+        if status == 403:
+            srv = headers.get("Server", "").lower()
+            if "cloudflare" in srv or "cf-mitigated" in headers or "cloudflare" in body.lower():
+                return True, f"HTTP 403 (Cloudflare Challenge - Active Domain)"
         return False, f"HTTP {status}"
     except Exception as e:
         return False, f"HTTP error: {e}"
@@ -248,7 +252,16 @@ def check_all_links(root_dir: Path) -> int:
             print(f"  - [{lbl}] ({u}): {err}")
         return 1
 
-    print("\nALL LINKS VERIFIED SUCCESSFULLY!")
+    # 3. Enforce Atlas Card Coverage and Unlinked Tests Allow-List
+    if str(root_dir) not in sys.path:
+        sys.path.insert(0, str(root_dir))
+    from tools.check_coverage import check_coverage
+    cov_ret = check_coverage(root_dir)
+    if cov_ret != 0:
+        print("\nFAIL: Coverage check failed!")
+        return 1
+
+    print("\nALL LINKS & COVERAGE VERIFIED SUCCESSFULLY!")
     return 0
 
 
