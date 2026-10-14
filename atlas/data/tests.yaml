@@ -76,6 +76,7 @@
   - Measure diastolic blood pressure (mmHg).
   - Measure direct intracompartmental pressure using needle manometry.
   - Calculate ΔP = Diastolic BP − Compartment Pressure.
+  - 'Pressure measurement is a medical procedure. PT role: recognise and refer immediately.'
   positive: ΔP ≤ 30 mmHg indicates critical tissue hypoperfusion requiring EMERGENCY
     FASCIOTOMY.
   metrics: ΔP (Diastolic BP − Compartment Pressure) = ___ mmHg → ≤ 30 mmHg = EMERGENCY
@@ -186,8 +187,8 @@
   - Patient seated or supine with knee flexed 90° and ankle relaxed.
   - Place thumb over the anterolateral gutter of the ankle joint line.
   - Apply firm pressure into the gutter with the ankle in plantarflexion.
-  - While maintaining firm thumb pressure, passively force the ankle into full dorsiflexion
-    and eversion.
+  - While maintaining firm thumb pressure, passively force the ankle into full maximal
+    dorsiflexion.
   - Observe for pain reproduction or mechanical block.
   positive: Reproduction of sharp anterolateral pain as the hypertrophic synovial
     tissue or scar impinges between talus and fibula.
@@ -956,7 +957,7 @@
   - Measure vertical drop using a millimeter ruler or index card.
   - 'Normal mobility: 6–10 mm of sag.'
   - 'Rigid/hypomobile arch: < 5 mm; Hyperpronating foot: > 10–15 mm.'
-  positive: Identifies dynamic arch collapse and excessive sagittal plane pronation.
+  positive: Identifies dynamic arch collapse and excessive midfoot pronation (triplanar).
   metrics: 'Normal: 6–10 mm · Excessive pronation: > 10 mm'
   video_url: null
   image: null
@@ -1075,7 +1076,8 @@
     end-feel.
   positive: Increased anterior translation compared to contralateral side (> 3–5 mm)
     or absent/soft end-feel.
-  metrics: 'Anterior Drawer (+) at day 4–5: Sn 100% Sp 77% +LR 4.35 −LR ≈ 0.00 [M*]'
+  metrics: 'Component of Van Dijk Cluster. Cluster-level accuracy only — see #van-dijk-cluster.
+    No standalone accuracy figure quoted.'
   video_url: https://www.youtube.com/watch?v=vAcBEYZKcto
   image: null
   sources:
@@ -1139,7 +1141,8 @@
     the distal tibiofibular joint.'
   positive: Reproduction of sharp anterolateral syndesmotic pain (or medial clear
     space widening in deltoid sprain).
-  metrics: 'DF-External Rotation (Kleiger) (+): Sp 96% OR 13.8 [L*]'
+  metrics: 'Component of Sman Syndesmosis Cluster. Cluster-level accuracy only — see
+    #syndesmosis-cluster. No standalone accuracy figure quoted.'
   video_url: https://www.youtube.com/watch?v=s53uzyUv0bc
   image: null
   sources:
@@ -1159,9 +1162,11 @@
   - Release compression gradually.
   - 'Inquire where the patient feels pain: syndesmotic positive requires pain localized
     distally at the ankle.'
-  positive: Compression at mid-calf reproduces distal syndesmotic pain at the anterior
-    inferior tibiofibular joint.
-  metrics: 'Squeeze test (Hopkins) (+): High specificity for high ankle sprain'
+  positive: 'Compression at mid-calf reproduces distal syndesmotic pain at the anterior
+    inferior tibiofibular joint. (Note: Low sensitivity — a negative squeeze does
+    NOT exclude syndesmotic injury).'
+  metrics: 'Squeeze test (Hopkins) (+): High specificity for high ankle sprain · Low
+    sensitivity — a negative squeeze does NOT exclude syndesmotic injury.'
   video_url: https://www.youtube.com/watch?v=ZhDxfPRruQ4
   image: null
   sources:
@@ -1203,8 +1208,8 @@
     or significantly reduced.
   positive: Tenderness is marked in neutral/PF but significantly diminishes or completely
     disappears in full DF.
-  metrics: '(+) Royal London Hospital or (+) Arc sign: Sn 84% Sp 83% +LR 4.94 [M*]
-    −LR 0.19'
+  metrics: 'Component of Achilles Midportion Cluster. Cluster-level accuracy only
+    — see #achilles-midportion-cluster. No standalone accuracy figure quoted.'
   video_url: https://www.youtube.com/watch?v=VEOL0tX2rcQ
   image: null
   sources:
@@ -1226,7 +1231,8 @@
     or remains stationary (paratendinopathy).
   positive: The palpable swelling moves proximally and distally through an arc during
     active ankle motion.
-  metrics: '(+) Arc sign: Sn 84% Sp 83% +LR 4.94 [M*] −LR 0.19'
+  metrics: 'Component of Achilles Midportion Cluster. Cluster-level accuracy only
+    — see #achilles-midportion-cluster. No standalone accuracy figure quoted.'
   video_url: https://www.youtube.com/watch?v=paTJszvsUhQ
   image: null
   sources:
@@ -1626,7 +1632,7 @@
     fiber direction for 3–5 minutes [L].'
   - 'Cupping with active movement: cup maintained in place while patient performs
     active joint ROM through 2–3 minutes [L].'
-  - 'Wet cupping (Hhijamah): skin-breaching technique requiring single-use sterile
+  - 'Wet cupping (Hijamah): skin-breaching technique requiring single-use sterile
     disposable equipment and bloodborne-pathogen precautions; confirm local legal
     scope of practice and licensure [L].'
   - 'Absolute contraindications: anticoagulants/bleeding disorders, fragile skin,
@@ -1752,4 +1758,51 @@
   sources:
   - Gokeler A et al. (2017)
   - Wellsandt E et al. (2017)
+  review_status: draft
+- id: achilles-midportion-cluster
+  type: info
+  title: Achilles Midportion Diagnostic Cluster
+  page: 4
+  steps:
+  - Patient positioned prone with feet relaxed hanging over the examination table.
+  - Palpate midportion of Achilles tendon (2–6 cm proximal to calcaneal insertion)
+    for focal thickening or tender nodule.
+  - 'Perform Royal London Hospital Test: observe if focal tenderness significantly
+    decreases during full active/passive dorsiflexion.'
+  - 'Perform Arc Sign Test: observe whether tender swelling translates in an arc with
+    active plantarflexion/dorsiflexion.'
+  - 'Confirm cluster criteria: palpable thickening, localized pain, and positive Royal
+    London or Arc sign.'
+  positive: Presence of palpable tendon thickening plus either (+) Royal London Hospital
+    test or (+) Arc sign.
+  metrics: Sn 84% Sp 83% +LR 4.94 [M*] −LR 0.19
+  video_url: null
+  image: null
+  sources:
+  - Maffulli N et al. (2003)
+  - van Dijk CN et al. (2011)
+  review_status: draft
+- id: tsk-11
+  type: info
+  title: Tampa Scale of Kinesiophobia (TSK-11)
+  page: 8
+  steps:
+  - Screen for movement-related fear, pain catastrophizing, and somatic focus in persistent
+    tendon/joint disorders.
+  - Administer 11 validated items scored on a 4-point Likert scale (1 = Strongly Disagree
+    to 4 = Strongly Agree).
+  - 'Calculate total aggregate score across all 11 items (theoretical range: 11 to
+    44).'
+  - 'Evaluate score against validated clinical cutoffs: scores > 17 indicate elevated
+    kinesiophobia requiring cognitive reassurance, pain neurophysiology education,
+    and graded exposure loading.'
+  positive: Total score > 17 indicates elevated kinesiophobia / psychological guarding.
+  metrics: 'TSK-11 Total (11–44): ≤ 17 Low Fear / Cleared · > 17 High Kinesiophobia
+    [M]'
+  video_url: null
+  image: null
+  sources:
+  - Woby SR et al. (2005)
+  - Roelofs J et al. (2007)
+  - George SZ et al. (2008)
   review_status: draft

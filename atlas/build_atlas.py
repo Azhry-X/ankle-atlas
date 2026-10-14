@@ -79,18 +79,18 @@ def generate_atlas_html(entries, base_dir):
 
         # Special self-hosted calculators
         calc_html = ""
-        if cid == "fpi-6-info" or cid == "fpi-6-test":
+        if cid == "fpi-6-info":
             calc_html = '''
             <div class="embedded-calc" id="fpi-6-calc">
                 <h4>🧮 Interactive Foot Posture Index (FPI-6) Calculator</h4>
-                <p class="calc-sub">Score each item from -2 to +2 based on clinical observation:</p>
+                <p class="calc-sub">Score each item from -2 to +2 based on clinical observation (Redmond 2005):</p>
                 <form id="fpiForm" oninput="calculateFPI()">
                     <div class="calc-grid">
                         <div class="calc-item"><label>1. Talar head palpation</label>
                             <select id="fpi1"><option value="-2">-2 (Talar head palpable on lateral side only)</option><option value="-1">-1</option><option value="0" selected>0 (Equally palpable on both sides)</option><option value="1">+1</option><option value="2">+2 (Palpable on medial side only)</option></select>
                         </div>
                         <div class="calc-item"><label>2. Supra/infra lateral malleolar curves</label>
-                            <select id="fpi2"><option value="-2">-2 (Infra-malleolar curve markedly concave)</option><option value="-1">-1</option><option value="0" selected>0 (Both curves roughly equal)</option><option value="1">+1</option><option value="2">+2 (Infra-malleolar curve flat or convex)</option></select>
+                            <select id="fpi2"><option value="-2">-2 (Curve below malleolus straight or convex)</option><option value="-1">-1 (Curve below malleolus concave, but less than curve above)</option><option value="0" selected>0 (Both curves roughly equal)</option><option value="1">+1 (Curve below malleolus more concave than curve above)</option><option value="2">+2 (Curve below malleolus markedly more concave than curve above)</option></select>
                         </div>
                         <div class="calc-item"><label>3. Calcaneal frontal plane inversion/eversion</label>
                             <select id="fpi3"><option value="-2">-2 (More than 5° inverted / varus)</option><option value="-1">-1</option><option value="0" selected>0 (Vertical / neutral)</option><option value="1">+1</option><option value="2">+2 (More than 5° everted / valgus)</option></select>
@@ -111,11 +111,17 @@ def generate_atlas_html(entries, base_dir):
                     </div>
                 </form>
             </div>'''
+        elif cid == "fpi-6-test":
+            calc_html = '''
+            <div class="calc-link-box" style="margin-top:12px; padding:10px 14px; background:rgba(59,130,246,0.08); border:1px solid #3b82f6; border-radius:8px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+                <span style="font-size:13px; font-weight:600; color:#93c5fd;">Single source of truth interactive calculator hosted in protocol card:</span>
+                <a class="btn-calc" href="#fpi-6-info" onclick="expandCard('fpi-6-info')" style="display:inline-flex; align-items:center; gap:6px; padding:6px 14px; background:#2563eb; border-radius:6px; color:#fff; font-weight:700; text-decoration:none; font-size:12px;">🧮 Open Interactive FPI-6 Calculator (#fpi-6-info)</a>
+            </div>'''
         elif cid == "tsk-11":
             calc_html = '''
             <div class="embedded-calc" id="tsk-11-calc">
                 <h4>🧮 Tampa Scale of Kinesiophobia (TSK-11) Minimal Calculator</h4>
-                <p class="calc-sub">Score each item from 1 (Strongly Disagree) to 4 (Strongly Agree):</p>
+                <p class="calc-sub">Score each item from 1 (Strongly Disagree) to 4 (Strongly Agree) — numeric item entry only:</p>
                 <form id="tskForm" oninput="calculateTSK()">
                     <div class="calc-grid-compact" id="tskGrid">
                         <!-- Populated by JS -->
@@ -130,8 +136,13 @@ def generate_atlas_html(entries, base_dir):
             calc_html = '''
             <div class="embedded-calc" id="budapest-calc">
                 <h4>🧮 Budapest Criteria CRPS Diagnostic Calculator</h4>
-                <p class="calc-sub">Must report continuing pain disproportionate to inciting event. Check all present:</p>
+                <p class="calc-sub">Must fulfill both mandatory gates, then ≥ 3/4 symptom categories and ≥ 2/4 sign categories:</p>
                 <form id="budapestForm" oninput="calculateBudapest()">
+                    <div class="crps-gates" style="background:rgba(239,68,68,0.08); border:1px solid #ef4444; border-radius:6px; padding:8px 12px; margin-bottom:12px;">
+                        <b style="color:#ef4444; font-size:12px;">Mandatory Diagnostic Pre-conditions (both must be present):</b>
+                        <label style="display:flex; align-items:flex-start; gap:8px; margin-top:6px; font-weight:600; font-size:12px; cursor:pointer;"><input type="checkbox" id="gate1"> Continuing pain disproportionate to any inciting event</label>
+                        <label style="display:flex; align-items:flex-start; gap:8px; margin-top:4px; font-weight:600; font-size:12px; cursor:pointer;"><input type="checkbox" id="gate2"> No other diagnosis better explains the signs and symptoms</label>
+                    </div>
                     <div class="crps-split">
                         <div class="crps-col">
                             <b>Reported Symptoms (need ≥ 3 of 4 categories):</b>
@@ -149,8 +160,8 @@ def generate_atlas_html(entries, base_dir):
                         </div>
                     </div>
                     <div class="calc-result-box">
-                        <div class="calc-total">Categories Met: Symptoms <span id="sxCount" class="score-val">0</span>/4 | Signs <span id="sgCount" class="score-val">0</span>/4</div>
-                        <div class="calc-interp" id="crpsInterp">Result: CRPS Criteria NOT MET (requires ≥ 3/4 Sx and ≥ 2/4 Signs)</div>
+                        <div class="calc-total">Status: Mandatory Gates <span id="gateStatus" class="score-val" style="color:#ef4444;">INCOMPLETE</span> | Symptoms <span id="sxCount" class="score-val">0</span>/4 | Signs <span id="sgCount" class="score-val">0</span>/4</div>
+                        <div class="calc-interp" id="crpsInterp">Result: CRPS Criteria NOT MET (Mandatory Gates Missing, Symptoms 0/4, Signs 0/4)</div>
                     </div>
                 </form>
             </div>'''
@@ -822,16 +833,33 @@ def generate_atlas_html(entries, base_dir):
 
         // Budapest CRPS Calculator Logic
         function calculateBudapest() {{
+            const g1 = document.getElementById('gate1') ? document.getElementById('gate1').checked : false;
+            const g2 = document.getElementById('gate2') ? document.getElementById('gate2').checked : false;
+            const gateStatus = document.getElementById('gateStatus');
+            if (gateStatus) {{
+                if (g1 && g2) {{
+                    gateStatus.textContent = 'PASSED (2/2)';
+                    gateStatus.style.color = '#10b981';
+                }} else {{
+                    gateStatus.textContent = 'INCOMPLETE (' + ((g1?1:0)+(g2?1:0)) + '/2)';
+                    gateStatus.style.color = '#ef4444';
+                }}
+            }}
+
             let sx = (document.getElementById('sx1').checked?1:0) + (document.getElementById('sx2').checked?1:0) + (document.getElementById('sx3').checked?1:0) + (document.getElementById('sx4').checked?1:0);
             let sg = (document.getElementById('sg1').checked?1:0) + (document.getElementById('sg2').checked?1:0) + (document.getElementById('sg3').checked?1:0) + (document.getElementById('sg4').checked?1:0);
             document.getElementById('sxCount').textContent = sx;
             document.getElementById('sgCount').textContent = sg;
             const interp = document.getElementById('crpsInterp');
-            if (sx >= 3 && sg >= 2) {{
-                interp.textContent = 'Result: Budapest Clinical Criteria MET (≥ 3/4 Symptoms AND ≥ 2/4 Signs)';
+            if (g1 && g2 && sx >= 3 && sg >= 2) {{
+                interp.textContent = 'Result: Budapest Clinical Criteria MET (Mandatory Gates Passed, Symptoms ≥ 3/4, Signs ≥ 2/4)';
                 interp.style.color = '#ef4444';
             }} else {{
-                interp.textContent = 'Result: CRPS Criteria NOT MET (requires ≥ 3/4 Sx and ≥ 2/4 Signs)';
+                let reasons = [];
+                if (!g1 || !g2) reasons.push('Mandatory Gates Incomplete');
+                if (sx < 3) reasons.push('Symptoms ' + sx + '/4 (need ≥3)');
+                if (sg < 2) reasons.push('Signs ' + sg + '/4 (need ≥2)');
+                interp.textContent = 'Result: CRPS Criteria NOT MET (' + reasons.join(', ') + ')';
                 interp.style.color = '#10b981';
             }}
         }}

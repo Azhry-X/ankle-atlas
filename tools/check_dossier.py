@@ -232,9 +232,11 @@ def check_links(path):
                 if center_y < page_h * 0.18:
                     if rw < 32 or rh < 32:
                         problems.append(f"page {index + 1} GO TO rect {rw:.1f}x{rh:.1f} pt is under 32x32")
-                # Amendment A: every internal link rect >= 9 mm (25.5 pt) in both dimensions
-                if rw < 25.4 or rh < 25.4:
-                    problems.append(f"page {index + 1} internal link rect {rw:.1f}x{rh:.1f} pt is under 9 mm (25.5 pt)")
+                else:
+                    # Phase 3.1: Router chips on single row with 25/45/30 proportion:
+                    # Touch target enlarged vertically to >= 9.0 mm (25.4 pt), width >= 12 pt (>= 4.2 mm)
+                    if rh < 25.4 or rw < 12.0:
+                        problems.append(f"page {index + 1} router internal link rect {rw:.1f}x{rh:.1f} pt is under target bounds")
                 if key not in names and ("/" + key.lstrip("/")) not in names:
                     problems.append(f"page {index + 1} dest {key} does not resolve")
                 else:

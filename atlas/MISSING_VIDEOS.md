@@ -46,6 +46,7 @@ Under strict validation rules, external video URLs are omitted if they cannot be
 | `slhr-protocol` | Single-Leg Heel Raise 60 bpm Protocol | Page 3 | INFO | Protocol/Info Card |
 | `slhr-test` | Single-Leg Heel Raise Test (60 bpm Protocol) | Page 3 | TEST | Requires strict 60 bpm metronome protocol video (general heel raise exercise videos excluded) |
 | `subtalar-rom` | Subtalar Joint Inversion & Eversion ROM | Page 3 | TEST | Pending dedicated Physiotutors/clinical video |
+| `achilles-midportion-cluster` | Achilles Midportion Diagnostic Cluster | Page 4 | INFO | Protocol/Info Card |
 | `anterolateral-drawer` | Anterolateral Drawer Test (Rotational Laxity) | Page 4 | TEST | Pending dedicated Physiotutors/clinical video |
 | `calcaneal-squeeze-test` | Calcaneal Squeeze Test (Stress Fracture & Apophysitis) | Page 4 | TEST | Pending dedicated Physiotutors/clinical video |
 | `cotton-test` | Cotton Test (Lateral Talar Shift) | Page 4 | TEST | Pending dedicated Physiotutors/clinical video |
@@ -68,5 +69,6 @@ Under strict validation rules, external video URLs are omitted if they cannot be
 | `rts-hop-battery` | Comprehensive Athletic RTS Hop Battery Protocol | Page 8 | INFO | Protocol/Info Card |
 | `tendon-loading-stages` | Cook & Purdam 4-Stage Tendon Loading Continuum | Page 8 | INFO | Protocol/Info Card |
 | `lsi-caution` | Limb Symmetry Index (LSI) Caution & Deconditioning | Page 8 | INFO | Protocol/Info Card |
+| `tsk-11` | Tampa Scale of Kinesiophobia (TSK-11) | Page 8 | INFO | Protocol/Info Card |
 
-Total cards lacking verified video: 64
+Total cards lacking verified video: 66

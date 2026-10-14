@@ -134,9 +134,17 @@ def check_all_links(root_dir: Path) -> int:
 
     # Extract links from dossier HTML
     dossier_links = re.findall(r'<a\s+[^>]*href="([^"]+)"[^>]*>(.*?)</a>', dossier_source, re.DOTALL)
-    
-    # Extract links from atlas HTML
     atlas_links = re.findall(r'<a\s+[^>]*href="([^"]+)"[^>]*>(.*?)</a>', atlas_source, re.DOTALL)
+    
+    # 0. Enforce unique element IDs in atlas (Requirement B3)
+    import collections
+    all_atlas_ids = re.findall(r'id="([^"]+)"', atlas_source)
+    id_counts = collections.Counter(all_atlas_ids)
+    duplicate_ids = {k: v for k, v in id_counts.items() if v > 1}
+    if duplicate_ids:
+        print(f"FAIL: Duplicate element IDs found in Atlas: {duplicate_ids}")
+        return 1
+    print(f"PASS: All {len(id_counts)} element IDs in Atlas are strictly unique.")
 
     results = []
     failed = []

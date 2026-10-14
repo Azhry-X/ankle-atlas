@@ -144,22 +144,21 @@
   .sh.g{ color:var(--emerald); border-bottom-color:#a7f3d0; }
 
   /* Router Tap Targets (Amendment A: >= 9mm in both dimensions, edge-to-edge touch targets) */
-  .router-stacked{ display:flex; flex-direction:column; gap:0.6mm; padding:0.5mm 1.2mm; border:1.2px solid #10b981; border-radius:1.2mm; background:#f0fdf4; }
-  .router-row-top{ display:flex; justify-content:space-between; align-items:center; min-height:9.05mm; }
-  .router-row-btm{ display:flex; align-items:center; gap:0.4mm; min-height:9.05mm; border-top:1px dashed #a7f3d0; padding-top:0.4mm; }
-  .router-col{ display:flex; align-items:center; flex-wrap:nowrap; gap:0.2mm; min-height:9.05mm; white-space:nowrap; }
-  .rchip{ display:inline-flex; align-items:center; justify-content:center; width:9.15mm; min-width:9.15mm; height:9.05mm; min-height:9.05mm;
+  .router-row{ display:grid; grid-template-columns:minmax(0,25fr) minmax(0,45fr) minmax(0,30fr); gap:1.2mm; min-height:9.0mm; align-items:center; }
+  .router-col{ display:flex; align-items:center; flex-wrap:nowrap; gap:0.4mm; min-height:9.0mm; white-space:nowrap; }
+  .rchip{ display:inline-flex; align-items:center; justify-content:center; width:4.8mm; min-width:4.8mm; height:9.0mm; min-height:9.0mm;
     position:relative; background:transparent; color:var(--navy); font-weight:800; font-size:7.4px; text-decoration:none; line-height:1; }
-  .rchip::before{ content:""; position:absolute; width:4.4mm; height:4.4mm; border-radius:1mm; border:1px solid var(--line); background:#fff; z-index:-1; }
-  .router-col > span{ font-size:7.4px; color:#64748b; font-weight:700; user-select:none; }
+  .rchip::before{ content:""; position:absolute; width:4.4mm; height:4.4mm; border-radius:1mm; border:1px solid var(--line); background:#fff; z-index:-1; box-sizing:border-box; }
+  .router-col > span{ font-size:7.0px; color:#64748b; font-weight:700; user-select:none; }
 
   /* Atlas Test Name Link (subtle blue, no extra button) */
   .test-link{ color:inherit; text-decoration:underline; text-decoration-color:rgba(30,58,138,0.45); text-underline-offset:2px; font-weight:inherit; transition:color 0.15s, text-decoration-color 0.15s; }
   .test-link:hover{ color:#1e3a8a; text-decoration-color:#1e3a8a; }
 
   /* Atlas Info Icon (visual ~4 mm, tappable area >= 7 mm) */
-  .info-icon{ display:inline-flex; align-items:center; justify-content:center; width:7.2mm; height:7.2mm; min-width:7.2mm; min-height:7.2mm; text-decoration:none; vertical-align:middle; margin:-1.6mm 0.5mm -1.6mm 0.5mm; color:#1e3a8a; }
-  .info-icon-badge{ display:inline-flex; align-items:center; justify-content:center; width:4mm; height:4mm; border-radius:50%; border:1px solid currentColor; font-size:6.8px; font-weight:800; line-height:1; font-family:"Source Sans 3",sans-serif; background:rgba(30,58,138,0.06); }
+  .info-icon{ display:inline-flex; align-items:center; justify-content:center; width:4.2mm; height:4.2mm; min-width:4.2mm; min-height:4.2mm; text-decoration:none; vertical-align:middle; margin:0 0.3mm; color:var(--accent, #1e3a8a); }
+  .card-h .info-icon, .hbg .info-icon{ color:#ffffff; margin:0 0.4mm; }
+  .info-svg{ width:3.6mm; height:3.6mm; display:inline-block; vertical-align:middle; pointer-events:none; }
   
   /* ================= FORM PRIMITIVES ================= */
   .cb{ display:inline-block; width:14px; height:14px; min-width:14px; border:1.6px solid #334155; border-radius:2.5px; background:#fff; vertical-align:middle; flex:0 0 auto; }
@@ -303,7 +302,7 @@
         <div>
           <!-- Ottawa Exclusions Strip -->
           <div class="xs flex flex-wrap items-center gap-x-1 p-[0.6mm] mb-[1px] bg-red-50 border border-red-200 rounded" style="font-size:6.9px; line-height:1.15;">
-            <b class="crim uppercase" style="letter-spacing:.02em;">Ottawa Exclusions:</b> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#ottawa-exclusions" title="Ottawa Exclusions Details"><span class="info-icon-badge">i</span></a>
+            <b class="crim uppercase" style="letter-spacing:.02em;">Ottawa Exclusions:</b> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#ottawa-exclusions" title="Ottawa Exclusions Details"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a>
             <span class="cio" style="margin-right:1mm;"><span class="cb r" style="width:9px;height:9px;min-width:9px;"></span>Age &lt; 5</span>
             <span class="cio" style="margin-right:1mm;"><span class="cb r" style="width:9px;height:9px;min-width:9px;"></span>Intox</span>
             <span class="cio" style="margin-right:1mm;"><span class="cb r" style="width:9px;height:9px;min-width:9px;"></span>Altered mental</span>
@@ -345,7 +344,7 @@
           </div>
           <!-- Charcot Neuroarthropathy Block -->
           <div style="border:1.2px solid #b91c1c; border-radius:1.2mm; padding:0.6mm 1.2mm; background:#fff5f5; margin:1px 0;">
-            <div class="sh r" style="margin:0 0 0.5px; border-bottom:1px dashed #fca5a5; font-size:7.2px;"><span>Charcot Neuroarthropathy &mdash; Neuropathic + Hot Red Foot <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#charcot-neuroarthropathy" title="Charcot Neuroarthropathy Criteria"><span class="info-icon-badge">i</span></a></span><span class="stat r">Emergency</span></div>
+            <div class="sh r" style="margin:0 0 0.5px; border-bottom:1px dashed #fca5a5; font-size:7.2px;"><span>Charcot Neuroarthropathy &mdash; Neuropathic + Hot Red Foot <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#charcot-neuroarthropathy" title="Charcot Neuroarthropathy Criteria"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></span><span class="stat r">Emergency</span></div>
             <div class="flex flex-wrap text-[7.1px] gap-x-1.5" style="line-height:1.2;">
               <span class="cio" style="margin-right:1mm;"><span class="cb r" style="width:9px;height:9px;min-width:9px;"></span>Temp diff &gt; 2 &deg;C</span>
               <span class="cio" style="margin-right:1mm;"><span class="cb r" style="width:9px;height:9px;min-width:9px;"></span>Erythema reduces on 10 min elevation</span>
@@ -357,10 +356,10 @@
 
           <div class="ci" data-card-box="septic" style="padding:0.2mm 0;"><span class="cb r"></span><div data-card="septic">Septic Arthritis: hot effusion · T &gt; 38 °C · synovial WBC &gt; 50k</div></div>
           <div class="ci" data-card-box="gout" style="padding:0.2mm 0;"><span class="cb r"></span><div data-card="gout">Acute Gout: 1st MTP erythema, exquisite pain, hx / hyperuricaemia</div></div>
-          <div class="ci" style="padding:0.2mm 0;"><span class="cb r"></span><div><b>Budapest CRPS</b> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#budapest-crps" title="Budapest CRPS Diagnostic Criteria"><span class="info-icon-badge">i</span></a> <span class="eb eb-h">[H]</span> <a href="https://Azhry-X.github.io/ankle-atlas#budapest-crps" class="calc-badge">&#129518; Calc</a> (&ge; 3/4 Sx, &ge; 2/4 Signs): <span class="cio"><span class="cb r"></span>Sensory</span><span class="cio"><span class="cb r"></span>Vasomotor</span><span class="cio"><span class="cb r"></span>Edema</span><span class="cio"><span class="cb r"></span>Trophic</span> <span style="white-space:nowrap;">&rarr; <span class="cio"><span class="cb r"></span>I</span><span class="cio"><span class="cb r"></span>II</span></span></div></div>
+          <div class="ci" style="padding:0.2mm 0;"><span class="cb r"></span><div><b>Budapest CRPS</b> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#budapest-crps" title="Budapest CRPS Diagnostic Criteria"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <span class="eb eb-h">[H]</span> <a href="https://Azhry-X.github.io/ankle-atlas#budapest-crps" class="calc-badge">&#129518; Calc</a> (&ge; 3/4 Sx, &ge; 2/4 Signs): <span class="cio"><span class="cb r"></span>Sensory</span><span class="cio"><span class="cb r"></span>Vasomotor</span><span class="cio"><span class="cb r"></span>Edema</span><span class="cio"><span class="cb r"></span>Trophic</span> <span style="white-space:nowrap;">&rarr; <span class="cio"><span class="cb r"></span>I</span><span class="cio"><span class="cb r"></span>II</span></span></div></div>
           <div class="ci" style="padding:0.2mm 0;"><span class="cb r"></span><div><b class="crim">Necrotizing fasciitis:</b> pain out of proportion, rapid, systemic toxicity, crepitus <span style="white-space:nowrap;">&rarr; <b class="crim">ED NOW</b></span></div></div>
 
-          <div class="sh r" style="margin:1px 0 0.5px; font-size:7.4px;"><span>Achilles Rupture Emergency Triad <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#achilles-triad" title="Achilles Rupture Emergency Triad"><span class="info-icon-badge">i</span></a></span><span class="stat r">&ge; 2 POSITIVE (Sn/Sp &gt; 98%)</span></div>
+          <div class="sh r" style="margin:1px 0 0.5px; font-size:7.4px;"><span>Achilles Rupture Emergency Triad <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#achilles-triad" title="Achilles Rupture Emergency Triad"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></span><span class="stat r">&ge; 2 POSITIVE (Sn/Sp &gt; 98%)</span></div>
           <div class="flex flex-wrap gap-x-2 text-[7.2px]" style="line-height:1.2;">
             <div class="ci" style="padding:0;"><span class="cb r"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#thompson"><b class="clickable-test" data-modal="thompson">Thompson</b></a></div></div>
             <div class="ci" style="padding:0;"><span class="cb r"></span><div><b>Palpable Gap (2&ndash;6 cm)</b></div></div>
@@ -385,28 +384,26 @@
       <div class="card-h"><span>C &middot; Pathway Router &amp; Fast-Track Assessment (&lt; 2-Minute Screen)</span><span class="tag">RAPID</span></div>
       <div class="card-b flex flex-col gap-[1px]">
         <!-- Clinical Pathway Router (3 Labelled Rows) -->
-        <div class="router-stacked">
+        <div style="border:1.2px solid #10b981; border-radius:1.2mm; padding:0.6mm 1.2mm; background:#f0fdf4;">
           <div class="flex items-center justify-between" style="font-size:7.2px; font-weight:800; color:#065f46; margin-bottom:0.5px; text-transform:uppercase; letter-spacing:0.04em;">
             <span>Clinical Pathway Router</span>
             <span class="mut" style="font-weight:600; text-transform:none; font-size:6.8px;">Tick indicated route &rarr; navigate to page</span>
           </div>
-          <div class="router-row-top">
+          <div class="router-row">
             <div class="router-col">
-              <span class="cb g" style="width:10px;height:10px;min-width:10px;margin-right:1mm;"></span>
-              <b class="emer" style="white-space:nowrap;margin-right:1mm;">A · SIMPLE:</b>
+              <span class="cb g" style="width:9px;height:9px;min-width:9px;margin-right:0.4mm;"></span>
+              <b class="emer" style="white-space:nowrap;margin-right:0.4mm;font-size:7.2px;">A · SIMPLE:</b>
               <a class="rchip" href="#page-1">1</a><span>→</span><a class="rchip" href="#page-6">6</a><span>→</span><a class="rchip" href="#page-7">7</a><span>→</span><a class="rchip" href="#page-9">9</a>
             </div>
             <div class="router-col">
-              <span class="cb g" style="width:10px;height:10px;min-width:10px;margin-right:1mm;"></span>
-              <b style="white-space:nowrap; color:#b45309;margin-right:1mm;">C · POST-OP:</b>
-              <a class="rchip" href="#page-1">1</a><span>→</span><a class="rchip" href="#page-5">5</a><span>→</span><a class="rchip" href="#page-6">6</a><span>→</span><a class="rchip" href="#page-7">7</a><span>→</span><a class="rchip" href="#page-8">8</a><span>→</span><a class="rchip" href="#page-9">9</a>
-            </div>
-          </div>
-          <div class="router-row-btm">
-            <div class="router-col">
-              <span class="cb g" style="width:10px;height:10px;min-width:10px;margin-right:1mm;"></span>
-              <b class="nav" style="white-space:nowrap;margin-right:1mm;">B · COMPLEX:</b>
+              <span class="cb g" style="width:9px;height:9px;min-width:9px;margin-right:0.4mm;"></span>
+              <b class="nav" style="white-space:nowrap;margin-right:0.4mm;font-size:7.2px;">B · COMPLEX:</b>
               <a class="rchip" href="#page-1">1</a><span>→</span><a class="rchip" href="#page-2">2</a><span>→</span><a class="rchip" href="#page-3">3</a><span>→</span><a class="rchip" href="#page-4">4</a><span>→</span><a class="rchip" href="#page-6">6</a><span>→</span><a class="rchip" href="#page-7">7</a><span>→</span><a class="rchip" href="#page-8">8</a><span>→</span><a class="rchip" href="#page-9">9</a>
+            </div>
+            <div class="router-col">
+              <span class="cb g" style="width:9px;height:9px;min-width:9px;margin-right:0.4mm;"></span>
+              <b style="white-space:nowrap; color:#b45309;margin-right:0.4mm;font-size:7.2px;">C · POST-OP:</b>
+              <a class="rchip" href="#page-1">1</a><span>→</span><a class="rchip" href="#page-5">5</a><span>→</span><a class="rchip" href="#page-6">6</a><span>→</span><a class="rchip" href="#page-7">7</a><span>→</span><a class="rchip" href="#page-8">8</a><span>→</span><a class="rchip" href="#page-9">9</a>
             </div>
           </div>
         </div>
@@ -639,7 +636,7 @@
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#baxters-nerve-exam"><b>Baxter&rsquo;s Nerve Entrapment</b></a> &mdash; medial abductor hallucis border; ADM weakness; <b>no</b> start-up pain</div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#medial-calcaneal-nerve-exam"><b>Medial Calcaneal Nerve</b></a> &mdash; burning medial heel, Tinel (+)</div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#mortons-neuroma-exam"><b>Morton&rsquo;s Neuroma</b></a> &mdash; <a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#mulders-click-test">Mulder&rsquo;s click</a>; 3rd web space</div></div>
-          <div class="ci"><span class="cb r"></span><div><b class="clickable-test" data-modal="navicular-fx">Navicular Stress Fracture</b> &mdash; <span class="crim b">&ldquo;N-spot&rdquo; tenderness</span> (dorsal proximal navicular) <a href="https://www.youtube.com/watch?v=MgY80fa9P08" class="ref-badge" target="_blank">&#9654; Video</a></div></div>
+          <div class="ci"><span class="cb r"></span><div><b class="clickable-test" data-modal="navicular-fx">Navicular Stress Fracture</b> &mdash; <span class="crim b">&ldquo;N-spot&rdquo; tenderness</span> (dorsal proximal navicular)</div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#accessory-navicular-exam"><b>Accessory Navicular</b></a> &mdash; prominent medial navicular, tender synchondrosis</div></div>
           <div class="ci"><span class="cb n"></span><div><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#cuboid-syndrome-exam"><b>Cuboid Syndrome</b></a> &mdash; lateral midfoot, plantar cuboid tender, post-inversion</div></div>
         </div>
@@ -750,7 +747,7 @@
           <tbody>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#wblt"><span class="clickable-test" data-modal="wblt">WBLT Knee-to-Wall &mdash; Distance (cm)</span></a></td><td>&ge; 10&ndash;12.5 cm &middot; <span class="crim b">Asym &gt; 1.5 cm</span></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="c"><span class="cb r"></span></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#wblt">WBLT &mdash; Inclinometer (&deg;)</a></td><td>35&ndash;45&deg; &middot; <span class="crim b">Asym &gt; 4.7&deg;</span></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="c"><span class="cb r"></span></td></tr>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-test"><span class="clickable-test" data-modal="silfverskiold">Silfversk&ouml;ld &mdash; DF Knee 0&deg; (&deg;)</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-info" title="Silfverskiöld Interpretation"><span class="info-icon-badge">i</span></a></td><td>Gastrocnemius + soleus length</td><td class="w"></td><td class="w"></td><td class="w"></td><td rowspan="3" class="xs"><span class="ci"><span class="cb"></span><span>Gain &ge; 10&deg; = <b>Isolated Gastrocnemius</b></span></span><span class="ci"><span class="cb"></span><span>Gain &lt; 5&deg; = <b>Soleus / Capsule</b></span></span></td></tr>
+            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-test"><span class="clickable-test" data-modal="silfverskiold">Silfversk&ouml;ld &mdash; DF Knee 0&deg; (&deg;)</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-info" title="Silfverskiöld Interpretation"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></td><td>Gastrocnemius + soleus length</td><td class="w"></td><td class="w"></td><td class="w"></td><td rowspan="3" class="xs"><span class="ci"><span class="cb"></span><span>Gain &ge; 10&deg; = <b>Isolated Gastrocnemius</b></span></span><span class="ci"><span class="cb"></span><span>Gain &lt; 5&deg; = <b>Soleus / Capsule</b></span></span></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-test">Silfversk&ouml;ld &mdash; DF Knee 90&deg; (&deg;)</a></td><td>Soleus / capsular length</td><td class="w"></td><td class="w"></td><td class="w"></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#silfverskiold-test">Silfversk&ouml;ld Gain (90&deg; &minus; 0&deg;)</a></td><td>Gain &ge; 10&deg; (Gastroc) &middot; Gain &lt; 5&deg; (Soleus/Capsule)</td><td class="w"></td><td class="w"></td><td class="w"></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#subtalar-rom">Subtalar Inversion (&deg;)</a></td><td>20&ndash;30&deg;</td><td class="w"></td><td class="w"></td><td class="w"></td><td rowspan="2" class="xs">Inv : Ev ratio <b>2 : 1</b> &nbsp; L <span class="fl s"></span> R <span class="fl s"></span></td></tr>
@@ -759,8 +756,8 @@
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#midtarsal-mobility">Midtarsal (Chopart) Mobility</a></td><td>Hypo &middot; Normal &middot; Hyper</td><td class="w c"><span class="circ"><span>&darr;</span><span>N</span><span>&uarr;</span></span></td><td class="w c"><span class="circ"><span>&darr;</span><span>N</span><span>&uarr;</span></span></td><td class="w"></td><td class="c"><span class="cb"></span></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#first-mtp-extension">1st MTP Extension &mdash; NWB (&deg;)</a></td><td>&ge; 60&ndash;65&deg; gait &middot; 70&ndash;90&deg; sprinting</td><td class="w"></td><td class="w"></td><td class="w"></td><td rowspan="2" class="xs"><span class="ci"><span class="cb"></span><span><b>Functional Hallux Limitus</b> (&ge; 60&deg; NWB, &darr; WB)</span></span><span class="ci"><span class="cb r"></span><span><b>Hallux Rigidus</b> (&lt; 30&deg;)</span></span></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#first-mtp-extension">1st MTP Extension &mdash; WB (&deg;)</a></td><td>Jack&rsquo;s / Hubscher manoeuvre</td><td class="w"></td><td class="w"></td><td class="w"></td></tr>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#fpi-6-test"><span class="clickable-test" data-modal="fpi6">Foot Posture Index (FPI-6)</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#fpi-6-info" title="FPI-6 Calculator & Criteria"><span class="info-icon-badge">i</span></a> <a href="https://Azhry-X.github.io/ankle-atlas#fpi-6-info" class="guide-badge" target="_blank">&#128196; FPI Guide</a></td><td>&minus;12 to +12 &middot; Neutral 0 to +5 &middot; Pron +6 to +9 &middot; Highly pronated &ge; +10</td><td class="w"></td><td class="w"></td><td class="w"></td><td class="xs"><span class="cio"><span class="cb"></span>Sup</span><span class="cio"><span class="cb"></span>Neu</span><span class="cio"><span class="cb"></span>Pron</span><span class="cio"><span class="cb"></span>High</span></td></tr>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#navicular-drop-test"><span class="clickable-test" data-modal="navicular-drop">Navicular Drop Test (mm)</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#navicular-drop-info" title="Navicular Drop Measurement & Pronation Cutoffs"><span class="info-icon-badge">i</span></a></td><td>Normal 6&ndash;10 mm &middot; <span class="crim b">Hyperpronation &gt; 10 mm</span></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="c"><span class="cb r"></span></td></tr>
+            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#fpi-6-test"><span class="clickable-test" data-modal="fpi6">Foot Posture Index (FPI-6)</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#fpi-6-info" title="FPI-6 Calculator & Criteria"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <a href="https://Azhry-X.github.io/ankle-atlas#fpi-6-info" class="guide-badge" target="_blank">&#128196; FPI Guide</a></td><td>&minus;12 to +12 &middot; Neutral 0 to +5 &middot; Pron +6 to +9 &middot; Highly pronated &ge; +10</td><td class="w"></td><td class="w"></td><td class="w"></td><td class="xs"><span class="cio"><span class="cb"></span>Sup</span><span class="cio"><span class="cb"></span>Neu</span><span class="cio"><span class="cb"></span>Pron</span><span class="cio"><span class="cb"></span>High</span></td></tr>
+            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#navicular-drop-test"><span class="clickable-test" data-modal="navicular-drop">Navicular Drop Test (mm)</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#navicular-drop-info" title="Navicular Drop Measurement & Pronation Cutoffs"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></td><td>Normal 6&ndash;10 mm &middot; <span class="crim b">Hyperpronation &gt; 10 mm</span></td><td class="w"></td><td class="w"></td><td class="w"></td><td class="c"><span class="cb r"></span></td></tr>
           </tbody>
         </table>
         <div class="xs mut mt-[1px]">Measurement error: goniometry &plusmn; 5&deg; &minus; inclinometer &plusmn; 2&ndash;3&deg; &mdash; differences smaller than this are not clinically meaningful.</div>
@@ -770,7 +767,7 @@
     <section class="card" id="p3-strength">
       <div class="card-h"><span>Muscle Capacity &amp; Strength Quantification</span><span class="tag">HHD &middot; MMT &middot; ENDURANCE</span></div>
       <div class="card-b">
-        <div class="sh"><span><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#slhr-test"><span class="clickable-test" data-modal="slhr">Single-Leg Heel Raise Test &mdash; 60 bpm</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#slhr-protocol" title="Single-Leg Heel Raise 60 bpm Protocol"><span class="info-icon-badge">i</span></a></span><span class="stat">Males 32&ndash;37 &middot; Females 27&ndash;31 &middot; Athletes &ge; 38&ndash;45+ reps</span></div>
+        <div class="sh"><span><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#slhr-test"><span class="clickable-test" data-modal="slhr">Single-Leg Heel Raise Test &mdash; 60 bpm</span></a> <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#slhr-protocol" title="Single-Leg Heel Raise 60 bpm Protocol"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></span><span class="stat">Males 32&ndash;37 &middot; Females 27&ndash;31 &middot; Athletes &ge; 38&ndash;45+ reps</span></div>
         <table class="t">
           <thead><tr><th>Side</th><th class="c">Repetitions</th><th class="c">Max Height (cm)</th><th class="c">Total Work (reps &times; cm)</th><th class="c">LSI %</th><th>Termination Reason</th></tr></thead>
           <tbody>
@@ -779,7 +776,7 @@
           </tbody>
         </table>
 
-        <div class="sh mt-[3px]"><span>Hand-Held Dynamometry (N &middot; N/kg) &amp; MMT <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#hhd-positions" title="Hand-Held Dynamometry Testing Positions"><span class="info-icon-badge">i</span></a></span><span class="fr"><span class="lb">Body mass</span><span class="fl m"></span><span class="lb">kg</span></span></div>
+        <div class="sh mt-[3px]"><span>Hand-Held Dynamometry (N &middot; N/kg) &amp; MMT <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#hhd-positions" title="Hand-Held Dynamometry Testing Positions"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></span><span class="fr"><span class="lb">Body mass</span><span class="fl m"></span><span class="lb">kg</span></span></div>
         <table class="t">
           <thead><tr><th>Muscle</th><th>Test Position</th><th class="c">L (N)</th><th class="c">L (N/kg)</th><th class="c">R (N)</th><th class="c">R (N/kg)</th><th class="c">MMT L / R</th><th class="c">LSI %</th></tr></thead>
           <tbody>
@@ -900,12 +897,12 @@
       </section>
 
       <section class="card" id="p4-syndesmosis">
-        <div class="card-h"><span>Syndesmosis &mdash; Sman Cluster <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#syndesmosis-cluster" title="Syndesmosis Sman Cluster"><span class="info-icon-badge">i</span></a> <span class="eb eb-l">[L*]</span></span><span class="tag">HIGH ANKLE</span></div>
+        <div class="card-h"><span>Syndesmosis &mdash; Sman Cluster&nbsp;<a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#syndesmosis-cluster" title="Syndesmosis Sman Cluster"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a>&nbsp;<span class="eb eb-l">[L*]</span></span><span class="tag">HIGH ANKLE</span></div>
         <div class="card-b">
           <div class="flex flex-wrap gap-1 mb-[2px]"><span class="stat">Sp 96%</span><span class="stat">OR 13.8</span><span class="stat r">Refer MRI if (+)</span></div>
           <div class="ci"><span class="cb n"></span><div><b>AITFL tenderness</b></div></div>
-          <div class="ci"><span class="cb n"></span><div><b class="clickable-test" data-modal="kleiger">DF-External Rotation (Kleiger)</b> (+) <a href="https://www.youtube.com/watch?v=s53uzyUv0bc" class="ref-badge" target="_blank">&#9654; Video</a></div></div>
-          <div class="ci"><span class="cb n"></span><div><b class="clickable-test" data-modal="squeeze-test">Squeeze test (Hopkins)</b> (+) <a href="https://www.youtube.com/watch?v=ZhDxfPRruQ4" class="ref-badge" target="_blank">&#9654; Video</a></div></div>
+          <div class="ci"><span class="cb n"></span><div><b class="clickable-test" data-modal="kleiger">DF-External Rotation (Kleiger)</b> (+)</div></div>
+          <div class="ci"><span class="cb n"></span><div><b class="clickable-test" data-modal="squeeze-test">Squeeze test (Hopkins)</b> (+)</div></div>
           <div class="ci"><span class="cb"></span><div class="mut">Adjunct: <a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#fibular-translation-test"><b class="clickable-test" data-modal="fibular-trans">Fibular Translation</b></a></div></div>
           <div class="fr"><span class="lb">Cluster</span><span class="cio"><span class="cb r"></span>(+) Syndesmotic injury</span><span class="cio"><span class="cb g"></span>(&minus;)</span></div>
         </div>
@@ -951,7 +948,7 @@
         <table class="t dense">
           <thead><tr><th>Test</th><th class="c">L</th><th class="c">R</th><th>Test</th><th class="c">L</th><th class="c">R</th><th>Test</th><th class="c">L</th><th class="c">R</th></tr></thead>
           <tbody>
-            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#anterolateral-drawer">Anterolateral Drawer</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#thompson">Thompson</a></td><td class="w"></td><td class="w"></td><td class="k"><span class="clickable-test" data-modal="mulder">Mulder&rsquo;s Click</span> <a href="https://www.youtube.com/watch?v=BU2JLUNsCn4" class="ref-badge" target="_blank">&#9654; Video</a></td><td class="w"></td><td class="w"></td></tr>
+            <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#anterolateral-drawer">Anterolateral Drawer</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#thompson">Thompson</a></td><td class="w"></td><td class="w"></td><td class="k"><span class="clickable-test" data-modal="mulder">Mulder&rsquo;s Click</span></td><td class="w"></td><td class="w"></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#eversion-stress-deltoid">Eversion Stress (Deltoid)</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#single-leg-hop-test">Single-Leg Hop (pain)</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#tinel-tarsal-tunnel">Tinel &mdash; Tarsal Tunnel</a></td><td class="w"></td><td class="w"></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#peroneal-subluxation-test">Peroneal Subluxation</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#too-many-toes-test">Too-Many-Toes</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#calcaneal-squeeze-test">Calcaneal Squeeze</a></td><td class="w"></td><td class="w"></td></tr>
             <tr><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#cotton-test">Cotton (Lateral Talar Shift)</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#sl-heel-rise-pttd">SL Heel Rise (PTTD)</a></td><td class="w"></td><td class="w"></td><td class="k"><a class="test-link" href="https://Azhry-X.github.io/ankle-atlas#forced-pf-test">Forced PF (Posterior)</a></td><td class="w"></td><td class="w"></td></tr>
@@ -961,7 +958,7 @@
     </section>
 
     <section class="card" id="p4-proms">
-      <div class="card-h"><span>Standardised Patient-Reported Outcome Measures (PROMs) Dashboard <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#proms-mcid" title="PROMs MCID Cutoffs"><span class="info-icon-badge">i</span></a> <span class="eb eb-h">[H]</span></span><span class="tag">MCID &middot; RTS CUTOFFS</span></div>
+      <div class="card-h"><span>Standardised Patient-Reported Outcome Measures (PROMs) Dashboard&nbsp;<a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#proms-mcid" title="PROMs MCID Cutoffs"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a>&nbsp;<span class="eb eb-h">[H]</span></span><span class="tag">MCID &middot; RTS CUTOFFS</span></div>
       <div class="card-b">
         <table class="t">
           <thead><tr><th>Measure</th><th>Range</th><th>MCID <span class="eb eb-h">[H]</span></th><th>Clearance / RTS Cutoff</th><th class="c">Base</th><th class="c">Wk 4</th><th class="c">Wk 8</th><th class="c">Wk 12</th><th class="c">D/C</th><th class="c">&ge; MCID</th></tr></thead>
@@ -1326,7 +1323,7 @@
       </div>
     </section>
     <section class="card red" id="p7-dn" data-card-box="dry-needling">
-      <div class="card-h"><span>Dry Needling Safety Mapping <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#dry-needling-depth" title="Dry Needling Depth & Neurovascular Safety"><span class="info-icon-badge">i</span></a></span><span class="tag">DEPTH VARIES WITH BMI &middot; US GUIDANCE ADVISED</span></div>
+      <div class="card-h"><span>Dry Needling Safety Mapping <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#dry-needling-depth" title="Dry Needling Depth & Neurovascular Safety"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></span><span class="tag">DEPTH VARIES WITH BMI &middot; US GUIDANCE ADVISED</span></div>
       <div class="card-b" data-card="dry-needling">
         <table class="t dense red">
           <thead><tr><th class="c">Rx</th><th>Muscle</th><th>Needle</th><th>Depth</th><th>Approach &amp; Neurovascular Safety</th></tr></thead>
@@ -1346,7 +1343,7 @@
       </div>
     </section>
     <section class="card" id="p7-iastm">
-      <div class="card-h"><span>Manual Release &amp; Cupping <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#cupping-parameters" title="Cupping Parameters & Safety"><span class="info-icon-badge">i</span></a></span></div>
+      <div class="card-h"><span>Manual Release &amp; Cupping <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#cupping-parameters" title="Cupping Parameters & Safety"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></span></div>
       <div class="card-b">
         <table class="t dense">
           <thead><tr><th class="c">Rx</th><th>Technique</th><th>Parameters</th><th>Evidence</th></tr></thead>
@@ -1413,7 +1410,7 @@
 
   <main class="pg-body">
     <section class="card" id="p7-continuum">
-      <div class="card-h"><span>Tendon Loading Continuum &mdash; Cook &amp; Purdam 4-Stage Model <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#tendon-loading-stages" title="Tendon Loading Continuum Stages"><span class="info-icon-badge">i</span></a> <a href="https://doi.org/10.1136/bjsm.2008.051193" class="guide-badge" data-modal="cook-purdam" target="_blank">&#128196; Continuum</a></span><span class="tag">TICK CURRENT STAGE</span></div>
+      <div class="card-h"><span>Tendon Loading Continuum &mdash; Cook &amp; Purdam 4-Stage Model <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#tendon-loading-stages" title="Tendon Loading Continuum Stages"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <a href="https://doi.org/10.1136/bjsm.2008.051193" class="guide-badge" data-modal="cook-purdam" target="_blank">&#128196; Continuum</a></span><span class="tag">TICK CURRENT STAGE</span></div>
       <div class="card-b">
         <table class="t dense">
           <thead><tr><th class="c">Now</th><th>Stage</th><th>Parameters</th><th>Progression Criteria</th></tr></thead>
@@ -1444,7 +1441,7 @@
     </section>
 
     <section class="card" id="p8-bfr">
-      <div class="card-h"><span>Blood Flow Restriction (BFR) Training <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#bfr-aop-calc" title="BFR 80% AOP Calculation & Safety"><span class="info-icon-badge">i</span></a> <a href="https://www.owensrecoveryscience.com/" class="guide-badge" data-modal="bfr" target="_blank">&#128196; Owens BFR Guide</a></span><span class="tag">AOP &middot; DOPPLER</span></div>
+      <div class="card-h"><span>Blood Flow Restriction (BFR) Training <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#bfr-aop-calc" title="BFR 80% AOP Calculation & Safety"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a> <a href="https://www.owensrecoveryscience.com/" class="guide-badge" data-modal="bfr" target="_blank">&#128196; Owens BFR Guide</a></span><span class="tag">AOP &middot; DOPPLER</span></div>
       <div class="card-b grid grid-cols-12 gap-x-3">
         <div class="col-span-7">
           <div class="ci"><span class="cb"></span><div><b>80% AOP Doppler calculation</b> (posterior tibial artery, supine, cuff on proximal thigh):<br>AOP <span class="fl m"></span> mmHg &times; 0.80 = <span class="fl m"></span> mmHg working pressure</div></div>
@@ -1471,7 +1468,7 @@
     </section>
 
     <section class="card green" id="p7-rts">
-      <div class="card-h"><span>Comprehensive Athletic RTS Testing Battery <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#rts-hop-battery" title="Athletic RTS Hop Battery Protocol"><span class="info-icon-badge">i</span></a></span><span class="tag">PASS: LSI &ge; 90&ndash;95%</span></div>
+      <div class="card-h"><span>Comprehensive Athletic RTS Testing Battery <a class="info-icon" href="https://Azhry-X.github.io/ankle-atlas#rts-hop-battery" title="Athletic RTS Hop Battery Protocol"><svg class="info-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><line x1="12" y1="16" x2="12" y2="11" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="7.5" r="1.3" fill="currentColor"/></svg></a></span><span class="tag">PASS: LSI &ge; 90&ndash;95%</span></div>
       <div class="card-b">
         <table class="t green">
           <thead><tr><th style="width:27%">Test</th><th style="width:31%">Pass Criterion</th><th class="c">Left</th><th class="c">Right</th><th class="c">LSI %</th><th class="c">Pass</th></tr></thead>
@@ -1493,7 +1490,7 @@
             <tr><td class="k">Pro-Agility 5-10-5 (s)</td><td>Males &lt; 4.4 s &middot; Females &lt; 4.7 s</td><td class="w" colspan="2"></td><td class="w"></td><td class="c"><span class="cb g"></span></td></tr>
             <tr><td class="k">5-0-5 Agility (s, turn L / R)</td><td>Asymmetry &lt; 0.1 s</td><td class="w"></td><td class="w"></td><td class="w"></td><td class="c"><span class="cb g"></span></td></tr>
             <tr><td colspan="6" class="b emer" style="background:#f0fdf4">Psychological Readiness</td></tr>
-            <tr><td class="k"><span class="clickable-test" data-modal="tsk-11">TSK-11</span> <a href="https://orthotoolkit.com/tampa-scale-11/" class="calc-badge" data-modal="tsk-11" target="_blank">&#129518; TSK-11 Calc</a> <span class="mut">or</span> <span class="clickable-test" data-modal="ankle-rsi">Ankle-RSI</span> <a href="https://orthotoolkit.com/" class="calc-badge" data-modal="ankle-rsi" target="_blank">&#129518; Ankle-RSI</a></td><td>TSK-11 (&le; 17) or Ankle-RSI (&ge; 75%)</td><td class="w" colspan="2"><span class="lr">TSK<span class="fl m"></span>RSI<span class="fl m"></span>%</span></td><td class="w"></td><td class="c"><span class="cb g"></span></td></tr>
+            <tr><td class="k"><span class="clickable-test" data-modal="tsk-11">TSK-11</span> <a href="https://Azhry-X.github.io/ankle-atlas#tsk-11" class="calc-badge" data-modal="tsk-11" target="_blank">&#129518; TSK-11 Calc</a> <span class="mut">or</span> <span class="clickable-test" data-modal="ankle-rsi">Ankle-RSI</span> <a href="https://orthotoolkit.com/" class="calc-badge" data-modal="ankle-rsi" target="_blank">&#129518; Ankle-RSI</a></td><td>TSK-11 (&le; 17) or Ankle-RSI (&ge; 75%)</td><td class="w" colspan="2"><span class="lr">TSK<span class="fl m"></span>RSI<span class="fl m"></span>%</span></td><td class="w"></td><td class="c"><span class="cb g"></span></td></tr>
           </tbody>
         </table>
         <div class="flex flex-wrap items-center mt-[2px]">

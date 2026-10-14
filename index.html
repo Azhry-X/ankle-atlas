@@ -463,7 +463,7 @@
         <div class="header-content">
             <div class="title-row">
                 <h1 class="app-title">Ankle &amp; Foot Complex — Test Atlas</h1>
-                <span class="stats-badge">79 Clinical Cards</span>
+                <span class="stats-badge">81 Clinical Cards</span>
             </div>
             <div class="controls-row">
                 <div class="search-box-wrap">
@@ -471,9 +471,9 @@
                     <input type="text" id="searchInput" class="search-input" placeholder="Search tests, criteria, metrics, or ID (e.g. thompson, windlass)..." oninput="filterCards()">
                 </div>
                 <div class="filters-wrap">
-                    <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">All (79)</button>
+                    <button class="filter-btn active" data-filter="all" onclick="setFilter('all', this)">All (81)</button>
                     <button class="filter-btn" data-filter="test" onclick="setFilter('test', this)">Tests (57)</button>
-                    <button class="filter-btn" data-filter="info" onclick="setFilter('info', this)">Info Cards (22)</button>
+                    <button class="filter-btn" data-filter="info" onclick="setFilter('info', this)">Info Cards (24)</button>
                     <button class="filter-btn" data-filter="p1" onclick="setFilter('p1', this)">P1 Triage</button>
                     <button class="filter-btn" data-filter="p2" onclick="setFilter('p2', this)">P2 Differential</button>
                     <button class="filter-btn" data-filter="p3" onclick="setFilter('p3', this)">P3 Biomechanics</button>
@@ -564,8 +564,13 @@
                     
             <div class="embedded-calc" id="budapest-calc">
                 <h4>🧮 Budapest Criteria CRPS Diagnostic Calculator</h4>
-                <p class="calc-sub">Must report continuing pain disproportionate to inciting event. Check all present:</p>
+                <p class="calc-sub">Must fulfill both mandatory gates, then ≥ 3/4 symptom categories and ≥ 2/4 sign categories:</p>
                 <form id="budapestForm" oninput="calculateBudapest()">
+                    <div class="crps-gates" style="background:rgba(239,68,68,0.08); border:1px solid #ef4444; border-radius:6px; padding:8px 12px; margin-bottom:12px;">
+                        <b style="color:#ef4444; font-size:12px;">Mandatory Diagnostic Pre-conditions (both must be present):</b>
+                        <label style="display:flex; align-items:flex-start; gap:8px; margin-top:6px; font-weight:600; font-size:12px; cursor:pointer;"><input type="checkbox" id="gate1"> Continuing pain disproportionate to any inciting event</label>
+                        <label style="display:flex; align-items:flex-start; gap:8px; margin-top:4px; font-weight:600; font-size:12px; cursor:pointer;"><input type="checkbox" id="gate2"> No other diagnosis better explains the signs and symptoms</label>
+                    </div>
                     <div class="crps-split">
                         <div class="crps-col">
                             <b>Reported Symptoms (need ≥ 3 of 4 categories):</b>
@@ -583,8 +588,8 @@
                         </div>
                     </div>
                     <div class="calc-result-box">
-                        <div class="calc-total">Categories Met: Symptoms <span id="sxCount" class="score-val">0</span>/4 | Signs <span id="sgCount" class="score-val">0</span>/4</div>
-                        <div class="calc-interp" id="crpsInterp">Result: CRPS Criteria NOT MET (requires ≥ 3/4 Sx and ≥ 2/4 Signs)</div>
+                        <div class="calc-total">Status: Mandatory Gates <span id="gateStatus" class="score-val" style="color:#ef4444;">INCOMPLETE</span> | Symptoms <span id="sxCount" class="score-val">0</span>/4 | Signs <span id="sgCount" class="score-val">0</span>/4</div>
+                        <div class="calc-interp" id="crpsInterp">Result: CRPS Criteria NOT MET (Mandatory Gates Missing, Symptoms 0/4, Signs 0/4)</div>
                     </div>
                 </form>
             </div>
@@ -659,7 +664,7 @@
                     <div class="section-block">
                         <div class="sec-label">Execution Steps</div>
                         <ol class="steps-list">
-                            <li>Screen for the 6 Ps: Pain out of proportion / on passive stretch, Paresthesia, Pallor, Paralysis, Pulselessness, Poikilothermia.</li><li>Note that pain on passive stretch is the earliest and most sensitive clinical sign.</li><li>Measure diastolic blood pressure (mmHg).</li><li>Measure direct intracompartmental pressure using needle manometry.</li><li>Calculate ΔP = Diastolic BP − Compartment Pressure.</li>
+                            <li>Screen for the 6 Ps: Pain out of proportion / on passive stretch, Paresthesia, Pallor, Paralysis, Pulselessness, Poikilothermia.</li><li>Note that pain on passive stretch is the earliest and most sensitive clinical sign.</li><li>Measure diastolic blood pressure (mmHg).</li><li>Measure direct intracompartmental pressure using needle manometry.</li><li>Calculate ΔP = Diastolic BP − Compartment Pressure.</li><li>Pressure measurement is a medical procedure. PT role: recognise and refer immediately.</li>
                         </ol>
                     </div>
 
@@ -1324,7 +1329,7 @@
                     <div class="section-block">
                         <div class="sec-label">Execution Steps</div>
                         <ol class="steps-list">
-                            <li>Patient seated or supine with knee flexed 90° and ankle relaxed.</li><li>Place thumb over the anterolateral gutter of the ankle joint line.</li><li>Apply firm pressure into the gutter with the ankle in plantarflexion.</li><li>While maintaining firm thumb pressure, passively force the ankle into full dorsiflexion and eversion.</li><li>Observe for pain reproduction or mechanical block.</li>
+                            <li>Patient seated or supine with knee flexed 90° and ankle relaxed.</li><li>Place thumb over the anterolateral gutter of the ankle joint line.</li><li>Apply firm pressure into the gutter with the ankle in plantarflexion.</li><li>While maintaining firm thumb pressure, passively force the ankle into full maximal dorsiflexion.</li><li>Observe for pain reproduction or mechanical block.</li>
                         </ol>
                     </div>
 
@@ -2135,14 +2140,14 @@
                     
             <div class="embedded-calc" id="fpi-6-calc">
                 <h4>🧮 Interactive Foot Posture Index (FPI-6) Calculator</h4>
-                <p class="calc-sub">Score each item from -2 to +2 based on clinical observation:</p>
+                <p class="calc-sub">Score each item from -2 to +2 based on clinical observation (Redmond 2005):</p>
                 <form id="fpiForm" oninput="calculateFPI()">
                     <div class="calc-grid">
                         <div class="calc-item"><label>1. Talar head palpation</label>
                             <select id="fpi1"><option value="-2">-2 (Talar head palpable on lateral side only)</option><option value="-1">-1</option><option value="0" selected>0 (Equally palpable on both sides)</option><option value="1">+1</option><option value="2">+2 (Palpable on medial side only)</option></select>
                         </div>
                         <div class="calc-item"><label>2. Supra/infra lateral malleolar curves</label>
-                            <select id="fpi2"><option value="-2">-2 (Infra-malleolar curve markedly concave)</option><option value="-1">-1</option><option value="0" selected>0 (Both curves roughly equal)</option><option value="1">+1</option><option value="2">+2 (Infra-malleolar curve flat or convex)</option></select>
+                            <select id="fpi2"><option value="-2">-2 (Curve below malleolus straight or convex)</option><option value="-1">-1 (Curve below malleolus concave, but less than curve above)</option><option value="0" selected>0 (Both curves roughly equal)</option><option value="1">+1 (Curve below malleolus more concave than curve above)</option><option value="2">+2 (Curve below malleolus markedly more concave than curve above)</option></select>
                         </div>
                         <div class="calc-item"><label>3. Calcaneal frontal plane inversion/eversion</label>
                             <select id="fpi3"><option value="-2">-2 (More than 5° inverted / varus)</option><option value="-1">-1</option><option value="0" selected>0 (Vertical / neutral)</option><option value="1">+1</option><option value="2">+2 (More than 5° everted / valgus)</option></select>
@@ -2206,35 +2211,9 @@
                     </div>
 
                     
-            <div class="embedded-calc" id="fpi-6-calc">
-                <h4>🧮 Interactive Foot Posture Index (FPI-6) Calculator</h4>
-                <p class="calc-sub">Score each item from -2 to +2 based on clinical observation:</p>
-                <form id="fpiForm" oninput="calculateFPI()">
-                    <div class="calc-grid">
-                        <div class="calc-item"><label>1. Talar head palpation</label>
-                            <select id="fpi1"><option value="-2">-2 (Talar head palpable on lateral side only)</option><option value="-1">-1</option><option value="0" selected>0 (Equally palpable on both sides)</option><option value="1">+1</option><option value="2">+2 (Palpable on medial side only)</option></select>
-                        </div>
-                        <div class="calc-item"><label>2. Supra/infra lateral malleolar curves</label>
-                            <select id="fpi2"><option value="-2">-2 (Infra-malleolar curve markedly concave)</option><option value="-1">-1</option><option value="0" selected>0 (Both curves roughly equal)</option><option value="1">+1</option><option value="2">+2 (Infra-malleolar curve flat or convex)</option></select>
-                        </div>
-                        <div class="calc-item"><label>3. Calcaneal frontal plane inversion/eversion</label>
-                            <select id="fpi3"><option value="-2">-2 (More than 5° inverted / varus)</option><option value="-1">-1</option><option value="0" selected>0 (Vertical / neutral)</option><option value="1">+1</option><option value="2">+2 (More than 5° everted / valgus)</option></select>
-                        </div>
-                        <div class="calc-item"><label>4. Talonavicular joint prominence</label>
-                            <select id="fpi4"><option value="-2">-2 (Area markedly concave)</option><option value="-1">-1</option><option value="0" selected>0 (Area flat)</option><option value="1">+1</option><option value="2">+2 (Area bulging / convex)</option></select>
-                        </div>
-                        <div class="calc-item"><label>5. Medial longitudinal arch height</label>
-                            <select id="fpi5"><option value="-2">-2 (Arch high and acutely angled)</option><option value="-1">-1</option><option value="0" selected>0 (Arch normal)</option><option value="1">+1</option><option value="2">+2 (Arch flat / resting on ground)</option></select>
-                        </div>
-                        <div class="calc-item"><label>6. Forefoot abduction/adduction</label>
-                            <select id="fpi6"><option value="-2">-2 (No lateral toes visible; medial toes seen)</option><option value="-1">-1</option><option value="0" selected>0 (Medial and lateral toes equal)</option><option value="1">+1</option><option value="2">+2 (Lateral toes clearly visible / abducted)</option></select>
-                        </div>
-                    </div>
-                    <div class="calc-result-box">
-                        <div class="calc-total">Total FPI-6 Score: <span id="fpiTotal" class="score-val">0</span> / 12</div>
-                        <div class="calc-interp" id="fpiInterp">Interpretation: Neutral (0 to +5)</div>
-                    </div>
-                </form>
+            <div class="calc-link-box" style="margin-top:12px; padding:10px 14px; background:rgba(59,130,246,0.08); border:1px solid #3b82f6; border-radius:8px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+                <span style="font-size:13px; font-weight:600; color:#93c5fd;">Single source of truth interactive calculator hosted in protocol card:</span>
+                <a class="btn-calc" href="#fpi-6-info" onclick="expandCard('fpi-6-info')" style="display:inline-flex; align-items:center; gap:6px; padding:6px 14px; background:#2563eb; border-radius:6px; color:#fff; font-weight:700; text-decoration:none; font-size:12px;">🧮 Open Interactive FPI-6 Calculator (#fpi-6-info)</a>
             </div>
                     <div class="no-video-banner"><span>ℹ️ Video pending clinical verification (unverified URLs excluded)</span></div>
 
@@ -2356,7 +2335,7 @@
 
                     <div class="section-block positive-block">
                         <div class="sec-label">Positive Criterion</div>
-                        <div class="positive-text">Identifies dynamic arch collapse and excessive sagittal plane pronation.</div>
+                        <div class="positive-text">Identifies dynamic arch collapse and excessive midfoot pronation (triplanar).</div>
                     </div>
 
                     <div class="section-block metrics-block">
@@ -2699,6 +2678,49 @@
                 </div>
             </div>
         </article>
+        <article class="atlas-card" id="achilles-midportion-cluster" data-page="4" data-type="info" data-status="draft" style="--card-border: #4f46e5; --card-bg: #eef2ff;">
+            <header class="card-header" onclick="toggleCard('achilles-midportion-cluster')">
+                <div class="card-meta">
+                    <span class="page-badge" style="background:#4338ca">P4</span>
+                    <span class="type-badge info">INFO</span>
+                    <span class='status-tag draft'>DRAFT</span>
+                </div>
+                <h3 class="card-title">Achilles Midportion Diagnostic Cluster</h3>
+                <div class="card-chevron">▼</div>
+            </header>
+            <div class="card-body">
+                <div class="card-inner">
+                    <div class="section-block">
+                        <div class="sec-label">Execution Steps</div>
+                        <ol class="steps-list">
+                            <li>Patient positioned prone with feet relaxed hanging over the examination table.</li><li>Palpate midportion of Achilles tendon (2–6 cm proximal to calcaneal insertion) for focal thickening or tender nodule.</li><li>Perform Royal London Hospital Test: observe if focal tenderness significantly decreases during full active/passive dorsiflexion.</li><li>Perform Arc Sign Test: observe whether tender swelling translates in an arc with active plantarflexion/dorsiflexion.</li><li>Confirm cluster criteria: palpable thickening, localized pain, and positive Royal London or Arc sign.</li>
+                        </ol>
+                    </div>
+
+                    <div class="section-block positive-block">
+                        <div class="sec-label">Positive Criterion</div>
+                        <div class="positive-text">Presence of palpable tendon thickening plus either (+) Royal London Hospital test or (+) Arc sign.</div>
+                    </div>
+
+                    <div class="section-block metrics-block">
+                        <div class="sec-label">Diagnostic Metrics &amp; Evidence</div>
+                        <div class="metrics-text">Sn 84% Sp 83% +LR 4.94 [M*] −LR 0.19</div>
+                    </div>
+
+                    
+                    
+
+                    <div class="section-block sources-block">
+                        <div class="sec-label">Validated References</div>
+                        <div class="sources-text"><span class='source-tag'>Maffulli N et al. (2003)</span> · <span class='source-tag'>van Dijk CN et al. (2011)</span></div>
+                    </div>
+
+                    <div class="card-footer-action">
+                        <a href="#achilles-midportion-cluster" class="anchor-link" onclick="copyCardLink('achilles-midportion-cluster', event)">🔗 Copy Anchor Link (#achilles-midportion-cluster)</a>
+                    </div>
+                </div>
+            </div>
+        </article>
         <article class="atlas-card" id="anterior-drawer-test" data-page="4" data-type="test" data-status="draft" style="--card-border: #4f46e5; --card-bg: #eef2ff;">
             <header class="card-header" onclick="toggleCard('anterior-drawer-test')">
                 <div class="card-meta">
@@ -2725,7 +2747,7 @@
 
                     <div class="section-block metrics-block">
                         <div class="sec-label">Diagnostic Metrics &amp; Evidence</div>
-                        <div class="metrics-text">Anterior Drawer (+) at day 4–5: Sn 100% Sp 77% +LR 4.35 −LR ≈ 0.00 [M*]</div>
+                        <div class="metrics-text">Component of Van Dijk Cluster. Cluster-level accuracy only — see #van-dijk-cluster. No standalone accuracy figure quoted.</div>
                     </div>
 
                     
@@ -2821,7 +2843,7 @@
 
                     <div class="section-block metrics-block">
                         <div class="sec-label">Diagnostic Metrics &amp; Evidence</div>
-                        <div class="metrics-text">(+) Arc sign: Sn 84% Sp 83% +LR 4.94 [M*] −LR 0.19</div>
+                        <div class="metrics-text">Component of Achilles Midportion Cluster. Cluster-level accuracy only — see #achilles-midportion-cluster. No standalone accuracy figure quoted.</div>
                     </div>
 
                     
@@ -2960,7 +2982,7 @@
 
                     <div class="section-block metrics-block">
                         <div class="sec-label">Diagnostic Metrics &amp; Evidence</div>
-                        <div class="metrics-text">DF-External Rotation (Kleiger) (+): Sp 96% OR 13.8 [L*]</div>
+                        <div class="metrics-text">Component of Sman Syndesmosis Cluster. Cluster-level accuracy only — see #syndesmosis-cluster. No standalone accuracy figure quoted.</div>
                     </div>
 
                     
@@ -3248,7 +3270,7 @@
 
                     <div class="section-block metrics-block">
                         <div class="sec-label">Diagnostic Metrics &amp; Evidence</div>
-                        <div class="metrics-text">(+) Royal London Hospital or (+) Arc sign: Sn 84% Sp 83% +LR 4.94 [M*] −LR 0.19</div>
+                        <div class="metrics-text">Component of Achilles Midportion Cluster. Cluster-level accuracy only — see #achilles-midportion-cluster. No standalone accuracy figure quoted.</div>
                     </div>
 
                     
@@ -3382,12 +3404,12 @@
 
                     <div class="section-block positive-block">
                         <div class="sec-label">Positive Criterion</div>
-                        <div class="positive-text">Compression at mid-calf reproduces distal syndesmotic pain at the anterior inferior tibiofibular joint.</div>
+                        <div class="positive-text">Compression at mid-calf reproduces distal syndesmotic pain at the anterior inferior tibiofibular joint. (Note: Low sensitivity — a negative squeeze does NOT exclude syndesmotic injury).</div>
                     </div>
 
                     <div class="section-block metrics-block">
                         <div class="sec-label">Diagnostic Metrics &amp; Evidence</div>
-                        <div class="metrics-text">Squeeze test (Hopkins) (+): High specificity for high ankle sprain</div>
+                        <div class="metrics-text">Squeeze test (Hopkins) (+): High specificity for high ankle sprain · Low sensitivity — a negative squeeze does NOT exclude syndesmotic injury.</div>
                     </div>
 
                     
@@ -3879,7 +3901,7 @@
                     <div class="section-block">
                         <div class="sec-label">Execution Steps</div>
                         <ol class="steps-list">
-                            <li>Dry cupping — static: light to moderate negative pressure suction, 5–10 minutes duration [L].</li><li>Dynamic (sliding) cupping: apply skin lubricant; light suction; slide cup along fiber direction for 3–5 minutes [L].</li><li>Cupping with active movement: cup maintained in place while patient performs active joint ROM through 2–3 minutes [L].</li><li>Wet cupping (Hhijamah): skin-breaching technique requiring single-use sterile disposable equipment and bloodborne-pathogen precautions; confirm local legal scope of practice and licensure [L].</li><li>Absolute contraindications: anticoagulants/bleeding disorders, fragile skin, over active DVT or varicosities, open lesions, diabetic/neuropathic foot, active malignancy, pregnancy.</li>
+                            <li>Dry cupping — static: light to moderate negative pressure suction, 5–10 minutes duration [L].</li><li>Dynamic (sliding) cupping: apply skin lubricant; light suction; slide cup along fiber direction for 3–5 minutes [L].</li><li>Cupping with active movement: cup maintained in place while patient performs active joint ROM through 2–3 minutes [L].</li><li>Wet cupping (Hijamah): skin-breaching technique requiring single-use sterile disposable equipment and bloodborne-pathogen precautions; confirm local legal scope of practice and licensure [L].</li><li>Absolute contraindications: anticoagulants/bleeding disorders, fragile skin, over active DVT or varicosities, open lesions, diabetic/neuropathic foot, active malignancy, pregnancy.</li>
                         </ol>
                     </div>
 
@@ -4122,6 +4144,62 @@
                 </div>
             </div>
         </article>
+        <article class="atlas-card" id="tsk-11" data-page="8" data-type="info" data-status="draft" style="--card-border: #059669; --card-bg: #ecfdf5;">
+            <header class="card-header" onclick="toggleCard('tsk-11')">
+                <div class="card-meta">
+                    <span class="page-badge" style="background:#047857">P8</span>
+                    <span class="type-badge info">INFO</span>
+                    <span class='status-tag draft'>DRAFT</span>
+                </div>
+                <h3 class="card-title">Tampa Scale of Kinesiophobia (TSK-11)</h3>
+                <div class="card-chevron">▼</div>
+            </header>
+            <div class="card-body">
+                <div class="card-inner">
+                    <div class="section-block">
+                        <div class="sec-label">Execution Steps</div>
+                        <ol class="steps-list">
+                            <li>Screen for movement-related fear, pain catastrophizing, and somatic focus in persistent tendon/joint disorders.</li><li>Administer 11 validated items scored on a 4-point Likert scale (1 = Strongly Disagree to 4 = Strongly Agree).</li><li>Calculate total aggregate score across all 11 items (theoretical range: 11 to 44).</li><li>Evaluate score against validated clinical cutoffs: scores > 17 indicate elevated kinesiophobia requiring cognitive reassurance, pain neurophysiology education, and graded exposure loading.</li>
+                        </ol>
+                    </div>
+
+                    <div class="section-block positive-block">
+                        <div class="sec-label">Positive Criterion</div>
+                        <div class="positive-text">Total score > 17 indicates elevated kinesiophobia / psychological guarding.</div>
+                    </div>
+
+                    <div class="section-block metrics-block">
+                        <div class="sec-label">Diagnostic Metrics &amp; Evidence</div>
+                        <div class="metrics-text">TSK-11 Total (11–44): ≤ 17 Low Fear / Cleared · > 17 High Kinesiophobia [M]</div>
+                    </div>
+
+                    
+            <div class="embedded-calc" id="tsk-11-calc">
+                <h4>🧮 Tampa Scale of Kinesiophobia (TSK-11) Minimal Calculator</h4>
+                <p class="calc-sub">Score each item from 1 (Strongly Disagree) to 4 (Strongly Agree) — numeric item entry only:</p>
+                <form id="tskForm" oninput="calculateTSK()">
+                    <div class="calc-grid-compact" id="tskGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="calc-result-box">
+                        <div class="calc-total">TSK-11 Total Score: <span id="tskTotal" class="score-val">11</span> / 44</div>
+                        <div class="calc-interp" id="tskInterp">Interpretation: Low Fear / Kinesiophobia Cleared (≤ 17)</div>
+                    </div>
+                </form>
+            </div>
+                    
+
+                    <div class="section-block sources-block">
+                        <div class="sec-label">Validated References</div>
+                        <div class="sources-text"><span class='source-tag'>Woby SR et al. (2005)</span> · <span class='source-tag'>Roelofs J et al. (2007)</span> · <span class='source-tag'>George SZ et al. (2008)</span></div>
+                    </div>
+
+                    <div class="card-footer-action">
+                        <a href="#tsk-11" class="anchor-link" onclick="copyCardLink('tsk-11', event)">🔗 Copy Anchor Link (#tsk-11)</a>
+                    </div>
+                </div>
+            </div>
+        </article>
     </main>
 
     <div id="toast">Anchor link copied to clipboard!</div>
@@ -4245,16 +4323,33 @@
 
         // Budapest CRPS Calculator Logic
         function calculateBudapest() {
+            const g1 = document.getElementById('gate1') ? document.getElementById('gate1').checked : false;
+            const g2 = document.getElementById('gate2') ? document.getElementById('gate2').checked : false;
+            const gateStatus = document.getElementById('gateStatus');
+            if (gateStatus) {
+                if (g1 && g2) {
+                    gateStatus.textContent = 'PASSED (2/2)';
+                    gateStatus.style.color = '#10b981';
+                } else {
+                    gateStatus.textContent = 'INCOMPLETE (' + ((g1?1:0)+(g2?1:0)) + '/2)';
+                    gateStatus.style.color = '#ef4444';
+                }
+            }
+
             let sx = (document.getElementById('sx1').checked?1:0) + (document.getElementById('sx2').checked?1:0) + (document.getElementById('sx3').checked?1:0) + (document.getElementById('sx4').checked?1:0);
             let sg = (document.getElementById('sg1').checked?1:0) + (document.getElementById('sg2').checked?1:0) + (document.getElementById('sg3').checked?1:0) + (document.getElementById('sg4').checked?1:0);
             document.getElementById('sxCount').textContent = sx;
             document.getElementById('sgCount').textContent = sg;
             const interp = document.getElementById('crpsInterp');
-            if (sx >= 3 && sg >= 2) {
-                interp.textContent = 'Result: Budapest Clinical Criteria MET (≥ 3/4 Symptoms AND ≥ 2/4 Signs)';
+            if (g1 && g2 && sx >= 3 && sg >= 2) {
+                interp.textContent = 'Result: Budapest Clinical Criteria MET (Mandatory Gates Passed, Symptoms ≥ 3/4, Signs ≥ 2/4)';
                 interp.style.color = '#ef4444';
             } else {
-                interp.textContent = 'Result: CRPS Criteria NOT MET (requires ≥ 3/4 Sx and ≥ 2/4 Signs)';
+                let reasons = [];
+                if (!g1 || !g2) reasons.push('Mandatory Gates Incomplete');
+                if (sx < 3) reasons.push('Symptoms ' + sx + '/4 (need ≥3)');
+                if (sg < 2) reasons.push('Signs ' + sg + '/4 (need ≥2)');
+                interp.textContent = 'Result: CRPS Criteria NOT MET (' + reasons.join(', ') + ')';
                 interp.style.color = '#10b981';
             }
         }
