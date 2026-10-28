@@ -1,8 +1,6 @@
-# Temporary files
-dom.html
-err.txt
-err2.txt
-measure.html
-*.log
+node_modules/
+build/
+preview/
 __pycache__/
-.DS_Store
+*.pyc
+*.log

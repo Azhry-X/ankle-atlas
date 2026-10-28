@@ -1,87 +1,66 @@
-# Ankle & Foot Complex — Master Clinical Dossier & Companion Test Atlas
+# Ankle & Foot — Master Clinical Dossier & Companion Test Atlas
 
-[![Atlas Live Web App](https://img.shields.io/badge/Live%20Atlas-GitHub%20Pages-blue?style=for-the-badge&logo=github)](https://Azhry-X.github.io/ankle-atlas)
-[![Clinical Entries](https://img.shields.io/badge/Clinical%20Entries-79%20Total-emerald?style=for-the-badge)](https://Azhry-X.github.io/ankle-atlas)
-[![Validation](https://img.shields.io/badge/Links%20Audit-295%20Verified%20(100%25)-green?style=for-the-badge)](./tools/check_links.py)
-[![PDF Dossier](https://img.shields.io/badge/Golden%20Dossier-9%20Pages%20A4-red?style=for-the-badge)](./master_ankle_dossier_GOLDEN.pdf)
+**Live Atlas:** https://azhry-x.github.io/ankle-atlas/  
+**Dossier PDF:** [`master_ankle_dossier.pdf`](./master_ankle_dossier.pdf) — 9 pages, A4 portrait, built for Apple Pencil in Notability / GoodNotes.
 
-> **Live Test Atlas Web App:** [https://Azhry-X.github.io/ankle-atlas](https://Azhry-X.github.io/ankle-atlas)  
-> **Master Dossier PDF:** [`master_ankle_dossier_GOLDEN.pdf`](./master_ankle_dossier_GOLDEN.pdf)
+Sister projects:
+- [Knee Complex dossier + atlas](https://github.com/Azhry-X/knee-atlas) — same design system, same page architecture.
+- [Lumbar Spine dossier + atlas](https://github.com/Azhry-X/lumbar-atlas) — same design system, same page architecture.
+- [Shoulder Complex dossier + atlas](https://github.com/Azhry-X/shoulder-atlas) — same design system, same page architecture.
+- [Cervical Spine dossier + atlas](https://github.com/Azhry-X/cervical-atlas) — same design system, same page architecture.
+- [Elbow dossier + atlas](https://github.com/Azhry-X/elbow-atlas) — same design system, same page architecture.
 
----
+## What is in the dossier
+| Page | Content | Accent |
+|---|---|---|
+| 1 | Triage & red flags (Ottawa ankle & foot rules — Bachmann 2003, Dowling 2009; Achilles rupture — Maffulli 1998 → same-day referral; compartment syndrome — Ulmer 2002; DVT, septic joint, Lisfranc, neuropathic / Charcot foot, infection, ischaemic foot; vitals strip; medication & safety strip — van der Linden 2003, Wise 2012, Kearns 2019, Houghton 2010), pathway router, subjective, body chart | red |
+| 2 | Differential diagnosis matrix (lateral sprain, syndesmosis sprain, CAI, midportion vs insertional Achilles tendinopathy, Achilles rupture, plantar heel pain, Morton's neuroma, tarsal tunnel, tibialis posterior dysfunction, Sever's, navicular / 5th MT stress fracture, osteochondral lesion — Luca 2025, Lisfranc, anterolateral impingement), Doherty 2014 / 2016, Sman 2015, Baltes 2022, Molloy 2003, Hutchison 2013, De Garceau 2003, Mahadevan 2015 | blue |
+| 3 | Objective examination: weight-bearing lunge test (Bennell 1998), Foot Posture Index (Redmond 2008 / Rokkedal-Lausch 2013), single-leg heel-rise (Hébert-Losier 2017), JOSPT LAS CPG impairment measures (Martin 2021), ROM write-in table, HHD strength & torque / LSI write-in table | blue |
+| 4 | Special tests & PROMs: lateral ligament (van Dijk 1996, JOSPT LAS CPG diagnosis quotes), syndesmosis (squeeze, external-rotation stress, fibular translation), Achilles (arc sign, Royal London, JOSPT Achilles CPG diagnosis quote), plantar fascia (windlass), forefoot / midfoot (Mulder's click, navicular drop, Lisfranc), PROM dashboard (FAAM — Martin 2005, CAIT — Hiller 2006 / Wright 2014, VISA-A — Robinson 2001, LEFS — Binkley 1999, ATRS — Nilsson-Helander 2007, CPG outcome-measure quotes) | blue |
+| 5 | Post-surgical & progression criteria: surgeon-directed restrictions banner, Achilles rupture operative vs non-operative (Ochen 2019, Willits 2010, Xu 2025), lateral ligament repair (Coetzee 2018, Cho 2025), osteochondral lesion (Luca 2025), criteria to progress checklist, wound / neurovascular / boot-complaint re-check, operative log | purple |
+| 6 | EPAs, injections & orthoses: shockwave & injections (Aqil 2013, Sun 2017, Rompe 2007, Whittaker 2019), JOSPT CPG quotes (LAS 2021, Achilles 2018, heel 2023), blood flow restriction (Patterson 2019, Lorenz 2021 — Cuff on the PROXIMAL THIGH only), contraindications (Houghton 2010), parameter log | orange |
+| 7 | Manual therapy & needling: Weerasekara 2018, LAS CPG manual therapy, heel CPG manual therapy / stretching / taping, dry needling (Cotchett 2014, LAS CPG, heel CPG), needling safety box (Brady 2014, Boyce 2020, Halle 2016, Kearns 2019), informed consent & log | teal |
+| 8 | Exercise & return to sport: loading (Alfredson 1998, Beyer 2015, Rathleff 2015, Achilles CPG), LAS CPG exercise & prevention, pain traffic light (Silbernagel 2007, Sprague 2021, Cavaggion 2024), Avoid / Modify / OK activity box, PAASS return to sport (Smith 2021) + LSI write-in, 12-week loading log | green |
+| 9 | 12-visit flowsheet with patient signature column, Session 6 checkpoint box, discharge milestones & summary | slate |
 
-## Overview
+Every statistic carries an evidence marker: **H** high · **M** moderate · **L** low · **E** expert opinion.
+Underlined test names open the matching Atlas card; **▸** marks cards with a verified video.
 
-This repository hosts the **Ankle & Foot Complex Companion Clinical Test Atlas** and the **9-Page Master Clinical Assessment & Rehabilitation Dossier**.
-
-The ecosystem is engineered with a strict **single-source-of-truth architecture**:
-- **`atlas/data/tests.yaml`**: Definitive structured clinical database containing all 79 clinical cards (57 special tests + 22 protocol/info cards) with exact statistical diagnostic metrics ($Sn$, $Sp$, $+LR$, $-LR$, $MCID$), conservative multi-step execution procedures, positive criteria, and verified reference citations.
-- **`index.html` (`/atlas/index.html`)**: Mobile-first, responsive single-page web application featuring:
-  - Deep-linkable anchors (`#<id>`) for direct navigation from the dossier PDF.
-  - Interactive clinical calculators: **FPI-6** (Foot Posture Index, $-12$ to $+12$), **TSK-11** (Tampa Scale of Kinesiophobia, $11$ to $44$), and **Budapest Clinical Criteria for CRPS**.
-  - Verified video embeds and clinical reference DOIs.
-  - Live fuzzy search across card titles, IDs, and descriptions.
-- **`master_ankle_dossier.html`**: Precision-engineered 9-page A4 clinical dossier with zero text collisions, bundled fonts, interactive multi-segment routers, and subtle clinical deep links to the Atlas.
-
----
-
-## Repository Structure
-
+## Repository layout
 ```
-├── index.html                     # Live companion web app (GitHub Pages entry point)
-├── .nojekyll                      # Prevents Jekyll processing on GitHub Pages
-├── master_ankle_dossier_GOLDEN.pdf# Golden compiled 9-page A4 clinical dossier PDF
-├── master_ankle_dossier.html      # Dossier source HTML (strictly 9 pages A4 portrait)
-├── compile.ps1                    # Automated compilation script (Chrome Headless print)
-├── validate.ps1                   # Automated validation suite
-├── atlas/
-│   ├── index.html                 # Atlas web app (mirror)
-│   ├── config.py                  # Atlas URL and GitHub configuration
-│   ├── build_atlas.py             # Build script generating index.html from tests.yaml
-│   ├── data/
-│   │   └── tests.yaml             # Single source of truth (79 clinical entries)
-│   ├── MISSING_VIDEOS.md          # Catalog of cards pending verified clinical video
-│   └── MISSING_LINKS.md           # External link audit and resolution inventory
-├── fonts/                         # Embedded offline typography (Inter, Source Sans 3)
-└── tools/
-    ├── check_dossier.py           # Geometry, bounding box, page-count, and string verifier
-    ├── check_cards.py             # Visual card overflow and boundary inspector
-    └── check_links.py             # Comprehensive 295-link automated audit suite
+index.html                       Atlas (GitHub Pages entry point) — generated
+master_ankle_dossier.html        Dossier (generated, self-contained CSS)
+master_ankle_dossier.pdf         Dossier PDF (generated)
+src/pages/p1.html … p9.html      Dossier page bodies  ← edit content here
+src/dossier.css                  Design system
+atlas/data/tests.yaml            Atlas cards: steps, criteria, accuracy, evidence, videos, calculators  ← single source of truth
+atlas/build_atlas.py             Builds index.html from tests.yaml (page badges/filters = every dossier page that links the card)
+atlas/config.py                  Atlas base URL
+tools/build_dossier.py           Assembles HTML → PDF → runs every check
+tools/render_and_check.py        Page count, overflow, overlap, fonts, required safety strings, previews
+tools/check_links.py             Verifies every PDF link, Atlas anchor, card source (DOIs via the DOI registry) and video
+tools/required_strings.txt       Safety-critical text that must never disappear
+fonts/                           Source Sans 3 (OFL)
 ```
 
----
-
-## Live Features & Calculators
-
-1. **Foot Posture Index (FPI-6):**
-   - Direct interactive scoring ($-2$ to $+2$ across 6 criteria) producing aggregate scores from $-12$ to $+12$ with dynamic clinical interpretation.
-   - Anchor: [`#fpi-6-info`](https://Azhry-X.github.io/ankle-atlas#fpi-6-info)
-
-2. **Tampa Scale of Kinesiophobia (TSK-11):**
-   - 11-item self-report questionnaire scoring 11 to 44 with clinical threshold evaluation ($>17$ high guarding).
-   - Anchor: [`#tsk-11`](https://Azhry-X.github.io/ankle-atlas#tsk-11)
-
-3. **Budapest Clinical Diagnostic Criteria for CRPS:**
-   - Interactive sign/symptom matrix validating clinical diagnosis requirement ($\ge 3/4$ symptoms and $\ge 2/4$ signs).
-   - Anchor: [`#budapest-crps`](https://Azhry-X.github.io/ankle-atlas#budapest-crps)
-
----
-
-## Build & Validation
-
-To rebuild the Atlas web application from `tests.yaml`:
+## Rebuild after an edit
+One-time setup (Python 3.10+ and Node.js):
 ```bash
-python atlas/build_atlas.py
+pip install -r requirements.txt
+python -m playwright install chromium
+npm install
 ```
-
-To run the complete link and dossier verification test suite:
+Windows, one command (stops at the first failure):
+```powershell
+powershell -ExecutionPolicy Bypass -File build.ps1            # Atlas + PDF + all checks + link audit
+powershell -ExecutionPolicy Bypass -File build.ps1 -SkipLinks # same, without the network link audit
+```
+Or step by step on any OS:
 ```bash
-python tools/check_links.py
-python tools/check_dossier.py
+python atlas/build_atlas.py                # Atlas
+python tools/build_dossier.py              # Dossier PDF + all checks (exit 1 on any problem)
+python tools/check_links.py                # links (add --live after the site is published)
 ```
 
----
-
-## License & Attribution
-
-Designed and maintained for clinical and academic reference in physical therapy, orthopedics, and sports medicine.
+## Status
+Draft cards under clinical review with open-access citations and video demonstrations.

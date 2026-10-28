@@ -1,1807 +1,2023 @@
-- id: lisfranc
-  type: test
-  title: Lisfranc Tarsometatarsal Joint Assessment
+- id: ottawa-exclusions
+  title: Ottawa Ankle & Foot Rules (Bachmann 2003, Dowling 2009)
   page: 1
-  steps:
-  - Inspect plantar midfoot for hallmark ecchymosis ('bruise sign').
-  - Stabilize hindfoot with one hand, grasp metatarsal head with opposite hand.
-  - Apply alternating dorsal and plantar passive stress (piano-key test).
-  - Palpate 1st–2nd metatarsal base interspace for diastasis and focal tenderness.
-  - Perform passive pronation-abduction stress across the midfoot.
-  positive: Severe focal midfoot pain, palpable diastasis, or gross instability on
-    piano-key testing.
-  metrics: High-Risk Fracture Checklist [L*] — Plantar ecchymosis · Piano-key · 1st–2nd
-    MT diastasis
-  video_url: https://youtu.be/0ugLq8Ns5VU
-  image: null
-  sources:
-  - Physiotutors
-  - Englanoff et al. (1995)
-  - Myerson et al. (1986)
+  type: info
   review_status: draft
+  evidence: H
+  summary: Clinical decision rules to exclude ankle and midfoot fractures without radiography in adults and children.
+  steps:
+  - Palpate the posterior edge or tip of the lateral malleolus (distal 6 cm) for bone tenderness.
+  - Palpate the posterior edge or tip of the medial malleolus (distal 6 cm) for bone tenderness.
+  - Palpate the base of the 5th metatarsal and the navicular bone for midfoot bone tenderness.
+  - Assess inability to bear weight four steps both immediately after injury and in the examination room.
+  positive: X-ray is indicated if there is bone tenderness at any malleolar or midfoot zone landmark or inability to bear
+    weight four steps.
+  interpretation: 'Bachmann 2003 (SR, 27 studies): LR− 0.08 (0.03–0.18) ankle and 0.08 (0.03–0.20) mid-foot; children 0.07;
+    < 1.4% probability of fracture at 15% prevalence; radiographs reduced by 30–40%. Dowling 2009 (children SR): pooled sensitivity
+    98.5% (97.3–99.2); x-ray reduction 24.8%.'
+  metrics: 'Bachmann 2003 (SR, 27 studies): LR− 0.08 (0.03–0.18) ankle and 0.08 (0.03–0.20) mid-foot; children 0.07; < 1.4%
+    probability of fracture at 15% prevalence; radiographs reduced by 30–40% · Dowling 2009 (children SR): pooled sensitivity
+    98.5% (97.3–99.2); x-ray reduction 24.8%'
+  calculator:
+    kind: formula
+    decimals: 0
+    value_label: Ottawa ankle & foot rule criteria positive
+    expr: c1 + c2 + c3 + c4 + c5
+    inputs:
+    - heading: Ottawa Ankle & Foot Rule (tick any positive finding)
+    - key: c1
+      label: 1. Bone tenderness at posterior edge or tip of lateral malleolus (distal 6 cm)
+      type: check
+    - key: c2
+      label: 2. Bone tenderness at posterior edge or tip of medial malleolus (distal 6 cm)
+      type: check
+    - key: c3
+      label: 3. Bone tenderness at base of 5th MT
+      type: check
+    - key: c4
+      label: 4. Bone tenderness at navicular
+      type: check
+    - key: c5
+      label: 5. Unable to bear weight four steps (immediately and at assessment)
+      type: check
+    outputs:
+    - when: v > 0
+      text: 'X-ray indicated ({v|0} positive) · Bachmann 2003: LR− 0.08 (0.03–0.18) ankle and 0.08 (0.03–0.20) mid-foot; children
+        0.07'
+      tone: bad
+    - when: v === 0
+      text: 'X-ray not indicated · Bachmann 2003: LR− 0.08 (0.03–0.18) ankle and 0.08 (0.03–0.20) mid-foot; children 0.07;
+        < 1.4% probability of fracture at 15% prevalence'
+      tone: good
+  sources:
+  - text: Bachmann 2003 BMJ
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC149439/
+    free_full_text: true
+  - text: Dowling 2009 Acad Emerg Med
+    url: https://doi.org/10.1111/j.1553-2712.2008.00333.x
 - id: thompson
-  type: test
   title: Thompson Test (Calf Squeeze Test)
   page: 1
-  steps:
-  - Position the patient in prone with feet hanging freely over the table edge (or
-    kneeling on a chair).
-  - Ensure the calf and ankle are completely relaxed.
-  - Firmly squeeze the muscular bulk of the middle third of the calf with your palm
-    and fingers.
-  - Observe the foot for passive ankle plantarflexion.
-  - Compare bilaterally with the unaffected limb.
-  positive: Absence of passive ankle plantarflexion upon calf compression indicates
-    complete Achilles rupture.
-  metrics: 'Achilles Rupture Emergency Triad: Thompson · Palpable Gap (2–6 cm) · Matles
-    Test (prone 90°) — ≥ 2 POSITIVE (SN/SP > 98%)'
+  type: test
+  review_status: draft
+  evidence: M
   video_url: https://www.youtube.com/watch?v=z-7cJ7LpCqY
-  image: null
-  sources:
-  - Physiotutors
-  - Thompson TC (1962)
-  - Maffulli N (1998)
-  review_status: draft
-- id: ottawa-exclusions
-  type: info
-  title: Ottawa Ankle & Midfoot Rules & Exclusions
-  page: 1
+  video_title: Thompson Test / Achilles Tendon Rupture/Tear — Physiotutors
+  summary: Prone calf squeeze test assessing integrity of the gastrocnemius-soleus-Achilles complex in suspected acute Achilles
+    tendon rupture.
   steps:
-  - 'Screen for exclusion criteria: age < 5, intoxication, altered mental status,
-    distracting injury, gross swelling, neuropathy, presentation > 10 days post-injury.'
-  - Palpate posterior edge and tip of lateral malleolus (distal 6 cm).
-  - Palpate posterior edge and tip of medial malleolus (distal 6 cm).
-  - Assess ability to bear weight for 4 consecutive steps immediately and at assessment.
-  - 'For midfoot: palpate base of 5th metatarsal and navicular bone; assess 4-step
-    weight bearing.'
-  positive: Bony tenderness at specified landmarks OR inability to bear weight 4 steps
-    mandates radiography.
-  metrics: Malleolar Zone → Ankle Radiograph [H] SN 98% · Midfoot Zone → Foot Radiograph
-    [H] SN 98%
-  video_url: null
-  image: null
+  - Position the patient prone with both feet hanging relaxed off the edge of the examination table.
+  - Squeeze the fleshy middle third of the calf muscle belly firmly and observe for passive ankle plantarflexion.
+  - Compare the plantarflexion response with the uninvolved limb and combine with the Matles test and palpation.
+  positive: Absence of passive ankle plantarflexion on calf squeeze -> same-day referral for suspected Achilles tendon rupture.
+  interpretation: 'Maffulli 1998: calf squeeze (Thompson) sensitivity 0.96, Matles 0.88; at least two tests positive in all
+    patients with a tear. Positive findings require same-day referral.'
+  metrics: Calf squeeze (Thompson) sensitivity 0.96, Matles 0.88; at least two tests positive in all patients with a tear
+    (Maffulli 1998)
   sources:
-  - Stiell IG et al. (1993)
-  - Bachmann LM et al. (2001)
-  review_status: draft
-- id: compartment-delta-p
-  type: info
-  title: Compartment Syndrome — 6 Ps & ΔP Threshold
-  page: 1
-  steps:
-  - 'Screen for the 6 Ps: Pain out of proportion / on passive stretch, Paresthesia,
-    Pallor, Paralysis, Pulselessness, Poikilothermia.'
-  - Note that pain on passive stretch is the earliest and most sensitive clinical
-    sign.
-  - Measure diastolic blood pressure (mmHg).
-  - Measure direct intracompartmental pressure using needle manometry.
-  - Calculate ΔP = Diastolic BP − Compartment Pressure.
-  - 'Pressure measurement is a medical procedure. PT role: recognise and refer immediately.'
-  positive: ΔP ≤ 30 mmHg indicates critical tissue hypoperfusion requiring EMERGENCY
-    FASCIOTOMY.
-  metrics: ΔP (Diastolic BP − Compartment Pressure) = ___ mmHg → ≤ 30 mmHg = EMERGENCY
-    FASCIOTOMY INDICATED
-  video_url: null
-  image: null
-  sources:
-  - McQueen MM, Court-Brown CM (1996)
-  - von Keudell AG et al. (2015)
-  review_status: draft
-- id: charcot-neuroarthropathy
-  type: info
-  title: Charcot Neuroarthropathy Diagnostic Criteria
-  page: 1
-  steps:
-  - Assess for history of peripheral neuropathy (diabetic, alcoholic, idiopathic).
-  - Measure dermal temperature asymmetry between involved and contralateral limb using
-    infrared thermometry.
-  - 'Perform the 10-minute elevation test: observe if unilateral erythema significantly
-    reduces.'
-  - Palpate pedal pulses (dorsalis pedis and posterior tibial) to confirm adequate
-    vascular supply.
-  - Inquire regarding pain level (paradoxically minimal or absent despite florid clinical
-    inflammation).
-  positive: Temperature difference > 2 °C + erythema resolving on elevation + bounding
-    pulses in neuropathic foot.
-  metrics: Temp diff > 2 °C · Erythema reduces on 10 min elevation · Minimal/absent
-    pain · Palpable pulses present → IMMEDIATE total-contact offloading + urgent referral.
-    NO loading. NO manual therapy. NO ESWT.
-  video_url: null
-  image: null
-  sources:
-  - Rogers LC et al. (2011)
-  - Frykberg RG et al. (2006)
-  review_status: draft
-- id: budapest-crps
-  type: info
-  title: Budapest Diagnostic Criteria for CRPS
-  page: 1
-  steps:
-  - Verify continuing pain disproportionate to the inciting noxious event.
-  - 'Assess 4 symptom categories: Sensory (hyperesthesia/allodynia), Vasomotor (temperature/color
-    changes), Sudomotor/Edema (edema/sweating asymmetry), Motor/Trophic (decreased
-    ROM, weakness, tremor, trophic changes).'
-  - Assess the same 4 sign categories on physical examination.
-  - 'Calculate positive categories: diagnostic requires ≥ 3/4 symptom categories and
-    ≥ 2/4 sign categories.'
-  - Rule out any other condition that could account for the degree of pain and dysfunction.
-  positive: Reported symptoms in ≥ 3 of 4 categories AND demonstrated signs in ≥ 2
-    of 4 categories.
-  metrics: 'Budapest CRPS [H] (≥ 3/4 Sx, ≥ 2/4 Signs): Sensory · Vasomotor · Edema
-    · Trophic → I / II'
-  video_url: null
-  image: null
-  sources:
-  - Harden RN et al. (2007)
-  - Harden RN et al. (2010)
-  review_status: draft
+  - text: Maffulli 1998 Am J Sports Med
+    url: https://doi.org/10.1177/03635465980260021801
 - id: achilles-triad
-  type: info
-  title: Achilles Rupture Emergency Triad
+  title: Achilles Rupture Clinical Tests (Thompson & Matles)
   page: 1
-  steps:
-  - Perform the Thompson calf squeeze test in prone.
-  - Carefully palpate the Achilles tendon course 2–6 cm proximal to the calcaneus
-    for a focal gap.
-  - 'Perform the Matles test: observe prone knee flexion to 90°; inspect resting foot
-    angle.'
-  - 'Note: gap may be obscured by hematoma after 24–48 h; late negative palpation
-    does not exclude rupture.'
-  - If ≥ 2 tests positive, immediately immobilize in equinus boot and initiate urgent
-    orthopaedic referral (< 48 h).
-  positive: Presence of ≥ 2 positive findings among Thompson, palpable gap, and Matles
-    test.
-  metrics: '≥ 2 POSITIVE (SN/SP > 98%): Equinus boot + urgent orthopaedic referral
-    (< 48 h). No loading.'
-  video_url: null
-  image: null
-  sources:
-  - Maffulli N (1998)
-  - Garras DN et al. (2012)
+  type: info
   review_status: draft
-- id: sinus-tarsi-syndrome
+  evidence: M
+  summary: Combined clinical testing (Thompson calf squeeze, Matles knee-flexion test, palpable tendon gap) for acute Achilles
+    tendon tear.
+  steps:
+  - Perform the calf squeeze (Thompson) test with the patient prone and ankles relaxed.
+  - Perform the Matles test by flexing the knees in prone and observing whether the affected foot falls into neutral or dorsiflexion
+    compared with the uninjured side.
+  - Palpate along the Achilles tendon for a defect and arrange same-day referral when rupture is suspected.
+  positive: At least two clinical tests positive in all patients with a tear (Maffulli 1998) -> same-day referral.
+  interpretation: 'Maffulli 1998: calf squeeze (Thompson) sensitivity 0.96, Matles 0.88; at least two tests positive in all
+    patients with a tear.'
+  metrics: Calf squeeze (Thompson) sensitivity 0.96, Matles 0.88; at least two tests positive in all patients with a tear
+    (Maffulli 1998)
+  sources:
+  - text: Maffulli 1998 Am J Sports Med
+    url: https://doi.org/10.1177/03635465980260021801
+- id: compartment-delta-p
+  title: Compartment Syndrome of the Lower Leg
+  page: 1
+  type: info
+  review_status: draft
+  evidence: L
+  summary: Emergency triage of acute lower-leg compartment syndrome after trauma, fracture, or tight cast/boot immobilisation.
+  steps:
+  - Screen for severe pain out of proportion to the injury, pain with passive stretch of the muscles in the compartment, paraesthesia,
+    paresis, and tense compartment swelling.
+  - Recognise that individual clinical signs have low positive predictive value (11% to 15%, Ulmer 2002) and maintain a low
+    threshold for emergency surgical referral.
+  positive: Clinical suspicion of acute compartment syndrome -> immediate same-day referral.
+  interpretation: 'Ulmer 2002: positive predictive value of clinical findings 11% to 15%.'
+  metrics: Positive predictive value of clinical findings 11% to 15% (Ulmer 2002)
+  sources:
+  - text: Ulmer 2002 J Orthop Trauma
+    url: https://doi.org/10.1097/00005131-200209000-00006
+- id: lisfranc
+  title: Lisfranc Tarsometatarsal Joint Assessment
+  page: 1
   type: test
-  title: Sinus Tarsi Syndrome Palpation
-  page: 2
-  steps:
-  - Position the patient in supine with ankle in neutral relaxation.
-  - Identify the lateral malleolus and locate the depression 1 cm anterior and slightly
-    inferior.
-  - Apply firm thumb pressure into the sinus tarsi cavity.
-  - Passively invert and plantarflex the foot while maintaining pressure.
-  - Assess for sharp localized tenderness and instability sensation.
-  positive: Focal exquisite tenderness in the sinus tarsi; diagnostic relief confirmed
-    upon local lidocaine infiltration.
-  metrics: Palpation 1 cm anterior to lateral malleolus; relief with lidocaine
-  video_url: null
-  image: null
-  sources:
-  - Helgeson K (2009)
-  - Pisani G et al. (2004)
   review_status: draft
-- id: molloy-bendall
-  type: test
-  title: Molloy-Bendall Sign (Anterolateral Impingement)
-  page: 2
+  evidence: E
+  video_url: https://www.youtube.com/watch?v=0ugLq8Ns5VU
+  video_title: Line of Lisfranc / Midfoot Assessment & Mobilization — Physiotutors
+  summary: Clinical examination of the tarsometatarsal (Lisfranc) joint complex after midfoot trauma or axial/twisting load.
   steps:
-  - Patient seated or supine with knee flexed 90° and ankle relaxed.
-  - Place thumb over the anterolateral gutter of the ankle joint line.
-  - Apply firm pressure into the gutter with the ankle in plantarflexion.
-  - While maintaining firm thumb pressure, passively force the ankle into full maximal
-    dorsiflexion.
-  - Observe for pain reproduction or mechanical block.
-  positive: Reproduction of sharp anterolateral pain as the hypertrophic synovial
-    tissue or scar impinges between talus and fibula.
-  metrics: (+) Molloy-Bendall sign (pressure + forced DF)
-  video_url: null
-  image: null
-  sources:
-  - Molloy S, Bendall SP (2003)
-  - Murawski CD et al. (2014)
+  - Inspect the plantar arch for midfoot ecchymosis and dorsal midfoot swelling.
+  - Palpate along the tarsometatarsal joints (1st–5th MT bases) for focal tenderness or step-off.
+  - Stabilise the hindfoot and apply passive dorsal-plantar translation of the metatarsal heads and gentle midfoot pronation-abduction
+    stress.
+  positive: Plantar midfoot ecchymosis, focal tarsometatarsal tenderness, or pain/instability on stress -> urgent imaging
+    and orthopaedic referral.
+  interpretation: 'Expert clinical assessment (E): suspected Lisfranc injury is a midfoot red flag requiring weight-bearing
+    imaging or CT/MRI and orthopaedic referral.'
+  metrics: Expert clinical assessment (E)
+  sources: []
+- id: charcot-neuroarthropathy
+  title: 'Lower-Limb Red Flags: DVT, Septic Joint, Neuropathic / Charcot Foot, Infection & Ischaemic Foot'
+  page: 1
+  type: info
   review_status: draft
-- id: lateral-process-talus
-  type: test
-  title: Lateral Process of Talus Palpation (Snowboarder's Fracture)
-  page: 2
+  evidence: E
+  summary: Clinical red-flag screen for deep vein thrombosis (DVT), septic arthritis, neuropathic / Charcot arthropathy, spreading
+    infection, and acute/critical limb ischaemia.
   steps:
-  - Place the patient supine with foot in neutral.
-  - Palpate the tip of the lateral malleolus.
-  - Move fingers directly distal and anterior toward the subtalar joint.
-  - Apply focal digital pressure onto the lateral process of the talus.
-  - Passively evert and dorsiflex the subtalar joint.
-  positive: Focal point tenderness just distal to the fibular tip, worsened by dorsiflexion
-    and eversion; warrants CT imaging.
-  metrics: “Snowboarder’s”; tender just distal to fibular tip
-  video_url: null
-  image: null
-  sources:
-  - Kirkpatrick DP et al. (1998)
-  - McCrory P, Bladin C (1996)
+  - 'DVT: screen for unilateral calf swelling, deep venous tenderness, warmth, pitting oedema, and immobilisation/post-op
+    risk -> same-day medical referral.'
+  - 'Septic joint & spreading infection: hot, swollen, erythematous joint with severe restriction of motion, systemic fever/rigors,
+    or diabetic foot ulcer with cellulitis -> same-day emergency referral.'
+  - 'Neuropathic / Charcot foot: warm, swollen, erythematous midfoot/ankle in a patient with peripheral neuropathy (often
+    with minimal pain) -> immediate offloading and specialist referral.'
+  - 'Ischaemic foot: absent pedal pulses, rest pain, pallor, coolness, or non-healing ulceration -> urgent vascular referral.'
+  positive: Presence of any vascular, infective, thromboembolic, or neuropathic Charcot red flag -> same-day referral.
+  interpretation: 'Expert clinical assessment (E): exclude DVT, septic joint, Lisfranc injury, neuropathic / Charcot foot,
+    infection, and ischaemic foot before mechanical loading or manual therapy.'
+  metrics: Expert clinical assessment (E)
+  sources: []
+- id: medication-safety-strip
+  title: 'Medication & Safety Screen: Fluoroquinolones, Anticoagulants & EPA Contraindications'
+  page: 1
+  type: info
   review_status: draft
-- id: deltoid-ligament-sprain
-  type: test
-  title: Deltoid Ligament Eversion Stress & Fibular Palpation
-  page: 2
+  evidence: M
+  summary: Pre-treatment medication and safety check for fluoroquinolone-associated tendonitis/rupture (van der Linden 2003,
+    Wise 2012), anticoagulants before dry needling (Kearns 2019), and electrophysical-agent contraindications (Houghton 2010).
   steps:
-  - Position the patient seated with the lower leg stabilized.
-  - Palpate along the anterior, middle, and posterior components of the medial deltoid
-    complex.
-  - Grasp the calcaneus and gently apply an eversion force to stress the deep deltoid
-    fibers.
-  - Perform external rotation of the foot on the tibia in neutral and slight dorsiflexion
-    (Kleiger maneuver).
-  - Always palpate the proximal fibular neck to rule out concomitant Maisonneuve fracture.
-  positive: Medial joint pain, gapping, or tenderness, especially when accompanied
-    by proximal fibular pain.
-  metrics: Eversion stress / Kleiger ER; palpate fibular neck
-  video_url: null
-  image: null
+  - Screen for current or recent fluoroquinolone antibiotic exposure and concomitant oral glucocorticoids, particularly in
+    patients aged over 60 years.
+  - Screen for anticoagulant therapy or coagulopathy before considering dry needling (caution — possible increased incidence
+    or severity of haematoma and bruising, Kearns 2019).
+  - 'Screen for electrophysical-agent contraindications and precautions before applying any modality: implanted electronic
+    devices, pregnancy, malignancy, recently irradiated tissue, active DVT, bleeding, and impaired sensation (Houghton 2010).'
+  positive: Fluoroquinolone exposure markedly elevates Achilles tendonitis and rupture risk, especially with oral glucocorticoids
+    and age > 60.
+  interpretation: 'van der Linden 2003: adjusted OR 4.3 current, 2.4 recent exposure; OR 6.4 (60–79 years) and 20.4 (≥ 80
+    years); 2 % to 6 % of ruptures after 60 attributable to quinolones. Wise 2012: tendonitis OR 4.3, rupture OR 2.0; stronger
+    with oral glucocorticoids (OR 9.1) and age > 60 (OR 8.3). Kearns 2019: anticoagulants / coagulopathy — caution — possible
+    increased incidence or severity of haematoma and bruising. Houghton 2010: agent-by-agent table (contraindicated / over
+    the site / precaution / safe): implanted electronic devices, pregnancy, malignancy, recently irradiated tissue, active
+    DVT, bleeding, impaired sensation.'
+  metrics: 'van der Linden 2003: OR 4.3 current, 2.4 recent; OR 6.4 (60–79 years), 20.4 (≥ 80 years); 2 % to 6 % of ruptures
+    after 60 · Wise 2012: tendonitis OR 4.3, rupture OR 2.0; oral glucocorticoids OR 9.1, age > 60 OR 8.3 · Kearns 2019 (E)
+    · Houghton 2010 (Guideline)'
   sources:
-  - Hintermann B (2003)
-  - Schuberth JM et al. (2004)
-  review_status: draft
-- id: pttd-staging
-  type: test
-  title: PTTD Staging & Too-Many-Toes Sign
+  - text: van der Linden 2003 Arch Intern Med
+    url: https://doi.org/10.1001/archinte.163.15.1801
+  - text: Wise 2012 Am J Med
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3502655/
+    free_full_text: true
+  - text: Kearns 2019 J Man Manip Ther
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6598537/
+    free_full_text: true
+  - text: Houghton 2010 Physiother Can
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3031347/
+    free_full_text: true
+- id: ankle-sprain-prognosis-cai
+  title: Ankle Sprain Incidence & Predicting Chronic Ankle Instability (Doherty 2014, Doherty 2016)
   page: 2
-  steps:
-  - Inspect the patient standing from directly behind.
-  - Evaluate hindfoot alignment (valgus deviation) and observe forefoot abduction.
-  - 'Count visible lateral toes: more than 1.5–2 toes lateral to the calcaneus indicates
-    positive Too-Many-Toes sign.'
-  - Instruct the patient to perform a single-leg heel raise while observing for calcaneal
-    inversion (rigid pes planus in Stage III/IV).
-  - Palpate the course of the tibialis posterior tendon along the retromalleolar groove
-    to the navicular.
-  positive: Forefoot abduction (> 1.5–2 toes visible laterally), failure of calcaneal
-    inversion on heel raise, or rigid deformity.
-  metrics: 'PTTD Staging: I Tenosynovitis · II Flexible flatfoot / “Too-Many-Toes”
-    · III Rigid pes planus · IV Ankle valgus'
-  video_url: null
-  image: null
-  sources:
-  - Johnson KA, Strom DE (1989)
-  - Bluman EM et al. (2007)
+  type: info
   review_status: draft
-- id: tarsal-tunnel-test
-  type: test
-  title: Dorsiflexion-Eversion Test & Tinel for Tarsal Tunnel
-  page: 2
+  evidence: H
+  summary: Epidemiological incidence of ankle sprain across sports (Doherty 2014) and early prognostic predictors of chronic
+    ankle instability (CAI) after a first sprain (Doherty 2016).
   steps:
-  - Position the patient in supine or seated with the ankle relaxed.
-  - Passively take the ankle into maximal dorsiflexion and maximal eversion, and extend
-    all toes.
-  - Hold this end-range tension for 10–15 seconds to compress the tibial nerve within
-    the flexor retinaculum.
-  - Gently tap (percuss) the tibial nerve posterior and inferior to the medial malleolus.
-  - Inquire regarding distal paresthesia or radiating burning into the plantar foot.
-  positive: Reproduction of radiating numbness, paresthesia, or pain along the plantar
-    nerve distribution (Tinel positive).
-  metrics: (+) Dorsiflexion-Eversion test + Tinel at flexor retinaculum
-  video_url: null
-  image: null
+  - 'Factor sex and sport exposure: ankle sprain incidence is 13.6 in females vs 6.94 in males per 1,000 exposures, highest
+    in indoor / court sports (Doherty 2014).'
+  - At 2 weeks after sprain, note whether the patient can complete a drop landing and drop vertical jump (67.6% correctly
+    classified for CAI; sensitivity 83%, specificity 55%, Doherty 2016).
+  - At 6 months, combine Star Excursion Balance Test (SEBT) posterior reach and FAAM-ADL (84.8% classification accuracy, Doherty
+    2016).
+  positive: Inability to complete drop landing and drop vertical jump at 2 weeks predicts CAI with sensitivity 83%, specificity
+    55% (67.6% correctly classified; Doherty 2016).
+  interpretation: 'Doherty 2014 (MA, 181 studies): females 13.6 vs males 6.94 per 1,000 exposures; highest in indoor / court
+    sports. Doherty 2016 (cohort): inability to complete drop landing and drop vertical jump at 2 weeks: 67.6% correctly classified
+    (sensitivity 83%, specificity 55%); 6-month SEBT posterior reach + FAAM-ADL: 84.8%.'
+  metrics: 'Incidence (Doherty 2014, 181 studies): females 13.6 vs males 6.94 per 1,000 exposures · CAI prediction (Doherty
+    2016): 2-week drop landing / vertical jump 67.6% classified (Sn 83%, Sp 55%); 6-month SEBT posterior reach + FAAM-ADL
+    84.8%'
   sources:
-  - Kinoshita M et al. (2001)
-  - Alshami AM et al. (2008)
-  review_status: draft
-- id: anterior-tarsal-tunnel
-  type: test
-  title: Anterior Tarsal Tunnel Syndrome Assessment
-  page: 2
-  steps:
-  - Place patient supine with foot in relaxed position.
-  - Identify the deep peroneal nerve course beneath the inferior extensor retinaculum
-    on the dorsal ankle.
-  - Percuss over the dorsal ankle joint line lateral to the extensor hallucis longus
-    tendon.
-  - Passively plantarflex and invert the foot to put the deep peroneal nerve on stretch.
-  - Test light-touch sensation in the first web space (dorsal skin between 1st and
-    2nd toes).
-  positive: Pain or tingling radiating into the 1st interdigital web space, or hypoesthesia
-    in the web space.
-  metrics: Deep peroneal n., 1st web space numbness, (+) Tinel over inf. extensor
-    retinaculum
-  video_url: null
-  image: null
-  sources:
-  - Borges LF et al. (1981)
-  - Liu Z et al. (2014)
-  review_status: draft
-- id: pseudo-hallux-rigidus
-  type: test
-  title: Pseudo-Hallux Rigidus Test (FHL Tendinopathy)
-  page: 2
-  steps:
-  - Position the patient in supine or seated.
-  - Place the ankle in full passive plantarflexion and measure maximum passive 1st
-    MTP extension.
-  - Bring the ankle into full passive dorsiflexion.
-  - Re-measure passive 1st MTP extension while maintaining ankle dorsiflexion.
-  - Compare the available 1st MTP extension range between ankle DF and PF positions.
-  positive: 1st MTP extension is normal in ankle PF but markedly restricted in ankle
-    DF (indicates FHL tenodesis / tightness).
-  metrics: (+) Pseudo-Hallux Rigidus test (1st MTP ext in ankle DF vs PF)
-  video_url: null
-  image: null
-  sources:
-  - Hamilton WG (1982)
-  - Michelson J, Dunn L (2005)
-  review_status: draft
+  - text: Doherty 2014 Sports Med
+    url: https://doi.org/10.1007/s40279-013-0102-5
+  - text: Doherty 2016 Am J Sports Med
+    url: https://doi.org/10.1177/0363546516628870
 - id: syndesmotic-high-ankle-sprain
-  type: test
-  title: Syndesmotic High Ankle Sprain Clinical Screen
+  title: Syndesmosis Sprain — Test Combination & Acute Evaluation (Sman 2015, Baltes 2022)
   page: 2
-  steps:
-  - Palpate the anterior inferior tibiofibular ligament (AITFL) and posterior inferior
-    tibiofibular ligament (PITFL).
-  - Perform the Kleiger dorsiflexion-external rotation stress maneuver.
-  - Perform the Hopkins mid-calf squeeze test.
-  - Palpate along the anterior syndesmosis and interosseous membrane up the leg.
-  - Measure the height of interosseous tenderness in centimeters above the tibiotalar
-    joint line.
-  positive: Focal syndesmotic tenderness, pain on external rotation or squeeze; tenderness
-    height correlates directly with recovery time.
-  metrics: AITFL · PITFL · Kleiger ER · Hopkins Squeeze · Interosseous tenderness
-    height cm above joint line (↑ height = ↑ time to RTS)
-  video_url: null
-  image: null
-  sources:
-  - Nussbaum ED et al. (2001)
-  - Hunt KJ et al. (2015)
+  type: info
   review_status: draft
-- id: anterior-impingement
-  type: test
-  title: Anterior Ankle Impingement Clinical Screen
+  evidence: M
+  summary: Diagnostic test combinations and acute MRI-referenced accuracy for distal tibiofibular syndesmosis injury.
+  steps:
+  - Combine sensitive tests (inability to hop, syndesmosis tenderness, and dorsiflexion–external rotation stress) with specific
+    findings (pain out of proportion and squeeze test) (Sman 2015).
+  - Document mechanism of injury (eversion mechanism LR+ 3.47), squeeze test (LR+ 2.20, LR− 0.68), and overall clinical suspicion
+    (sensitivity 73%, NPV 89%) (Baltes 2022).
+  positive: 'Sensitive cluster: inability to hop, syndesmosis tenderness, dorsiflexion–external rotation stress; specific
+    cluster: pain out of proportion and squeeze test (Sman 2015).'
+  interpretation: 'Sman 2015: inability to hop, syndesmosis tenderness and dorsiflexion–external rotation stress (sensitive)
+    + pain out of proportion and squeeze test (specific). Baltes 2022 (MRI reference): squeeze test LR+ 2.20, LR− 0.68; eversion
+    mechanism LR+ 3.47; overall clinical suspicion sensitivity 73%, NPV 89%.'
+  metrics: 'Sman 2015: sensitive (inability to hop, syndesmosis tenderness, DF–ER stress) + specific (pain out of proportion,
+    squeeze test) · Baltes 2022: squeeze test LR+ 2.20, LR− 0.68; eversion mechanism LR+ 3.47; clinical suspicion Sn 73%,
+    NPV 89%'
+  sources:
+  - text: Sman 2015 Br J Sports Med
+    url: https://doi.org/10.1136/bjsports-2013-092787
+  - text: Baltes 2022 Knee Surg Sports Traumatol Arthrosc
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9568458/
+    free_full_text: true
+- id: molloy-bendall
+  title: Anterolateral Impingement Sign (Molloy 2003)
   page: 2
-  steps:
-  - Patient seated with knee flexed 90°.
-  - Palpate along the anterior tibiotalar joint line for osteophytic ridges or soft
-    tissue thickening.
-  - Passively take the ankle from plantarflexion into rapid, forced full dorsiflexion.
-  - Instruct the patient to perform a deep squat or lunge to load anterior joint structures
-    in weight-bearing.
-  - Differentiate bony impingement (hard end-feel, osteophytes) from synovial meniscoid
-    lesion (soft pinching sensation).
-  positive: Sharp anterior joint pain and restricted dorsiflexion on forced DF or
-    lunge loading.
-  metrics: Bony (tibiotalar osteophytes) · Synovial meniscoid
-  video_url: null
-  image: null
-  sources:
-  - Vannini F et al. (2015)
-  - Murawski CD, Kennedy JG (2014)
+  type: test
   review_status: draft
+  evidence: L
+  summary: Provocation test for synovial anterolateral ankle impingement combining anterolateral gutter thumb pressure with
+    passive dorsiflexion.
+  steps:
+  - Place the patient seated or supine with the ankle relaxed in plantarflexion.
+  - Apply firm thumb pressure over the anterolateral ankle gutter.
+  - Maintain thumb pressure while passively moving the ankle into full dorsiflexion.
+  positive: Reproduction of anterolateral ankle pain that is greater with thumb pressure in dorsiflexion than in plantarflexion.
+  interpretation: 'Molloy 2003: sensitivity 94.8%, specificity 88% for anterolateral synovial impingement.'
+  metrics: Sensitivity 94.8%, specificity 88% (Molloy 2003)
+  sources:
+  - text: Molloy 2003 J Bone Joint Surg Br
+    url: https://doi.org/10.1302/0301-620x.85b3.12873
 - id: midportion-achilles-exam
-  type: test
-  title: Midportion Achilles Tendon Palpation & Differential
+  title: Midportion Achilles Tendinopathy — Palpation & Clinical Diagnosis
   page: 2
-  steps:
-  - Patient prone with ankles hanging relaxed over table edge.
-  - Palpate the tendon from insertion up into the musculotendinous junction, focusing
-    on 2–6 cm watershed.
-  - Assess for localized fusiform thickening or tendon nodularity.
-  - Apply pinch palpation to tender nodule while passively moving ankle through full
-    dorsiflexion (Royal London test).
-  - Observe whether nodule moves with tendon during active PF/DF (Arc sign).
-  positive: Localized tenderness and thickening in the 2–6 cm watershed zone that
-    moves during excursion.
-  metrics: 2–6 cm watershed; Royal London (+ in DF) · Arc sign
-  video_url: null
-  image: null
-  sources:
-  - Maffulli N et al. (2003)
-  - van Dijk CN et al. (2011)
+  type: test
   review_status: draft
+  evidence: M
+  summary: Diagnostic evaluation of midportion Achilles tendinopathy using tendon palpation, symptom location (2 to 6 cm above
+    insertion), arc sign, and Royal London Hospital test.
+  steps:
+  - Confirm gradual onset of pain located 2 to 6 cm proximal to the Achilles tendon insertion.
+  - Palpate the midportion of the Achilles tendon gently for focal tenderness and thickening.
+  - Perform the arc sign and Royal London Hospital test alongside palpation.
+  positive: Pain on palpation (sensitivity 84%, specificity 73%) and pain 2–6 cm above insertion (78% / 77%, Hutchison 2013).
+  interpretation: 'Hutchison 2013: pain on palpation sensitivity 84%, specificity 73%; pain 2–6 cm above insertion 78% / 77%.
+    Martin 2018 JOSPT CPG: in addition to the arc sign and Royal London Hospital test: "pain located 2 to 6 cm proximal to
+    the Achilles tendon insertion that began gradually and pain with palpation of the midportion of the tendon" (C).'
+  metrics: Pain on palpation sensitivity 84%, specificity 73%; pain 2–6 cm above insertion 78% / 77% (Hutchison 2013) · JOSPT
+    CPG (C) (Martin 2018)
+  sources:
+  - text: Hutchison 2013 Foot Ankle Surg
+    url: https://doi.org/10.1016/j.fas.2012.12.006
+  - text: Martin 2018 J Orthop Sports Phys Ther (midportion Achilles tendinopathy CPG)
+    url: https://doi.org/10.2519/jospt.2018.0302
 - id: insertional-achilles-exam
-  type: test
-  title: Insertional Achilles & Retrocalcaneal Bursa Exam
+  title: Insertional Achilles Tendinopathy & Retrocalcaneal Bursitis Exam
   page: 2
-  steps:
-  - Position the patient in prone with foot relaxed in neutral.
-  - Palpate directly on the calcaneal insertion of the Achilles tendon (enthesis).
-  - Inspect and palpate for retrocalcaneal exostosis / promontory (Haglund's deformity).
-  - 'Perform the 2-finger pinch test: pinch immediately anterior to the tendon insertion
-    above calcaneus.'
-  - Passively dorsiflex ankle to compress retrocalcaneal bursa against the calcaneus.
-  positive: Point tenderness directly at the tendon insertion or exquisite pain on
-    2-finger bursa pinch.
-  metrics: Enthesopathy · Haglund’s · 2-Finger Pinch (bursa)
-  video_url: null
-  image: null
-  sources:
-  - Chimenti RL et al. (2017)
-  - Cook JL, Purdam CR (2012)
-  review_status: draft
-- id: os-trigonum-test
   type: test
-  title: Os Trigonum / Posterior Ankle Impingement Provocation
-  page: 2
-  steps:
-  - Position patient prone with knee flexed 90° or extended.
-  - Palpate the posterolateral talar process between the Achilles tendon and peroneal
-    tendons.
-  - Firmly grasp the forefoot and forcefully push the ankle into end-range passive
-    plantarflexion.
-  - Add slight subtalar inversion or rotation while at end-range plantarflexion (hyperplantarflexion
-    test).
-  - Assess for posterior joint impingement pain reproduction.
-  positive: Sharp, pinching posterior ankle pain reproduced at end-range passive plantarflexion.
-  metrics: Pain on forced PF
-  video_url: null
-  image: null
-  sources:
-  - van Dijk CN (2006)
-  - Peace KA et al. (2004)
   review_status: draft
-- id: severs-apophysitis-squeeze
-  type: test
-  title: Sever's Apophysitis Calcaneal Squeeze Screen
-  page: 2
+  evidence: E
+  summary: Clinical differentiation of insertional Achilles tendinopathy, Haglund prominence, and retrocalcaneal bursitis
+    at the posterior calcaneus.
   steps:
-  - Assess age and skeletal maturity (typically active adolescents aged 8–15 during
-    growth spurts).
-  - Position the patient in prone or supine with relaxed feet.
-  - Grasp the posterior third of the calcaneus between the palms or thumb and index
-    finger.
-  - Apply firm bilateral mediolateral compression across the calcaneal apophysis.
-  - Compare with vertical plantar heel strike palpation.
-  positive: Sharp pain on mediolateral calcaneal compression with intact apophysis
-    in skeletally immature athlete.
-  metrics: Adolescents; (+) calcaneal squeeze
-  video_url: null
-  image: null
-  sources:
-  - Sever JW (1912)
-  - Scharfbillig R et al. (2008)
-  review_status: draft
+  - Inspect the posterior heel for bony prominence (Haglund morphology) and superficial or deep bursa swelling.
+  - Palpate directly over the Achilles tendon insertion on the posterior calcaneal tuberosity.
+  - Pinch-palpate immediately anterior to the distal Achilles tendon to assess the retrocalcaneal bursa and note provocation
+    with ankle dorsiflexion.
+  positive: Focal tenderness directly at the calcaneal insertion of the Achilles tendon or anterior retrocalcaneal recess,
+    aggravated by compressive dorsiflexion.
+  interpretation: Expert clinical differentiation (E) distinguishing insertional Achilles pathology from midportion tendinopathy
+    (2 to 6 cm above insertion).
+  metrics: Expert clinical assessment (E)
+  sources: []
 - id: plantar-fasciopathy-palpation
-  type: test
-  title: Plantar Fasciopathy Palpation & Provocation
+  title: Plantar Heel Pain / Plantar Fasciitis Palpation & Windlass Screen
   page: 2
-  steps:
-  - Position the patient in supine with ankle in neutral relaxation.
-  - Palpate the medial calcaneal tubercle at the plantar fascial insertion with direct
-    thumb pressure.
-  - Palpate along the central and medial bands of the plantar aponeurosis.
-  - Passively dorsiflex the ankle and extend the 1st MTP joint to tighten the fascia.
-  - Correlate with subjective first-step morning pain easing after 10–15 minutes.
-  positive: Focal exquisite tenderness at medial calcaneal tubercle, reproduced on
-    passive toe extension.
-  metrics: Medial calcaneal tubercle; (+) Windlass test
-  video_url: null
-  image: null
-  sources:
-  - Lemont H et al. (2003)
-  - Martin RL et al. (2014)
-  review_status: draft
-- id: baxters-nerve-exam
   type: test
-  title: Baxter's Nerve Entrapment Assessment
-  page: 2
-  steps:
-  - Position the patient in supine or seated with relaxed foot.
-  - Palpate along the medial border of the abductor hallucis muscle and deep fascia.
-  - Apply firm thumb pressure at the site where the first branch of the lateral plantar
-    nerve crosses.
-  - Test motor power of the abductor digiti minimi (5th toe abduction).
-  - Verify absence of classic 'first-step' start-up heel pain to differentiate from
-    plantar fasciopathy.
-  positive: Maximal tenderness at medial abductor hallucis border, weakness of 5th
-    toe abduction, and paresthesias.
-  metrics: Medial abductor hallucis border; ADM weakness; no start-up pain
-  video_url: null
-  image: null
-  sources:
-  - Baxter DE, Thigpen CM (1984)
-  - Chundru N et al. (2008)
   review_status: draft
-- id: medial-calcaneal-nerve-exam
-  type: test
-  title: Medial Calcaneal Nerve Entrapment Palpation
-  page: 2
+  evidence: L
+  summary: Clinical assessment of plantar heel pain combining medial calcaneal tubercle palpation, first-step morning pain
+    history, and the weight-bearing windlass test.
   steps:
-  - Position the patient in supine with medial heel exposed.
-  - Locate the medial calcaneal nerve branches exiting the flexor retinaculum toward
-    the heel pad.
-  - Apply direct thumb pressure and percussion (Tinel test) over the medial calcaneus.
-  - Passively dorsiflex and evert the ankle to stress nerve branches.
-  - Assess for burning or dysesthesia over the medial weight-bearing heel surface.
-  positive: Burning medial heel pain reproduced by percussion or focal pressure, without
-    plantar fascial tenderness.
-  metrics: Burning medial heel, Tinel (+)
-  video_url: null
-  image: null
+  - Document history of plantar medial heel pain that is worst on first steps in the morning or after prolonged sitting.
+  - Palpate the plantar fascia origin at the medial calcaneal tubercle and along the central band.
+  - Perform the weight-bearing windlass test by passively extending the 1st MTP joint in standing.
+  positive: Focal tenderness at the medial calcaneal tubercle and reproduction of plantar heel pain on windlass testing.
+  interpretation: 'De Garceau 2003: windlass test was positive weight-bearing in 31.8% of patients (low sensitivity).'
+  metrics: Windlass test positive weight-bearing in 31.8% of patients (low sensitivity, De Garceau 2003)
   sources:
-  - Hennrikus WL et al. (1993)
-  - Rechtman AM (1956)
-  review_status: draft
+  - text: De Garceau 2003 Foot Ankle Int
+    url: https://doi.org/10.1177/107110070302400309
 - id: mortons-neuroma-exam
-  type: test
-  title: Morton's Interdigital Neuroma Clinical Screen
+  title: Morton's Neuroma Assessment (Thumb–Index Squeeze & Mulder's Click)
   page: 2
-  steps:
-  - Position the patient in supine with foot relaxed.
-  - Inspect and palpate the plantardigital interspaces, especially the 3rd web space
-    (between 3rd and 4th MT heads).
-  - Apply simultaneous plantar and dorsal pressure directly over the interdigital
-    space with your thumb.
-  - With the opposite hand, squeeze the metatarsal heads mediolaterally (Mulder's
-    maneuver).
-  - Feel for a palpable click while listening for patient pain reproduction.
-  positive: Palpable click (Mulder's click) accompanied by sharp radiating pain or
-    paresthesias into the adjacent toes.
-  metrics: Mulder’s click; 3rd web space
-  video_url: null
-  image: null
-  sources:
-  - Mulder DJ (1951)
-  - Matthews P et al. (2019)
-  review_status: draft
-- id: navicular-stress-fracture
   type: test
+  review_status: draft
+  evidence: L
+  summary: Clinical examination for interdigital Morton's neuroma (typically 3rd–4th interspace) using the thumb–index finger
+    web-space squeeze and Mulder's click.
+  steps:
+  - Apply direct thumb and index finger dorso-plantar pressure into the affected intermetatarsal space (commonly the 3rd–4th
+    interspace).
+  - Compress the forefoot metatarsal heads mediolaterally while applying plantar thumb pressure to elicit Mulder's click.
+  positive: Reproduction of forefoot burning/neuralgic pain in the interspace (thumb–index finger squeeze) or a palpable click
+    (Mulder's click).
+  interpretation: 'Mahadevan 2015 (ultrasound reference): thumb–index finger squeeze sensitivity 96%; Mulder''s click 61%.'
+  metrics: Thumb–index finger squeeze sensitivity 96%; Mulder's click 61% (Mahadevan 2015, ultrasound reference)
+  sources:
+  - text: Mahadevan 2015 J Foot Ankle Surg
+    url: https://doi.org/10.1053/j.jfas.2014.09.021
+- id: tarsal-tunnel-test
+  title: Tarsal Tunnel Syndrome Assessment (Dorsiflexion–Eversion & Tinel)
+  page: 2
+  type: test
+  review_status: draft
+  evidence: E
+  summary: Provocation of the tibial nerve and its plantar branches within the tarsal tunnel behind the medial malleolus.
+  steps:
+  - Percuss lightly along the tibial nerve posterior and inferior to the medial malleolus (Tinel sign).
+  - Passively hold the ankle in maximal dorsiflexion and eversion with extension of the toes (dorsiflexion–eversion test)
+    to tension the tibial nerve.
+  - Map sensory changes across the medial plantar, lateral plantar, and medial calcaneal nerve territories.
+  positive: Reproduction of distal burning, tingling, or numbness radiating into the plantar arch, heel, or toes.
+  interpretation: Expert clinical assessment (E) used alongside neurodynamic testing (slump test) to differentiate local tarsal
+    tunnel entrapment from proximal radiculopathy.
+  metrics: Expert clinical assessment (E)
+  sources: []
+- id: pttd-staging
+  title: Tibialis Posterior Tendon Dysfunction (PTTD) Assessment
+  page: 2
+  type: test
+  review_status: draft
+  evidence: E
+  summary: Clinical assessment of tibialis posterior tendon pain, medial arch collapse, too-many-toes sign, and single-leg
+    heel-rise inversion.
+  steps:
+  - Inspect standing rearfoot valgus, medial longitudinal arch height, and forefoot abduction from behind (too-many-toes sign).
+  - Palpate along the course of the tibialis posterior tendon behind the medial malleolus to its navicular tuberosity insertion.
+  - Ask the patient to perform a single-leg heel raise and observe for medial pain and whether the calcaneus inverts normally.
+  positive: Retromalleolar/navicular tenderness along the tibialis posterior tendon, weakness on resisted inversion, or failure
+    of calcaneal inversion during a single-leg heel raise.
+  interpretation: Expert clinical assessment (E) for adult-acquired flatfoot / tibialis posterior tendon dysfunction.
+  metrics: Expert clinical assessment (E)
+  sources: []
+- id: severs-apophysitis-squeeze
+  title: Sever's Calcaneal Apophysitis Squeeze Screen (Child)
+  page: 2
+  type: test
+  review_status: draft
+  evidence: E
+  summary: Mediolateral calcaneal squeeze test in skeletally immature athletes presenting with activity-related posterior
+    heel pain.
+  steps:
+  - Position the child supine or prone with the ankle relaxed.
+  - Apply firm mediolateral compression across the posterior calcaneal apophysis with both hands.
+  positive: Reproduction of the child's concordant posterior heel pain upon mediolateral calcaneal compression.
+  interpretation: Expert clinical assessment (E) differentiating calcaneal apophysitis (Sever's) from plantar heel pain or
+    midportion Achilles tendinopathy.
+  metrics: Expert clinical assessment (E)
+  sources: []
+- id: navicular-stress-fracture
   title: Navicular Stress Fracture Palpation ('N-Spot')
   page: 2
-  steps:
-  - Place patient supine with foot in relaxed neutral position.
-  - Identify the anterior tibialis and extensor hallucis longus tendons on the dorsal
-    midfoot.
-  - Palpate between the EHL and tibialis anterior tendons over the dorsal central
-    third of the navicular.
-  - Apply firm focal thumb pressure directly onto the dorsal navicular apex ('N-spot').
-  - Assess for acute, localized point tenderness.
-  positive: Exquisite point tenderness localized specifically to the 'N-spot'; requires
-    urgent offloading and MRI/CT.
-  metrics: “N-spot” tenderness (dorsal proximal navicular)
+  type: test
+  review_status: draft
+  evidence: E
   video_url: https://www.youtube.com/watch?v=MgY80fa9P08
-  image: null
-  sources:
-  - Sports Injury Physio
-  - Torg JS et al. (1982)
-  - Bennell KL et al. (1996)
-  review_status: draft
-- id: accessory-navicular-exam
-  type: test
-  title: Accessory Navicular / Os Tibiale Externum Palpation
-  page: 2
+  video_title: 'Navicular Stress Fracture: Symptoms & Treatment — Sports Injury Physio'
+  summary: Direct palpation of the dorsal proximal navicular ('N-spot') and 5th MT base/shaft in athletes with insidious midfoot
+    or lateral foot bone stress pain.
   steps:
-  - Position the patient in supine or seated.
-  - Inspect the medial midfoot for a prominent bony prominence proximal to the navicular
-    tuberosity.
-  - Palpate the synchondrosis between the accessory ossicle and the body of the navicular.
-  - Resist active foot inversion and plantarflexion to tension the tibialis posterior
-    insertion.
-  - Check for local footwear pressure irritation or synchondrosis disruption.
-  positive: Focal point tenderness over the synchondrosis exacerbated by resisted
-    tibialis posterior contraction.
-  metrics: Prominent medial navicular, tender synchondrosis
-  video_url: null
-  image: null
-  sources:
-  - Lawson JP et al. (1984)
-  - Leonard MA (1972)
-  review_status: draft
-- id: cuboid-syndrome-exam
-  type: test
-  title: Cuboid Syndrome Palpation & Mobility
-  page: 2
-  steps:
-  - Position the patient in supine or prone with knee flexed 90°.
-  - Identify the lateral midfoot and locate the cuboid groove adjacent to the calcaneocuboid
-    joint.
-  - Apply firm thumb pressure into the plantar aspect of the cuboid bone.
-  - Inquire about history of plantarflexion-inversion sprain.
-  - Perform passive midtarsal supination-pronation stress.
-  positive: Localized pain over plantar cuboid, sensation of lateral midfoot instability,
-    or decreased cuboid glide.
-  metrics: Lateral midfoot, plantar cuboid tender, post-inversion
-  video_url: null
-  image: null
-  sources:
-  - Newell SG, Woodle A (1981)
-  - Mooney M, Maffey-Stumph L (1994)
-  review_status: draft
-- id: tarsal-coalition-exam
-  type: test
-  title: Tarsal Coalition Clinical Screen
-  page: 2
-  steps:
-  - Review patient demographics (adolescent aged 10–16 with recurrent ankle sprains).
-  - Inspect standing posture for rigid pes planus that fails to reform an arch on
-    toe standing.
-  - Passively evaluate subtalar joint inversion and eversion range of motion.
-  - Inspect and palpate for peroneal muscle spasm or adaptive peroneal shortening.
-  - Assess calcaneonavicular or talocalcaneal joint lines for bony bridging.
-  positive: Rigid subtalar joint with severe restriction of inversion/eversion, accompanied
-    by peroneal spasm.
-  metrics: Adolescent, recurrent sprains, rigid flatfoot, peroneal spasm, loss of
-    subtalar motion
-  video_url: null
-  image: null
-  sources:
-  - Cowell HR (1975)
-  - Stormont DM, Peterson HA (1983)
-  review_status: draft
-- id: slr
-  type: test
-  title: Straight Leg Raise (SLR) & Neurodynamic Screening
-  page: 2
-  steps:
-  - Patient supine with head flat and legs relaxed in extension.
-  - Grasp patient's heel and elevate the lower extremity while maintaining full knee
-    extension.
-  - Continuously monitor for symptom reproduction and note the hip flexion angle (positive
-    35–70°).
-  - 'Perform structural differentiation: lower leg slightly and add ankle dorsiflexion
-    or neck flexion.'
-  - Observe whether distal symptoms increase with distal/cervical neural sensitization.
-  positive: Reproduction of familiar radicular leg pain between 35° and 70°, sensitized
-    by ankle DF.
-  metrics: Hip flex, knee ext; positive 35–70° · Familiar Sx · Structural Diff. (+)
-  video_url: null
-  image: null
-  sources:
-  - Devillé WL et al. (2000)
-  - Butler DS (2000)
-  review_status: draft
-- id: ted-tibial
-  type: test
-  title: TED — Tibial Nerve Distal Biasing
-  page: 2
-  steps:
-  - Perform baseline Straight Leg Raise to initial threshold of neural tension.
-  - Maintain hip flexion and knee extension at onset angle.
-  - 'Add ankle dorsiflexion and eversion (TED: Tibial = Eversion + Dorsiflexion).'
-  - Optionally add passive toe extension to further sensitize medial and lateral plantar
-    nerves.
-  - Assess for familiar symptom reproduction or distal tension increase.
-  positive: Reproduction of familiar posterior leg or plantar foot symptoms sensitized
-    by ankle DF/eversion.
-  metrics: SLR + ankle DF + Eversion (+ toe ext)
-  video_url: null
-  image: null
-  sources:
-  - Butler DS (2000)
-  - Shacklock M (2005)
-  review_status: draft
-- id: sid-sural
-  type: test
-  title: SID — Sural Nerve Distal Biasing
-  page: 2
-  steps:
-  - Perform baseline Straight Leg Raise to onset of tension.
-  - Maintain hip flexion and knee extension angle.
-  - 'Add ankle dorsiflexion and inversion (SID: Sural = Inversion + Dorsiflexion).'
-  - Maintain position and assess symptom reproduction along lateral foot/ankle.
-  - Perform structural differentiation by releasing ankle inversion or adding cervical
-    flexion.
-  positive: Reproduction of familiar posterolateral ankle or lateral foot pain/tingling.
-  metrics: SLR + ankle DF + Inversion
-  video_url: null
-  image: null
-  sources:
-  - Butler DS (2000)
-  - Shacklock M (2005)
-  review_status: draft
-- id: pip-peroneal
-  type: test
-  title: PIP — Peroneal Nerve Distal Biasing
-  page: 2
-  steps:
-  - Perform baseline Straight Leg Raise to initial tension onset.
-  - Maintain hip flexion and knee extension.
-  - 'Add ankle plantarflexion and inversion (PIP: Peroneal = Inversion + Plantarflexion).'
-  - Assess for symptom reproduction along the anterolateral leg and dorsal foot.
-  - Perform structural differentiation (release ankle PF or alter cervical position).
-  positive: Reproduction of familiar anterolateral shin or dorsal foot paresthesia/pain.
-  metrics: SLR + ankle PF + Inversion
-  video_url: null
-  image: null
-  sources:
-  - Butler DS (2000)
-  - Shacklock M (2005)
-  review_status: draft
+  - Locate the dorsal central aspect of the navicular bone between the tibialis anterior and extensor hallucis longus tendons
+    ('N-spot').
+  - Apply firm thumb pressure directly over the dorsal navicular cortex and compare with the uninvolved side.
+  - Also palpate the proximal 5th MT shaft/base when lateral foot stress fracture is suspected.
+  positive: Focal bony point tenderness over the dorsal navicular 'N-spot' or 5th MT shaft/base aggravated by hopping or running
+    -> refer for imaging.
+  interpretation: 'Expert clinical assessment (E): navicular and proximal 5th MT stress fractures carry non-union risk and
+    require imaging and offloading.'
+  metrics: Expert clinical assessment (E)
+  sources: []
 - id: slump-test
-  type: test
   title: Slump Test (Thoracic & Cervical Biased Neurodynamics)
   page: 2
-  steps:
-  - Patient seated on table edge with thighs fully supported and hands clasped behind
-    back.
-  - Instruct patient to slump thoracic and lumbar spine while maintaining head neutral.
-  - Apply gentle overpressure to shoulders; instruct patient to fully flex cervical
-    spine (chin to chest).
-  - While holding slump, passively extend the knee and dorsiflex the ankle.
-  - 'Instruct patient to extend the cervical spine: check if leg symptoms immediately
-    diminish.'
-  positive: Reproduction of familiar lower extremity symptoms that decrease or resolve
-    upon cervical extension.
-  metrics: Thoracic + cervical flex, knee ext, DF → release neck (Sx ↓ on neck ext)
-  video_url: https://www.youtube.com/watch?v=HFGfP84uwEo
-  image: null
-  sources:
-  - Physiotutors
-  - Maitland GD (1986)
-  - Butler DS (2000)
-  review_status: draft
-- id: wblt
   type: test
+  review_status: draft
+  evidence: E
+  video_url: https://www.youtube.com/watch?v=HFGfP84uwEo
+  video_title: The SLUMP Test / Neurodynamic Testing — Physiotutors
+  summary: Seated neurodynamic test screening for lumbar radicular or sciatic/tibial/sural neural mechanosensitivity mimicking
+    ankle or heel pain.
+  steps:
+  - Seat the patient at the edge of the plinth with thighs supported and hands behind the back.
+  - Ask the patient to slump the thoracic and lumbar spine, then flex the cervical spine (chin to chest).
+  - Passively extend the knee and dorsiflex the ankle, then perform structural differentiation by releasing cervical flexion.
+  positive: Reproduction of the patient's distal leg, ankle, or heel symptoms that alter with cervical extension/flexion.
+  interpretation: Expert clinical assessment (E) to rule in/out neurogenic contributions to posterior leg, tarsal tunnel,
+    or plantar heel presentations.
+  metrics: Expert clinical assessment (E)
+  sources: []
+- id: deltoid-ligament-sprain
+  title: Deltoid Ligament Eversion Stress Test
+  page: 2
+  type: test
+  review_status: draft
+  evidence: E
+  summary: Palpation and passive eversion stress of the medial deltoid ligament complex after eversion or pronation-external
+    rotation ankle trauma.
+  steps:
+  - Palpate the superficial and deep deltoid ligament attachments inferior to the medial malleolus.
+  - Stabilise the distal tibia and apply a gentle passive eversion tilt to the calcaneus and talus, comparing with the uninjured
+    side.
+  positive: Medial ankle pain reproduction or increased eversion laxity compared with the contralateral side.
+  interpretation: Expert clinical assessment (E); note that an eversion mechanism also carries LR+ 3.47 for acute syndesmosis
+    injury (Baltes 2022).
+  metrics: Expert clinical assessment (E)
+  sources: []
+- id: sinus-tarsi-syndrome
+  title: Sinus Tarsi Syndrome Palpation
+  page: 2
+  type: test
+  review_status: draft
+  evidence: E
+  summary: Palpation of the sinus tarsi anteroinferior to the lateral malleolus in persistent anterolateral hindfoot pain
+    or subtalar instability.
+  steps:
+  - Locate the soft depression of the sinus tarsi immediately anterior and inferior to the lateral malleolus.
+  - Apply firm thumb pressure into the sinus tarsi while gently inverting and everting the subtalar joint.
+  positive: Deep focal tenderness in the sinus tarsi reproducing the patient's lateral hindfoot pain.
+  interpretation: Expert clinical assessment (E) used to differentiate subtalar / sinus tarsi irritation from ATFL or syndesmotic
+    sprain.
+  metrics: Expert clinical assessment (E)
+  sources: []
+- id: wblt
   title: Weight-Bearing Lunge Test (WBLT Knee-to-Wall)
   page: 3
-  steps:
-  - Align tape measure perpendicular to wall on floor; place big toe and heel along
-    tape line.
-  - Lunge forward so knee touches vertical line on wall without heel lifting from
-    floor.
-  - Progressively move foot backward until knee can just touch wall while heel remains
-    firmly planted.
-  - Record maximum distance from great toe to wall in centimeters (normative ≥ 10–12.5
-    cm).
-  - Optionally place digital inclinometer over anterior tibial tuberosity to measure
-    tibial angle (normative 35–45°).
-  positive: Distance < 10 cm, tibial angle < 35°, or bilateral asymmetry > 1.5 cm
-    distance / > 4.7° inclinometer.
-  metrics: WBLT Knee-to-Wall — Distance (cm) ≥ 10–12.5 cm · Asym > 1.5 cm | Inclinometer
-    (°) 35–45° · Asym > 4.7°
+  type: test
+  review_status: draft
+  evidence: M
   video_url: https://www.youtube.com/watch?v=U7woPNLUT3Q
-  image: null
-  sources:
-  - Physiotutors
-  - Bennell KL et al. (1998)
-  - Powden CJ et al. (2015)
-  review_status: draft
-- id: silfverskiold-test
-  type: test
-  title: Silfverskiöld Test (Gastrocnemius vs Soleus Isolation)
-  page: 3
+  video_title: The Weight Bearing Lunge Test or Wall Test / Ankle Mobility — Physiotutors
+  summary: Closed-chain weight-bearing ankle dorsiflexion measurement recorded as toe-to-wall distance or tibial inclinometer
+    angle.
   steps:
-  - Position the patient supine or seated with knee fully extended (0°).
-  - Lock the subtalar joint in neutral/inversion with one hand to prevent midtarsal
-    collapse.
-  - Measure maximum passive ankle dorsiflexion using goniometry or inclinometer.
-  - Flex the knee to 90° (slackening gastrocnemius heads).
-  - Re-measure passive ankle dorsiflexion with subtalar joint kept in neutral.
-  - Calculate dorsiflexion gain from knee 0° to 90°.
-  positive: Gain ≥ 10° DF with knee flexed indicates isolated gastrocnemius contracture;
-    Gain < 5° indicates soleus/capsular restriction.
-  metrics: Silfverskiöld — DF Knee 0° (°) Gastrocnemius + soleus length | DF Knee 90°
-    (°) Soleus / capsular length | Gain ≥ 10° (Gastroc) · Gain < 5° (Soleus/Capsule)
-  video_url: null
-  image: null
+  - Place the patient's test foot perpendicular to a wall and ask them to lunge the knee forward to touch the wall while keeping
+    the heel flat on the floor.
+  - Measure either the maximum great-toe-to-wall distance or the tibial inclinometer angle at end-range dorsiflexion.
+  - Compare involved and uninvolved limbs.
+  positive: Reduced weight-bearing dorsiflexion distance or angle compared with the uninvolved side.
+  interpretation: 'Bennell 1998: intra-rater ICC 0.97–0.98; inter-rater ICC 0.97 (angle) and 0.99 (distance). Martin 2021
+    JOSPT LAS CPG recommends measuring dorsiflexion "using the weight-bearing lunge test" (A).'
+  metrics: Intra-rater ICC 0.97–0.98; inter-rater ICC 0.97 (angle) and 0.99 (distance) (Bennell 1998) · JOSPT LAS CPG (A)
+    (Martin 2021)
   sources:
-  - Silfverskiöld N (1924)
-  - DiGiovanni CW et al. (2002)
-  review_status: draft
-- id: silfverskiold-info
-  type: info
-  title: Silfverskiöld Interpretation & Differential
-  page: 3
-  steps:
-  - 'Understand biomechanical anatomy: gastrocnemius crosses knee and ankle (biarticular);
-    soleus crosses ankle only (monoarticular).'
-  - 'At knee 0° (extended): both gastrocnemius and soleus contribute to dorsiflexion
-    resistance.'
-  - 'At knee 90° (flexed): gastrocnemius is slackened across the knee joint.'
-  - 'Gain ≥ 10°: isolated gastrocnemius tightness. Management: gastrocnemius lengthening
-    / straight-leg stretching.'
-  - 'Gain < 5°: soleus hypertonicity, Achilles structural shortening, or talocrural
-    joint capsular contracture.'
-  positive: Differentiates isolated gastrocnemius contracture from soleus/capsular
-    joint restriction.
-  metrics: Gain ≥ 10° = Isolated Gastrocnemius · Gain < 5° = Soleus / Capsule
-  video_url: null
-  image: null
-  sources:
-  - DiGiovanni CW et al. (2002)
-  - Barske HL et al. (2012)
-  review_status: draft
-- id: subtalar-rom
-  type: test
-  title: Subtalar Joint Inversion & Eversion ROM
-  page: 3
-  steps:
-  - Position the patient in prone with feet extending over the examination table edge.
-  - Align goniometer stationary arm along posterior midline of the lower leg.
-  - Align movable arm along posterior midline of the calcaneus.
-  - Passively invert the calcaneus to end range and record degrees (normative 20–30°).
-  - Passively evert the calcaneus to end range and record degrees (normative 10–15°).
-  - Calculate inversion-to-eversion ratio (normal ratio 2:1).
-  positive: Severe restriction of inversion/eversion, asymmetry > 5°, or deviation
-    from 2:1 ratio.
-  metrics: 'Subtalar Inversion (°) 20–30° · Subtalar Eversion (°) 10–15° · Inv : Ev
-    ratio 2 : 1'
-  video_url: null
-  image: null
-  sources:
-  - Root ML et al. (1977)
-  - van Gheluwe B et al. (2002)
-  review_status: draft
-- id: calcaneal-glides
-  type: test
-  title: Calcaneal Glides (Medial / Lateral Subtalar Play)
-  page: 3
-  steps:
-  - Place patient in sidelying or prone with ankle relaxed in neutral.
-  - Firmly stabilize distal tibia and fibula with proximal hand.
-  - Grasp calcaneus firmly with thenar eminence of mobilizing hand.
-  - Apply perpendicular medial translatory glide to the calcaneus on the talus.
-  - Apply lateral translatory glide and grade end-feel as hypomobile, normal, or hypermobile.
-  positive: Pain reproduction or significant hypomobility / hypermobility compared
-    to contralateral limb.
-  metrics: 'Calcaneal Glides (Med / Lat): Hypo · Normal · Hyper'
-  video_url: null
-  image: null
-  sources:
-  - Maitland GD (1991)
-  - Vicenzino B et al. (2006)
-  review_status: draft
-- id: midtarsal-mobility
-  type: test
-  title: Midtarsal (Chopart) Joint Mobility Assessment
-  page: 3
-  steps:
-  - Position patient supine with foot relaxed.
-  - Stabilize calcaneus and talus with proximal hand to fix hindfoot.
-  - Grasp navicular and cuboid bones firmly with distal hand.
-  - Mobilize midtarsal complex into dorsiflexion, plantarflexion, adduction, and abduction.
-  - Grade mobility as hypomobile, normal, or hypermobile.
-  positive: Midfoot stiffness, pain reproduction, or excessive laxity indicating ligamentous
-    insufficiency.
-  metrics: 'Midtarsal (Chopart) Mobility: Hypo · Normal · Hyper'
-  video_url: null
-  image: null
-  sources:
-  - Elveru RA et al. (1988)
-  - Cornwall MW, McPoil TG (1999)
-  review_status: draft
-- id: first-mtp-extension
-  type: test
-  title: 1st MTP Joint Extension (NWB vs WB / Jack's Test)
-  page: 3
-  steps:
-  - 'Non-weight-bearing (NWB): patient seated; passively extend hallux at 1st MTP
-    joint (normative 60–65° for gait, 70–90° for sprinting).'
-  - 'Weight-bearing (WB / Jack''s test): patient standing in bilateral stance with
-    equal weight.'
-  - Manually dorsiflex the hallux by lifting from under the distal phalanx.
-  - Observe whether the medial longitudinal arch elevates and the tibia externally
-    rotates (Windlass mechanism).
-  - Note any block or pain during extension.
-  positive: NWB < 30° indicates Hallux Rigidus; NWB ≥ 60° with WB restricted indicates
-    Functional Hallux Limitus.
-  metrics: 1st MTP Extension — NWB (°) ≥ 60–65° gait · 70–90° sprinting | Functional
-    Hallux Limitus (≥ 60° NWB, ↓ WB) · Hallux Rigidus (< 30°)
-  video_url: null
-  image: null
-  sources:
-  - Jack EA (1953)
-  - Dananberg HJ (1993)
-  review_status: draft
+  - text: Bennell 1998 Aust J Physiother
+    url: https://doi.org/10.1016/s0004-9514(14)60377-9
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
 - id: fpi-6-test
+  title: Foot Posture Index (FPI) — Standing Foot Posture
+  page: 3
   type: test
-  title: Foot Posture Index (FPI-6) Quantification
-  page: 3
-  steps:
-  - Patient stands relaxed in double-leg stance with arms by side, looking forward,
-    feet in natural angle.
-  - 'Evaluate 6 criteria: (1) Talar head palpation, (2) Supra/infra lateral malleolar
-    curves, (3) Calcaneal frontal plane inversion/eversion.'
-  - Evaluate (4) Talonavicular joint prominence, (5) Medial longitudinal arch congruence,
-    (6) Forefoot abduction/adduction.
-  - Score each item from −2 (strongly supinated) to +2 (strongly pronated).
-  - 'Sum scores: total range −12 to +12.'
-  positive: Score 0 to +5 = Neutral; +6 to +9 = Pronated; ≥ +10 = Highly pronated;
-    −1 to −4 = Supinated; −5 to −12 = Highly supinated.
-  metrics: 'Foot Posture Index (FPI-6): −12 to +12 · Neutral 0 to +5 · Pron +6 to
-    +9 · Highly pronated ≥ +10 · Sup Neu Pron High'
-  video_url: null
-  image: null
-  sources:
-  - Redmond AC et al. (2006)
-  - Redmond AC et al. (2008)
   review_status: draft
-- id: fpi-6-info
-  type: info
-  title: Foot Posture Index (FPI-6) Criteria & Calculator
-  page: 3
+  evidence: M
+  summary: Multi-segment clinical observation of standing foot posture across rearfoot and forefoot planes with normative
+    reference values (Redmond 2008, Rokkedal-Lausch 2013).
   steps:
-  - 'Criterion 1: Talar head palpation (medial vs lateral prominence).'
-  - 'Criterion 2: Supra- and infra-lateral malleolar curvature comparison.'
-  - 'Criterion 3: Calcaneal frontal plane angle (inverted = negative, everted = positive).'
-  - 'Criterion 4: Bulging in the region of the talonavicular joint.'
-  - 'Criterion 5: Height and congruence of the medial longitudinal arch.'
-  - 'Criterion 6: Abduction/adduction of forefoot on rearfoot (''too many toes'').'
-  positive: Systematic quantification of static standing foot posture without complex
-    equipment.
-  metrics: 'Neutral: 0 to +5 | Pronated: +6 to +9 | Highly Pronated: ≥ +10 | Supinated:
-    −1 to −4 | Highly Supinated: ≤ −5'
-  video_url: null
-  image: null
+  - Have the patient stand in relaxed bilateral stance.
+  - Assess talar head palpation, supra/infralateral malleolar curvature, calcaneal frontal-plane position, talonavicular prominence,
+    medial longitudinal arch congruence, and forefoot abduction/adduction.
+  - Compare total score and left–right symmetry against normative adult data.
+  positive: Healthy adults are slightly pronated (mean score +4) with a normal left–right difference of −2 to +2 (Redmond
+    2008; Rokkedal-Lausch 2013).
+  interpretation: 'Redmond 2008 & Rokkedal-Lausch 2013: healthy adults: slightly pronated, mean score +4; normal left–right
+    difference −2 to +2.'
+  metrics: 'Healthy adults: slightly pronated, mean score +4; normal left–right difference −2 to +2 (Redmond 2008 · Rokkedal-Lausch
+    2013)'
   sources:
-  - Redmond AC (2005) FPI-6 User Guide
-  - Redmond AC et al. (2006) Clin Biomech
-  review_status: draft
-- id: navicular-drop-test
-  type: test
-  title: Navicular Drop Test
-  page: 3
-  steps:
-  - Patient seated with foot flat on floor and subtalar joint positioned in neutral
-    (talar head congruence).
-  - Mark the most prominent point of the navicular tuberosity with an indelible skin
-    marker.
-  - Place an index card perpendicular to the floor against the medial foot; mark baseline
-    navicular height.
-  - Instruct the patient to stand fully, distributing weight equally in relaxed bilateral
-    stance.
-  - Mark the new standing navicular position on the card; measure displacement in
-    millimeters.
-  positive: Navicular displacement > 10 mm indicates excessive pronation (normal range
-    6–10 mm).
-  metrics: 'Navicular Drop Test (mm): Normal 6–10 mm · Hyperpronation > 10 mm'
-  video_url: https://www.youtube.com/watch?v=BejuNMmD7-Y
-  image: null
-  sources:
-  - Physiotutors
-  - Brody DM (1982)
-  - Mueller MJ et al. (1993)
-  review_status: draft
-- id: navicular-drop-info
-  type: info
-  title: Navicular Drop Measurement & Pronation Cutoffs
-  page: 3
-  steps:
-  - 'Understand clinical rationale: measures sag of the medial longitudinal arch under
-    static full body weight.'
-  - Carefully establish subtalar neutral in seated/standing before measuring baseline
-    height.
-  - Measure vertical drop using a millimeter ruler or index card.
-  - 'Normal mobility: 6–10 mm of sag.'
-  - 'Rigid/hypomobile arch: < 5 mm; Hyperpronating foot: > 10–15 mm.'
-  positive: Identifies dynamic arch collapse and excessive midfoot pronation (triplanar).
-  metrics: 'Normal: 6–10 mm · Excessive pronation: > 10 mm'
-  video_url: null
-  image: null
-  sources:
-  - Brody DM (1982)
-  - Sell KE et al. (1994)
-  review_status: draft
+  - text: Redmond 2008 J Foot Ankle Res
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC2553778/
+    free_full_text: true
+  - text: Rokkedal-Lausch 2013 Gait Posture
+    url: https://doi.org/10.1016/j.gaitpost.2013.04.006
 - id: slhr-test
+  title: Single-Leg Heel-Rise Test (10° Incline, to Fatigue)
+  page: 3
   type: test
-  title: Single-Leg Heel Raise Test (60 bpm Protocol)
-  page: 3
-  steps:
-  - Set auditory metronome to 60 bpm (1 beat up, 1 beat down = 30 repetitions/min).
-  - Patient stands barefoot on one leg on flat ground (or slightly inclined wedge).
-  - Maximum 2 fingertips placed on wall at shoulder height for balance only (no weight-bearing
-    through fingers).
-  - Instruct patient to perform full-height plantarflexion rises to metronome beat
-    until termination.
-  - Record total repetitions, peak rise height (cm), and termination reason (fatigue,
-    pain, cadence loss, height reduction).
-  positive: Repetitions below gender normative thresholds or Limb Symmetry Index (LSI)
-    < 90%.
-  metrics: 'Males 32–37 · Females 27–31 · Athletes ≥ 38–45+ reps | LSI % | Termination:
-    Fatigue, Pain, Cadence, Height ↓'
-  video_url: null
-  image: null
-  sources:
-  - Hébert-Losier K et al. (2009)
-  - Hébert-Losier K et al. (2017)
   review_status: draft
-- id: slhr-protocol
+  evidence: M
+  summary: Triceps surae endurance test performed on a 10° incline to fatigue (Hébert-Losier 2017) and recommended as an impairment/outcome
+    test in Achilles tendinopathy (Martin 2018).
+  steps:
+  - Position the patient standing barefoot on a 10° incline with light fingertip touch on the wall for balance.
+  - Instruct the patient to perform maximal-height single-leg heel rises to fatigue on each leg.
+  - Record total repetitions on the involved and uninvolved limbs and compute limb symmetry index (LSI %).
+  positive: Reduced repetition count compared with the uninvolved limb or reference values (men median 24 vs women 21 repetitions,
+    Hébert-Losier 2017).
+  interpretation: 'Hébert-Losier 2017 (10° incline, to fatigue): ICC 1.0; men median 24 vs women 21 repetitions; women over
+    60 outperformed men. Martin 2018 JOSPT midportion Achilles tendinopathy CPG recommends hop and heel-raise endurance tests
+    (B).'
+  metrics: ICC 1.0; men median 24 vs women 21 repetitions; women over 60 outperformed men (10° incline, to fatigue; Hébert-Losier
+    2017) · JOSPT Achilles CPG (B) (Martin 2018)
+  sources:
+  - text: Hébert-Losier 2017 Physiotherapy
+    url: https://doi.org/10.1016/j.physio.2017.03.002
+  - text: Martin 2018 J Orthop Sports Phys Ther (midportion Achilles tendinopathy CPG)
+    url: https://doi.org/10.2519/jospt.2018.0302
+- id: cpg-impairment-measures
+  title: JOSPT Lateral Ankle Sprain CPG — Impairment Measures (Lunge, Balance, SEBT & Timed Hopping)
+  page: 3
   type: info
-  title: Single-Leg Heel Raise 60 bpm Protocol
-  page: 3
-  steps:
-  - 'Standardized cadence: 60 beats/min (30 complete cycles/minute, 1 s concentric,
-    1 s eccentric).'
-  - 'Balance support: strictly index and middle fingers on wall at shoulder height;
-    no pushing off.'
-  - 'Knee position: maintain full knee extension throughout all repetitions.'
-  - 'Termination criteria: (1) voluntary cessation due to fatigue, (2) pain > 3/10,
-    (3) failure to maintain cadence for 2 consecutive beats, (4) rise height dropping
-    > 50% of initial height.'
-  - Calculate Total Work = Repetitions × Maximum Height (cm); calculate LSI % = (Involved
-    / Uninvolved) × 100.
-  positive: Validates triceps surae endurance capacity; essential clearance gate for
-    running and sport.
-  metrics: 'Cadence: 60 bpm · Males 32–37 · Females 27–31 · Athletes ≥ 38–45+ · LSI
-    ≥ 90%'
-  video_url: null
-  image: null
-  sources:
-  - Hébert-Losier K et al. (2017) J Sci Med Sport
-  - Silbernagel KG et al. (2006)
   review_status: draft
+  evidence: Guideline
+  summary: Guideline-recommended objective impairment measures for acute lateral ankle sprain and chronic ankle instability
+    (Martin 2021).
+  steps:
+  - Measure ankle dorsiflexion "using the weight-bearing lunge test" (A).
+  - Assess postural control using "static single-limb balance on a firm surface with eyes closed" and the Star Excursion Balance
+    Test (A).
+  - Assess functional limb performance using single-limb hopping under timed conditions (B).
+  positive: Side-to-side deficits in weight-bearing lunge, eyes-closed single-limb balance, Star Excursion Balance Test, or
+    timed single-limb hopping.
+  interpretation: 'Martin 2021 JOSPT lateral ankle sprain CPG: dorsiflexion "using the weight-bearing lunge test", "static
+    single-limb balance on a firm surface with eyes closed" and the Star Excursion Balance Test (A); single-limb hopping under
+    timed conditions (B).'
+  metrics: Weight-bearing lunge test (A) · Static single-limb balance on a firm surface with eyes closed (A) · Star Excursion
+    Balance Test (A) · Single-limb hopping under timed conditions (B) (Martin 2021)
+  sources:
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
+- id: ankle-foot-rom
+  title: Ankle & Foot Range of Motion Assessment
+  page: 3
+  type: test
+  review_status: draft
+  evidence: E
+  summary: Bilateral active and passive range-of-motion comparison for ankle dorsiflexion, plantarflexion, inversion, eversion,
+    and 1st MTP extension.
+  steps:
+  - Measure active and passive dorsiflexion (knee extended and knee flexed), plantarflexion, inversion, eversion, and 1st
+    MTP joint motion on the involved and uninvolved sides.
+  - Compare with the other side and the patient's own baseline, noting end-feel and symptom reproduction.
+  positive: Asymmetric range of motion, capsular/bony restriction, or concordant pain compared with the uninvolved side.
+  interpretation: 'Expert clinical assessment (E): compare involved and uninvolved limbs at every visit.'
+  metrics: Expert clinical assessment (E)
+  sources: []
 - id: hhd-positions
-  type: info
-  title: Hand-Held Dynamometry (HHD) Testing Positions
+  title: Hand-Held Dynamometry (HHD) Strength & Torque Calculator
   page: 3
-  steps:
-  - 'Tibialis Posterior: patient seated/supine; test position is active inversion
-    in plantarflexion; apply resistance at medial forefoot.'
-  - 'Peroneus Longus: patient supine; 1st ray plantarflexion + eversion; resist under
-    1st metatarsal head.'
-  - 'Peroneus Brevis: patient supine; pure ankle eversion; resist lateral border of
-    5th metatarsal shaft.'
-  - 'Tibialis Anterior: patient seated/supine; dorsiflexion + inversion; resist dorsal-medial
-    forefoot.'
-  - 'Flexor Hallucis Longus (FHL): ankle neutral; test isolated hallux interphalangeal
-    (IP) flexion against plantar resistance.'
-  - Stabilize dynamometer firmly with rigid strap or examiner body weight; record
-    Newtons (N) and normalize to Body Mass (N/kg).
-  positive: Strength deficit > 10–15% compared to contralateral limb (LSI < 85–90%).
-  metrics: Body Mass normalized (N/kg) · MMT (0–5) · LSI %
-  video_url: null
-  image: null
-  sources:
-  - Spink MJ et al. (2010)
-  - Mentiplay BF et al. (2015)
-  review_status: draft
-- id: van-dijk-cluster
   type: info
-  title: Van Dijk Day-5 Diagnostic Cluster
-  page: 4
-  steps:
-  - Perform clinical examination ideally delayed to day 4–5 post-inversion injury
-    (eliminates acute guarding).
-  - 'Item 1: Palpation pain localized to the anterior talofibular ligament (ATFL).'
-  - 'Item 2: Presence of lateral ankle hematoma / cutaneous discoloration.'
-  - 'Item 3: Positive anterior drawer test demonstrating mechanical laxity or soft
-    end-feel.'
-  - 'Adjunct test: Talar tilt test for calcaneofibular ligament (CFL) compromise.'
-  - 'Cluster interpretation: presence of all 3 positive items predicts complete ATFL
-    rupture.'
-  positive: All 3 items positive yields Sn 100%, Sp 77%, +LR 4.35, −LR ≈ 0.00 for
-    lateral ligament rupture.
-  metrics: 'Lateral Ligament — Van Dijk Day-5 Cluster [M*] DELAYED EXAM: Sn 100% Sp
-    77% +LR 4.35 −LR ≈ 0.00'
-  video_url: null
-  image: null
-  sources:
-  - van Dijk CN et al. (1996)
-  - Kerkhoffs GM et al. (2012)
   review_status: draft
+  evidence: M
+  summary: Standardised hand-held dynamometry (HHD) force and torque (N·m = N × m) measurement for plantarflexion, dorsiflexion,
+    inversion, eversion, and hip abduction.
+  steps:
+  - Use the same tester, same position, and a belt / fixed set-up when possible at every visit, and compare with the other
+    side (Martins 2017; Batista 2024).
+  - Measure lever arm in cm (convert to m = cm ÷ 100) and peak force in Newtons (N) on the involved and uninvolved limbs.
+  - Calculate Torque (N·m) = Force (N) × Lever arm (m) and Limb Symmetry Index (LSI % = involved ÷ uninvolved × 100).
+  positive: Consistent test set-up (same tester, same position, belt / fixed set-up when possible) allows reliable longitudinal
+    strength and LSI tracking.
+  interpretation: 'Practical rule from Batista 2024 and Martins 2017: use the same device, same position, same strap / lever-arm
+    point and, where possible, the same tester at every visit; compare with the other side, and do not interchange devices.'
+  metrics: Same tester, same position, belt / fixed set-up when possible; do not interchange devices (Batista 2024 · Martins
+    2017)
+  calculator:
+    kind: formula
+    decimals: 2
+    value_label: N·m Torque = N × lever arm (cm ÷ 100)
+    expr: '(force >= 0 && lever > 0) ? (force * lever / 100) : NaN'
+    inputs:
+    - heading: Torque Calculator — Torque (N·m) = N × lever arm (m); enter the lever arm in cm
+    - key: force
+      label: Force (N)
+      type: number
+    - key: lever
+      label: Lever arm (cm)
+      type: number
+    outputs:
+    - when: v >= 0
+      text: 'Torque: {v|2} N·m (Force {force|1} N × Lever arm {lever|1} cm) · Use same tester, same position, belt / fixed
+        set-up when possible (Batista 2024; Martins 2017)'
+      tone: good
+  sources:
+  - text: Batista 2024 Phys Ther Sport
+    url: https://doi.org/10.1016/j.ptsp.2024.07.004
+  - text: Martins 2017 J Athl Train
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5634229/
+    free_full_text: true
+- id: lsi-caution
+  title: Limb Symmetry Index (LSI) Calculator
+  page: 3
+  type: info
+  review_status: draft
+  evidence: E
+  summary: Limb Symmetry Index calculation (LSI % = involved ÷ uninvolved × 100) for HHD strength, single-leg heel-rise, and
+    hop testing.
+  steps:
+  - Record the involved and uninvolved limb scores using identical test conditions.
+  - Compute LSI % = involved ÷ uninvolved × 100.
+  - Interpret LSI alongside uninvolved limb capacity and movement quality.
+  positive: Quantifies side-to-side symmetry (%) for strength, heel-rise endurance, and functional hop performance.
+  interpretation: 'Expert clinical calculation (E): LSI % = involved ÷ uninvolved × 100.'
+  metrics: LSI % = involved ÷ uninvolved × 100 (E)
+  calculator:
+    kind: formula
+    decimals: 1
+    value_label: '% LSI (involved ÷ uninvolved × 100)'
+    expr: '(uninv > 0 && inv >= 0) ? (inv / uninv * 100) : NaN'
+    inputs:
+    - heading: Limb Symmetry Index — involved ÷ uninvolved × 100
+    - key: inv
+      label: Involved limb value
+      type: number
+    - key: uninv
+      label: Uninvolved limb value
+      type: number
+    outputs:
+    - when: v >= 0
+      text: 'LSI: {v|1}% (involved {inv|1} ÷ uninvolved {uninv|1} × 100)'
+      tone: good
+  sources: []
+- id: van-dijk-cluster
+  title: Delayed Physical Examination After Sprain (Day 5, van Dijk 1996) & JOSPT CPG Diagnosis
+  page: 4
+  type: info
+  review_status: draft
+  evidence: M
+  summary: Accuracy of delayed physical examination at day 5 after acute lateral ankle sprain (van Dijk 1996) and JOSPT 2021
+    CPG diagnostic recommendations.
+  steps:
+  - Perform delayed physical examination at day 5 post-sprain (palpation, haematoma, anterior drawer) once acute swelling
+    and guarding subside (van Dijk 1996).
+  - 'Follow JOSPT LAS CPG (Martin 2021): "Clinicians should use special tests, including the reverse anterolateral drawer
+    test and anterolateral talar palpation in addition to the traditional anterior drawer test" (B).'
+  - 'For chronic ankle instability (Martin 2021): use a discriminative instrument "such as the Cumberland Ankle Instability
+    Tool or the Identification of Functional Ankle Instability" plus functional performance tests (B).'
+  positive: Delayed physical examination (day 5) has sensitivity 96% and specificity 84% for a lateral ligament lesion (van
+    Dijk 1996).
+  interpretation: 'van Dijk 1996: delayed physical examination after sprain (day 5) sensitivity 96%, specificity 84% for a
+    ligament lesion; kappa 0.5–1.0. Martin 2021 JOSPT LAS CPG: "Clinicians should use special tests, including the reverse
+    anterolateral drawer test and anterolateral talar palpation in addition to the traditional anterior drawer test" (B).'
+  metrics: 'Delayed exam (day 5): sensitivity 96%, specificity 84%, kappa 0.5–1.0 (van Dijk 1996) · JOSPT LAS CPG diagnosis
+    (B) (Martin 2021)'
+  sources:
+  - text: van Dijk 1996 J Bone Joint Surg Br
+    url: https://doi.org/10.1302/0301-620x78b6.1283
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
 - id: anterior-drawer-test
-  type: test
   title: Anterior Drawer Test of the Ankle
   page: 4
-  steps:
-  - Patient seated with knee flexed 90° (relaxes gastrocnemius) and ankle in 10–15°
-    plantarflexion.
-  - Stabilize anterior distal tibia and fibula with one hand.
-  - Cup the posterior calcaneus with the opposite hand and cradle the heel.
-  - Draw the calcaneus and talus straight anteriorly while stabilizing the tibia.
-  - Assess for anterior translation distance, dimple/suction sign, and quality of
-    end-feel.
-  positive: Increased anterior translation compared to contralateral side (> 3–5 mm)
-    or absent/soft end-feel.
-  metrics: 'Component of Van Dijk Cluster. Cluster-level accuracy only — see #van-dijk-cluster.
-    No standalone accuracy figure quoted.'
-  video_url: https://www.youtube.com/watch?v=vAcBEYZKcto
-  image: null
-  sources:
-  - Physiotutors
-  - van Dijk CN et al. (1996)
-  - Croy T et al. (2013)
-  review_status: draft
-- id: talar-tilt-test
   type: test
+  review_status: draft
+  evidence: M
+  video_url: https://www.youtube.com/watch?v=vAcBEYZKcto
+  video_title: Anterior Drawer Test of the Ankle / Chronic Ankle Laxity & Anterior Talofibular Ligament Rupture — Physiotutors
+  summary: Manual anterior translation test of the talus relative to the tibia to evaluate anterior talofibular ligament (ATFL)
+    integrity.
+  steps:
+  - Position the patient seated or supine with the knee flexed and the ankle in slight plantarflexion.
+  - Stabilise the distal anterior tibia and fibula with one hand and cup the posterior calcaneus with the other.
+  - Translate the calcaneus and talus anteriorly and compare laxity and end-feel with the uninjured ankle; combine with the
+    reverse anterolateral drawer test and anterolateral talar palpation (Martin 2021).
+  positive: Increased anterior talar translation or soft end-feel compared with the contralateral ankle.
+  interpretation: 'van Dijk 1996: delayed physical examination after sprain (day 5) sensitivity 96%, specificity 84% for a
+    ligament lesion; kappa 0.5–1.0. Martin 2021 JOSPT LAS CPG: "Clinicians should use special tests, including the reverse
+    anterolateral drawer test and anterolateral talar palpation in addition to the traditional anterior drawer test" (B).'
+  metrics: 'Delayed physical examination (day 5): sensitivity 96%, specificity 84%; kappa 0.5–1.0 (van Dijk 1996) · JOSPT
+    LAS CPG (B) (Martin 2021)'
+  sources:
+  - text: van Dijk 1996 J Bone Joint Surg Br
+    url: https://doi.org/10.1302/0301-620x78b6.1283
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
+- id: anterolateral-drawer
+  title: Reverse Anterolateral Drawer Test & Anterolateral Talar Palpation
+  page: 4
+  type: test
+  review_status: draft
+  evidence: Guideline
+  summary: Rotational anterolateral talar laxity and palpation tests recommended alongside the traditional anterior drawer
+    test for acute lateral ankle sprain (Martin 2021).
+  steps:
+  - Palpate the anterolateral talar dome and ATFL attachment for focal tenderness and subluxation.
+  - Perform the reverse anterolateral drawer test and anterolateral drawer manoeuvre allowing anterolateral rotation of the
+    talus relative to the stabilised tibia.
+  - Use in addition to the traditional anterior drawer test as recommended by the JOSPT 2021 lateral ankle sprain CPG.
+  positive: Excessive anterolateral talar translation or tenderness compared with the contralateral ankle.
+  interpretation: 'Martin 2021 JOSPT LAS CPG: "Clinicians should use special tests, including the reverse anterolateral drawer
+    test and anterolateral talar palpation in addition to the traditional anterior drawer test" (B).'
+  metrics: '"Clinicians should use special tests, including the reverse anterolateral drawer test and anterolateral talar
+    palpation in addition to the traditional anterior drawer test" (B) (Martin 2021)'
+  sources:
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
+- id: talar-tilt-test
   title: Talar Tilt Test (Inversion Stress / CFL)
   page: 4
-  steps:
-  - Patient seated or supine with knee flexed and foot relaxed.
-  - Firmly stabilize distal tibia and fibula with proximal hand.
-  - Grasp calcaneus firmly with distal hand, positioning the ankle in anatomical neutral
-    (0° DF).
-  - Apply a pure inversion / adduction tilting force to the talus and calcaneus.
-  - Compare angular gapping and end-feel with the uninvolved limb.
-  positive: Increased talar tilt (> 5–10° difference from contralateral side) or soft
-    end-feel indicates CFL rupture.
-  metrics: 'Adjunct: Talar Tilt (CFL) — Cluster (+) ATFL rupture likely'
+  type: test
+  review_status: draft
+  evidence: E
   video_url: https://www.youtube.com/watch?v=UHNbm6Z3XK4
-  image: null
-  sources:
-  - Physiotutors
-  - Bahr R et al. (1997)
-  - Hertel J (2002)
-  review_status: draft
-- id: syndesmosis-cluster
-  type: info
-  title: Syndesmosis — Sman High Ankle Cluster
-  page: 4
+  video_title: The Talar Tilt Test / Lateral Ankle Sprain — Physiotutors
+  summary: Passive inversion stress test of the hindfoot in neutral dorsiflexion to assess calcaneofibular ligament (CFL)
+    integrity.
   steps:
-  - 'Item 1: Palpation pain localized to the anterior inferior tibiofibular ligament
-    (AITFL).'
-  - 'Item 2: Positive dorsiflexion-external rotation stress test (Kleiger maneuver).'
-  - 'Item 3: Positive mid-calf squeeze test (Hopkins maneuver).'
-  - 'Adjunct test: Fibular translation test for distal tibiofibular diastasis.'
-  - 'Evaluate cluster: when all items are positive, high syndesmotic disruption is
-    highly likely (refer MRI).'
-  positive: Positive cluster demonstrates Sp 96%, Odds Ratio 13.8 for syndesmotic
-    injury; warrants MRI and orthopaedic consult.
-  metrics: 'Syndesmosis — Sman Cluster [L*] HIGH ANKLE: Sp 96% OR 13.8 Refer MRI if
-    (+)'
-  video_url: null
-  image: null
-  sources:
-  - Sman AD et al. (2015)
-  - Hunt KJ et al. (2015)
-  review_status: draft
-- id: kleiger-test
-  type: test
-  title: Dorsiflexion-External Rotation Test (Kleiger Test)
-  page: 4
-  steps:
-  - Patient seated on table edge with knee flexed 90° and lower leg relaxed.
-  - Stabilize distal tibia and fibula firmly with proximal hand.
-  - Hold the foot in neutral or maximal dorsiflexion with distal hand.
-  - Apply an external rotation torque to the foot relative to the stabilized tibia.
-  - 'Observe for pain location: syndesmotic pain is reproduced anterolaterally at
-    the distal tibiofibular joint.'
-  positive: Reproduction of sharp anterolateral syndesmotic pain (or medial clear
-    space widening in deltoid sprain).
-  metrics: 'Component of Sman Syndesmosis Cluster. Cluster-level accuracy only — see
-    #syndesmosis-cluster. No standalone accuracy figure quoted.'
-  video_url: https://www.youtube.com/watch?v=s53uzyUv0bc
-  image: null
-  sources:
-  - Physiotutors
-  - Kleiger B (1956)
-  - Beumer A et al. (2002)
-  review_status: draft
+  - Position the patient seated or supine with the knee flexed and the ankle in neutral dorsiflexion.
+  - Stabilise the distal lower leg with one hand and grasp the calcaneus with the other.
+  - Apply a passive inversion tilt to the talus and calcaneus and compare gapping and end-feel with the uninvolved side.
+  positive: Increased inversion tilt or lack of a firm ligamentous end-feel compared with the contralateral ankle.
+  interpretation: Expert clinical assessment (E) evaluating calcaneofibular ligament (CFL) laxity alongside ATFL testing.
+  metrics: Expert clinical assessment (E)
+  sources: []
 - id: squeeze-test
-  type: test
   title: Squeeze Test of the Leg (Hopkins Squeeze)
   page: 4
-  steps:
-  - Patient seated or supine with lower leg exposed and relaxed.
-  - Place hands across the proximal to middle third of the calf (midway between knee
-    and ankle).
-  - Apply firm, gradual compression squeezing the fibula toward the tibia.
-  - Release compression gradually.
-  - 'Inquire where the patient feels pain: syndesmotic positive requires pain localized
-    distally at the ankle.'
-  positive: 'Compression at mid-calf reproduces distal syndesmotic pain at the anterior
-    inferior tibiofibular joint. (Note: Low sensitivity — a negative squeeze does
-    NOT exclude syndesmotic injury).'
-  metrics: 'Squeeze test (Hopkins) (+): High specificity for high ankle sprain · Low
-    sensitivity — a negative squeeze does NOT exclude syndesmotic injury.'
-  video_url: https://www.youtube.com/watch?v=ZhDxfPRruQ4
-  image: null
-  sources:
-  - Hopkins J et al. (1990)
-  - Alonso A et al. (1998)
-  review_status: draft
-- id: fibular-translation-test
   type: test
+  review_status: draft
+  evidence: M
+  video_url: https://www.youtube.com/watch?v=ZhDxfPRruQ4
+  video_title: Squeeze Test (SYNDESMOTIC ANKLE SPRAIN - PT ASSESSMENT) — Jenn Chew, Vancouver Physiotherapist for Runners
+  summary: Mid-calf tibiofibular compression test provoking distal syndesmotic pain in suspected high ankle sprain.
+  steps:
+  - Position the patient supine or seated with the lower leg relaxed.
+  - Compress the tibia and fibula together at the middle third of the calf.
+  - Ask whether compression reproduces pain distally at the anterior inferior tibiofibular syndesmosis.
+  positive: Distal syndesmotic pain reproduced by mid-calf compression (specific test, Sman 2015; LR+ 2.20, LR− 0.68, Baltes
+    2022).
+  interpretation: 'Sman 2015: inability to hop, syndesmosis tenderness and dorsiflexion–external rotation stress (sensitive)
+    + pain out of proportion and squeeze test (specific). Baltes 2022 (MRI reference): squeeze test LR+ 2.20, LR− 0.68; eversion
+    mechanism LR+ 3.47; overall clinical suspicion sensitivity 73%, NPV 89%.'
+  metrics: LR+ 2.20, LR− 0.68 (Baltes 2022, MRI reference) · Specific when combined with pain out of proportion (Sman 2015)
+  sources:
+  - text: Baltes 2022 Knee Surg Sports Traumatol Arthrosc
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9568458/
+    free_full_text: true
+  - text: Sman 2015 Br J Sports Med
+    url: https://doi.org/10.1136/bjsports-2013-092787
+- id: kleiger-test
+  title: Dorsiflexion-External Rotation Test (Kleiger Test)
+  page: 4
+  type: test
+  review_status: draft
+  evidence: M
+  video_url: https://www.youtube.com/watch?v=s53uzyUv0bc
+  video_title: Dorsiflexion External Rotation Stress Test / Syndesmosis Injury — Physiotutors
+  summary: External rotation stress manoeuvre of the dorsiflexed foot relative to the stabilised tibia to provoke distal tibiofibular
+    syndesmosis pain.
+  steps:
+  - Seat the patient with the knee flexed over the edge of the table and stabilise the distal leg.
+  - Hold the foot in dorsiflexion and apply a passive external rotation stress to the foot and talus.
+  - Combine with syndesmosis tenderness and ability to hop as the sensitive syndesmosis test combination (Sman 2015).
+  positive: Reproduction of anterolateral pain over the distal tibiofibular syndesmosis.
+  interpretation: 'Sman 2015: inability to hop, syndesmosis tenderness and dorsiflexion–external rotation stress (sensitive)
+    + pain out of proportion and squeeze test (specific).'
+  metrics: Sensitive test in combination with inability to hop and syndesmosis tenderness (Sman 2015)
+  sources:
+  - text: Sman 2015 Br J Sports Med
+    url: https://doi.org/10.1136/bjsports-2013-092787
+- id: fibular-translation-test
   title: Fibular Translation Test (A-P Shuck Test)
   page: 4
-  steps:
-  - Position patient in sidelying or supine with ankle relaxed.
-  - Firmly stabilize distal tibia with one hand.
-  - Grasp distal lateral malleolus firmly between thumb and index finger of opposite
-    hand.
-  - Apply anterior and posterior translatory shear forces to the fibula on the tibia.
-  - Compare excursion distance and end-feel with the contralateral limb.
-  positive: Increased anterior-posterior fibular translation (> 2–3 mm difference)
-    or pain reproduction.
-  metrics: 'Adjunct: Fibular Translation — Cluster (+) Syndesmotic injury'
+  type: test
+  review_status: draft
+  evidence: E
   video_url: https://www.youtube.com/watch?v=W3SHqKqkK14
-  image: null
-  sources:
-  - Physiotutors
-  - Beumer A et al. (2003)
-  - Sman AD et al. (2013)
-  review_status: draft
-- id: royal-london-test
-  type: test
-  title: Royal London Hospital Test
-  page: 4
+  video_title: The Fibular Translation Test / Syndesmosis Injuries — Physiotutors
+  summary: Anteroposterior translation of the distal fibula on the stabilised tibia to assess syndesmotic stability.
   steps:
-  - Patient prone with ankles hanging freely over the table edge.
-  - Palpate the Achilles tendon from 2 to 6 cm proximal to insertion to locate the
-    point of maximal tenderness.
-  - Keep thumb and index finger precisely on the tender nodule in plantarflexed relaxation.
-  - Instruct the patient to actively (or passively) maximally dorsiflex the ankle.
-  - Re-palpate the identical spot in full dorsiflexion and ask whether pain is unchanged
-    or significantly reduced.
-  positive: Tenderness is marked in neutral/PF but significantly diminishes or completely
-    disappears in full DF.
-  metrics: 'Component of Achilles Midportion Cluster. Cluster-level accuracy only
-    — see #achilles-midportion-cluster. No standalone accuracy figure quoted.'
-  video_url: https://www.youtube.com/watch?v=VEOL0tX2rcQ
-  image: null
-  sources:
-  - Physiotutors
-  - Maffulli N et al. (2003)
-  review_status: draft
+  - Position the patient supine or sidelying and stabilise the distal tibia with one hand.
+  - Grasp the distal fibula (lateral malleolus) with the other hand and translate it anteriorly and posteriorly.
+  - Compare translation and pain reproduction with the uninvolved ankle.
+  positive: Increased anteroposterior fibular translation or concordant distal syndesmotic pain compared with the uninjured
+    side.
+  interpretation: Expert clinical assessment (E) used as an adjunct to the syndesmosis test combination.
+  metrics: Expert clinical assessment (E)
+  sources: []
 - id: arc-sign-test
-  type: test
   title: Arc Sign (Achilles Tendinopathy)
   page: 4
-  steps:
-  - Position patient in prone with feet relaxed over table edge.
-  - Inspect and palpate the Achilles tendon to locate an area of localized swelling
-    or nodularity.
-  - Place thumb and index finger gently on the borders of the swollen area.
-  - Instruct patient to actively move the ankle through full range of plantarflexion
-    and dorsiflexion.
-  - Observe whether the tender nodule moves with tendon excursion (intratendinous)
-    or remains stationary (paratendinopathy).
-  positive: The palpable swelling moves proximally and distally through an arc during
-    active ankle motion.
-  metrics: 'Component of Achilles Midportion Cluster. Cluster-level accuracy only
-    — see #achilles-midportion-cluster. No standalone accuracy figure quoted.'
-  video_url: https://www.youtube.com/watch?v=paTJszvsUhQ
-  image: null
-  sources:
-  - Physiotutors
-  - van Dijk CN et al. (2011)
-  review_status: draft
-- id: windlass-test
   type: test
+  review_status: draft
+  evidence: Guideline
+  video_url: https://www.youtube.com/watch?v=paTJszvsUhQ
+  video_title: Arc Test / Midportion Achilles Tendinopathy — Physiotutors
+  summary: Palpation of an intratendinous Achilles nodule during active dorsiflexion and plantarflexion to observe movement
+    of the swelling.
+  steps:
+  - Position the patient prone with the feet hanging relaxed off the plinth.
+  - Palpate the midportion of the Achilles tendon (2 to 6 cm proximal to the insertion) to identify any focal thickening or
+    nodule.
+  - Hold the fingers lightly over the swelling while the patient actively dorsiflexes and plantarflexes the ankle.
+  positive: The palpable intratendinous nodule moves proximally and distally with active ankle dorsiflexion and plantarflexion.
+  interpretation: 'Martin 2018 JOSPT midportion Achilles tendinopathy CPG: in addition to the arc sign and Royal London Hospital
+    test: "pain located 2 to 6 cm proximal to the Achilles tendon insertion that began gradually and pain with palpation of
+    the midportion of the tendon" (C).'
+  metrics: JOSPT midportion Achilles tendinopathy CPG diagnostic test (C) alongside palpation 2 to 6 cm proximal to insertion
+    (Martin 2018)
+  sources:
+  - text: Martin 2018 J Orthop Sports Phys Ther (midportion Achilles tendinopathy CPG)
+    url: https://doi.org/10.2519/jospt.2018.0302
+- id: royal-london-test
+  title: Royal London Hospital Test
+  page: 4
+  type: test
+  review_status: draft
+  evidence: Guideline
+  video_url: https://www.youtube.com/watch?v=VEOL0tX2rcQ
+  video_title: Royal London Hospital Test / Achilles Tendinopathy — Physiotutors
+  summary: Comparison of focal Achilles midportion tenderness in relaxed plantarflexion versus maximal active ankle dorsiflexion.
+  steps:
+  - With the patient prone and the ankle relaxed, pinch-palpate the midportion of the Achilles tendon (2 to 6 cm proximal
+    to insertion) to find maximal tenderness.
+  - Ask the patient to actively dorsiflex the ankle maximally and re-palpate the same tendon spot under tension.
+  positive: Focal midportion Achilles tenderness that decreases or resolves when the ankle is held in active dorsiflexion.
+  interpretation: 'Martin 2018 JOSPT midportion Achilles tendinopathy CPG: in addition to the arc sign and Royal London Hospital
+    test: "pain located 2 to 6 cm proximal to the Achilles tendon insertion that began gradually and pain with palpation of
+    the midportion of the tendon" (C).'
+  metrics: JOSPT midportion Achilles tendinopathy CPG diagnostic test (C) alongside palpation 2 to 6 cm proximal to insertion
+    (Martin 2018)
+  sources:
+  - text: Martin 2018 J Orthop Sports Phys Ther (midportion Achilles tendinopathy CPG)
+    url: https://doi.org/10.2519/jospt.2018.0302
+- id: windlass-test
   title: Weight-Bearing Windlass Test
   page: 4
-  steps:
-  - Patient stands on a step or stool with toes extending over the edge, bearing full
-    body weight.
-  - Stabilize the head of the 1st metatarsal with one hand.
-  - Passively dorsiflex the hallux at the 1st metatarsophalangeal (MTP) joint to end
-    range.
-  - Assess for pain reproduction at the plantar fascial insertion on the medial calcaneal
-    tubercle.
-  - Note any mechanical restriction in available 1st MTP extension.
-  positive: Exquisite pain reproduction at medial calcaneal tubercle as the plantar
-    fascia winds around MT head (Sp 100% rule-in).
-  metrics: 'WB Windlass Sp 100% [H] Rule-in test: (+) Weight-bearing Windlass [H]'
-  video_url: https://www.youtube.com/watch?v=fg0PtnoAzSs
-  image: null
-  sources:
-  - Physiotutors
-  - De Garceau D et al. (2003)
-  review_status: draft
-- id: mulders-click-test
   type: test
+  review_status: draft
+  evidence: L
+  video_url: https://www.youtube.com/watch?v=fg0PtnoAzSs
+  video_title: The Windlass Test / Plantar Fasciitis — Physiotutors
+  summary: Passive extension of the first metatarsophalangeal (1st MTP) joint in standing weight-bearing to wind the plantar
+    aponeurosis and provoke heel pain.
+  steps:
+  - Have the patient stand on a step or stool with the toes positioned at the edge under equal bilateral weight-bearing.
+  - Stabilise the 1st metatarsal head and passively extend the hallux at the 1st MTP joint to end range.
+  positive: Reproduction of plantar heel pain at the medial calcaneal tubercle insertion of the plantar fascia.
+  interpretation: 'De Garceau 2003: positive weight-bearing in 31.8% of patients (low sensitivity).'
+  metrics: Positive weight-bearing in 31.8% of patients (low sensitivity, De Garceau 2003)
+  sources:
+  - text: De Garceau 2003 Foot Ankle Int
+    url: https://doi.org/10.1177/107110070302400309
+- id: mulders-click-test
   title: Mulder's Click (Morton's Neuroma Sign)
   page: 4
-  steps:
-  - Position patient supine with relaxed foot.
-  - Grasp the medial and lateral aspects of the forefoot across the 1st and 5th metatarsal
-    heads.
-  - Apply a firm transverse compressive force, squeezing the metatarsal heads together.
-  - Simultaneously press your opposite thumb upward into the plantar 3rd intermetatarsal
-    space.
-  - Feel and listen for a palpable click while monitoring for sharp electric pain
-    into the 3rd and 4th toes.
-  positive: Audible or palpable click accompanied by reproduction of familiar neuralgic
-    pain or numbness in adjacent toes.
-  metrics: 'Mulder’s Click: Transverse metatarsal compression + plantar interdigital
-    pressure'
+  type: test
+  review_status: draft
+  evidence: L
   video_url: https://www.youtube.com/watch?v=BU2JLUNsCn4
-  image: null
-  sources:
-  - Dr John Kiel
-  - Mulder DJ (1951)
-  - Matthews P et al. (2019)
-  review_status: draft
-- id: anterolateral-drawer
-  type: test
-  title: Anterolateral Drawer Test (Rotational Laxity)
-  page: 4
+  video_title: Mulder's Sign / Morton's Neuroma / Medical Education — Dr John Kiel
+  summary: Transverse forefoot compression with plantar interspace pressure to elicit a palpable click and neuralgic pain
+    in Morton's neuroma.
   steps:
-  - Patient seated with knee flexed 90°.
-  - Stabilize distal tibia with proximal hand.
-  - Grasp calcaneus and apply anterior translation combined with internal rotation
-    of the foot.
-  - Assess for excessive rotatory subluxation of the lateral talar dome from the mortise.
-  - Compare with pure linear anterior drawer and contralateral ankle.
-  positive: Increased rotational anterior excursion of the lateral talus indicating
-    anterolateral rotatory instability (ALRI).
-  metrics: 'Additional Individual Tests Result Log: Anterolateral Drawer'
-  video_url: null
-  image: null
+  - Grasp the forefoot across the 1st–5th MT heads and apply transverse mediolateral compression.
+  - Simultaneously press the thumb into the plantar aspect of the 3rd–4th interspace (and perform the thumb–index finger interspace
+    squeeze).
+  positive: Palpable click (Mulder's click) and/or reproduction of sharp forefoot interspace pain.
+  interpretation: 'Mahadevan 2015 (ultrasound reference): thumb–index finger squeeze sensitivity 96%; Mulder''s click 61%.'
+  metrics: Thumb–index finger squeeze sensitivity 96%; Mulder's click 61% (Mahadevan 2015, ultrasound reference)
   sources:
-  - van den Bekerom MP et al. (2008)
-  - Hertel J (2002)
-  review_status: draft
-- id: eversion-stress-deltoid
-  type: test
-  title: Eversion Stress Test (Deltoid Ligament)
+  - text: Mahadevan 2015 J Foot Ankle Surg
+    url: https://doi.org/10.1053/j.jfas.2014.09.021
+- id: navicular-drop-test
+  title: Navicular Drop Test
   page: 4
-  steps:
-  - Patient seated with lower leg supported and knee flexed.
-  - Stabilize the lateral distal tibia with proximal hand.
-  - Grasp the medial heel and calcaneus with distal hand.
-  - Apply a passive eversion and abduction tilting force to the hindfoot.
-  - Assess for medial clear space gapping, pain, or lack of firm ligamentous endpoint.
-  positive: Medial joint line gapping or reproduction of medial pain indicating deep
-    deltoid ligament insufficiency.
-  metrics: 'Additional Individual Tests Result Log: Eversion Stress (Deltoid)'
-  video_url: null
-  image: null
-  sources:
-  - Hintermann B et al. (2004)
-  - Schuberth JM et al. (2004)
-  review_status: draft
-- id: peroneal-subluxation-test
   type: test
-  title: Peroneal Subluxation Provocation Test
-  page: 4
-  steps:
-  - Patient supine or prone with knee flexed 90°.
-  - Place ankle in plantarflexion and inversion.
-  - Palpate the retromalleolar groove behind the lateral malleolus.
-  - Instruct the patient to actively forcefully dorsiflex and evert the foot against
-    strong manual resistance.
-  - Observe and palpate whether the peroneal tendons dislocate anteriorly over the
-    fibular crest.
-  positive: Palpable or visible anterior subluxation / snapping of the peroneal tendons
-    over the lateral malleolus.
-  metrics: 'Additional Individual Tests Result Log: Peroneal Subluxation'
-  video_url: null
-  image: null
-  sources:
-  - Eckert WR, Davis EA (1976)
-  - Safran MR et al. (1999)
   review_status: draft
-- id: cotton-test
-  type: test
-  title: Cotton Test (Lateral Talar Shift)
-  page: 4
+  evidence: E
+  video_url: https://www.youtube.com/watch?v=BejuNMmD7-Y
+  video_title: The Navicular Drop Test for Foot Overpronation — Physiotutors
+  summary: Measurement of sagittal vertical displacement of the navicular tuberosity from seated subtalar neutral to relaxed
+    bilateral standing.
   steps:
-  - Position patient supine with foot and ankle relaxed in neutral.
-  - Firmly stabilize the distal tibia and fibula with proximal hand.
-  - Grasp the talus and calcaneus firmly with the palm and fingers of opposite hand.
-  - Apply a direct transverse mediolateral translation force across the ankle mortise.
-  - Assess for excessive lateral talar shift (> 3–5 mm) or soft end-feel.
-  positive: Excessive translatory play (> 3–5 mm) or clicking indicating syndesmotic
-    or deltoid widening.
-  metrics: 'Additional Individual Tests Result Log: Cotton (Lateral Talar Shift)'
-  video_url: null
-  image: null
-  sources:
-  - Cotton FJ (1910)
-  - Beumer A et al. (2004)
-  review_status: draft
-- id: single-leg-hop-test
-  type: test
-  title: Single-Leg Hop Test (Pain Provocation)
+  - With the patient seated and feet resting on the floor, place the subtalar joint in neutral and mark the navicular tuberosity
+    height on an index card.
+  - Have the patient stand in relaxed bilateral weight-bearing and mark the new height of the navicular tuberosity.
+  - Compare the vertical drop between the involved and uninvolved feet.
+  positive: Asymmetric or excessive navicular drop under weight-bearing compared with the contralateral foot.
+  interpretation: Expert clinical assessment (E) of midfoot sagittal mobility under load.
+  metrics: Expert clinical assessment (E)
+  sources: []
+- id: faam
+  title: FAAM (Foot and Ankle Ability Measure)
   page: 4
-  steps:
-  - Instruct patient to stand on the involved leg on level ground.
-  - Perform 10 consecutive vertical single-leg hops on the spot.
-  - Observe landing mechanics, stiffness, and heel strike tolerance.
-  - Monitor pain level during hopping on NPRS (0–10 scale).
-  - Screen for safe clearance (pain ≤ 2/10) before progressing to high-impact return-to-run
-    stages.
-  positive: Reproduction of sharp bone, joint, or tendon pain (> 2/10 NPRS) during
-    hopping.
-  metrics: 'Additional Individual Tests Result Log: Single-Leg Hop (pain)'
-  video_url: null
-  image: null
-  sources:
-  - Silbernagel KG et al. (2007)
-  - Cook JL et al. (2016)
-  review_status: draft
-- id: too-many-toes-test
-  type: test
-  title: Too-Many-Toes Sign (Posterior Inspection)
-  page: 4
-  steps:
-  - Patient stands in relaxed bilateral stance with feet parallel.
-  - Examiner inspects alignment directly from behind the patient at eye level.
-  - Under normal alignment, the examiner should see 0 to 1 toe visible lateral to
-    the Achilles tendon.
-  - Count visible toes lateral to the calcaneus on the symptomatic versus uninvolved
-    limb.
-  - Note whether forefoot abduction corrects during active toe standing.
-  positive: Visualizing > 1.5–2 toes lateral to the calcaneus indicates forefoot abduction
-    and hindfoot valgus (PTTD Stage II+).
-  metrics: 'Additional Individual Tests Result Log: Too-Many-Toes'
-  video_url: null
-  image: null
-  sources:
-  - Johnson KA, Strom DE (1989)
-  - Bluman EM et al. (2007)
-  review_status: draft
-- id: sl-heel-rise-pttd
-  type: test
-  title: Single-Leg Heel Rise for PTTD (Calcaneal Inversion Check)
-  page: 4
-  steps:
-  - Patient stands barefoot facing a wall, placing 2 fingertips on wall for balance.
-  - Instruct patient to lift uninvolved leg and perform a full-height single-leg heel
-    raise on involved side.
-  - 'Observe the rearfoot from behind: normal function causes immediate calcaneal
-    inversion (varus lock).'
-  - Evaluate whether the patient can achieve full height plantarflexion.
-  - Note failure of the calcaneus to invert or complete inability to perform single-leg
-    rise.
-  positive: Failure of the calcaneus to invert into varus during heel rise, or inability
-    to perform a single rise (PTTD dysfunction).
-  metrics: 'Additional Individual Tests Result Log: SL Heel Rise (PTTD)'
-  video_url: null
-  image: null
-  sources:
-  - Johnson KA, Strom DE (1989)
-  - Kohls-Gatzoulis J et al. (2004)
-  review_status: draft
-- id: tinel-tarsal-tunnel
-  type: test
-  title: Tinel Sign — Tarsal Tunnel
-  page: 4
-  steps:
-  - Position the patient in supine with ankle relaxed in slight external rotation.
-  - Identify the path of the posterior tibial nerve behind and below the medial malleolus.
-  - Apply brisk, light percussion with your index finger or neurological reflex hammer
-    along the nerve course.
-  - Percuss from proximal retromalleolar groove distally toward the porta pedis.
-  - Inquire regarding distal tingling, pins and needles, or electric sensations into
-    the heel and plantar sole.
-  positive: Radiating paresthesias or electric sensations distal to the site of percussion
-    along tibial nerve branches.
-  metrics: 'Additional Individual Tests Result Log: Tinel — Tarsal Tunnel'
-  video_url: null
-  image: null
-  sources:
-  - Tinel J (1915)
-  - Kinoshita M et al. (2001)
-  review_status: draft
-- id: calcaneal-squeeze-test
-  type: test
-  title: Calcaneal Squeeze Test (Stress Fracture & Apophysitis)
-  page: 4
-  steps:
-  - Position patient supine or prone with relaxed feet.
-  - Place the heels of both hands on the medial and lateral borders of the posterior
-    calcaneus.
-  - Interlock your fingers around the plantomedial heel for leverage.
-  - Apply firm, gradual bilateral transverse compression squeezing the calcaneal body.
-  - Assess for sharp bony pain reproduction compared to soft-tissue plantar palpation.
-  positive: Acute, deep bony pain reproduced by mediolateral calcaneal compression
-    indicates stress fracture (or apophysitis in youths).
-  metrics: 'Additional Individual Tests Result Log: Calcaneal Squeeze'
-  video_url: null
-  image: null
-  sources:
-  - Boden BP et al. (2000)
-  - Scharfbillig R et al. (2008)
-  review_status: draft
-- id: forced-pf-test
-  type: test
-  title: Forced Plantarflexion Test (Posterior Impingement)
-  page: 4
-  steps:
-  - Patient positioned prone with knee flexed 90° or lying supine with knee extended.
-  - Firmly stabilize distal anterior tibia with one hand.
-  - Grasp the forefoot and heel with opposite hand.
-  - Apply rapid, forceful end-range passive plantarflexion to compress the posterior
-    talar process.
-  - Optionally add subtle internal or external rotatory grinding at end range.
-  positive: Reproduction of sharp posterior ankle pain as os trigonum or posterior
-    talar process impinges against tibia.
-  metrics: 'Additional Individual Tests Result Log: Forced PF (Posterior)'
-  video_url: null
-  image: null
-  sources:
-  - van Dijk CN (2006)
-  - Peace KA et al. (2004)
-  review_status: draft
-- id: proms-mcid
   type: info
-  title: Validated PROMs Dashboard & MCID Cutoffs
-  page: 4
-  steps:
-  - 'FAAM-ADL: 0–100%, Minimal Clinically Important Difference (MCID) = 8 points [H].'
-  - 'FAAM-Sports: 0–100%, MCID = 9 points [H], Clearance / Return-to-Sport (RTS) cutoff
-    ≥ 90–95%.'
-  - 'VISA-A: 0–100 points, MCID = 12–14 points [H], Clearance / RTS cutoff ≥ 85–90
-    points.'
-  - 'CAIT: 0–30 points, Instability cutoff ≤ 24 points [H], Stable joint status ≥
-    27–28 points.'
-  - 'LEFS: 0–80 points, MCID = 9 points [H], Functional clearance cutoff ≥ 72–75 points.'
-  - 'Clinical gate: improvement < MCID at 6 weeks mandates re-screening Section B
-    red flags, reconsideration of diagnosis, and imaging/referral.'
-  positive: Criterion-based functional recovery tracked against validated MCID thresholds
-    and discharge targets.
-  metrics: FAAM-ADL MCID 8 pts [H] · FAAM-Sports MCID 9 pts [H] · VISA-A MCID 12–14
-    pts [H] · CAIT ≤ 24 Instability [H] / ≥ 27–28 Stable · LEFS MCID 9 pts [H]
-  video_url: null
-  image: null
-  sources:
-  - Martin RL et al. (2005)
-  - Robinson JM et al. (2001)
-  - Hiller CE et al. (2006)
-  - Binkley JM et al. (1999)
   review_status: draft
+  evidence: M
+  summary: 21-item Activities of Daily Living (ADL) and 8-item Sports subscales scored 0–4 per item and transformed to 0–100%.
+  steps:
+  - Score each answered item from 4 (no difficulty at all) to 0 (unable to do); mark N/A for unapplicable items.
+  - 'Compute each subscale percentage: % = sum ÷ (items answered × 4) × 100.'
+  - 'Compare longitudinal change against Martin 2005 MDC values: ±5.7 (ADL) and ±12.3 (Sports).'
+  positive: Change exceeding MDC ±5.7 on the 21-item ADL subscale or ±12.3 on the 8-item Sports subscale (Martin 2005).
+  interpretation: 'Martin 2005: 21-item ADL and 8-item Sports subscales; test–retest 0.89 / 0.87; MDC ±5.7 (ADL) and ±12.3
+    (Sports). Martin 2021 JOSPT LAS CPG: "Clinicians should use validated patient-reported outcome measures, such as the ...
+    Foot and Ankle Ability Measure, and the Lower Extremity Functional Scale" (A). Martin 2018 JOSPT Achilles CPG: use VISA-A
+    and either the FAAM or the LEFS (A).'
+  metrics: 21-item ADL and 8-item Sports subscales; test–retest 0.89 / 0.87; MDC ±5.7 (ADL) and ±12.3 (Sports) (Martin 2005)
+    · JOSPT CPG (A) (Martin 2021; Martin 2018)
+  calculator:
+    kind: formula
+    decimals: 1
+    value_label: '% FAAM-ADL Score (21 items, 0–4; MDC ±5.7, Martin 2005)'
+    expr: '(((a1>=0?1:0)+(a2>=0?1:0)+(a3>=0?1:0)+(a4>=0?1:0)+(a5>=0?1:0)+(a6>=0?1:0)+(a7>=0?1:0)+(a8>=0?1:0)+(a9>=0?1:0)+(a10>=0?1:0)+(a11>=0?1:0)+(a12>=0?1:0)+(a13>=0?1:0)+(a14>=0?1:0)+(a15>=0?1:0)+(a16>=0?1:0)+(a17>=0?1:0)+(a18>=0?1:0)+(a19>=0?1:0)+(a20>=0?1:0)+(a21>=0?1:0))
+      > 0 ? (((a1>=0?a1:0)+(a2>=0?a2:0)+(a3>=0?a3:0)+(a4>=0?a4:0)+(a5>=0?a5:0)+(a6>=0?a6:0)+(a7>=0?a7:0)+(a8>=0?a8:0)+(a9>=0?a9:0)+(a10>=0?a10:0)+(a11>=0?a11:0)+(a12>=0?a12:0)+(a13>=0?a13:0)+(a14>=0?a14:0)+(a15>=0?a15:0)+(a16>=0?a16:0)+(a17>=0?a17:0)+(a18>=0?a18:0)+(a19>=0?a19:0)+(a20>=0?a20:0)+(a21>=0?a21:0))
+      / (((a1>=0?1:0)+(a2>=0?1:0)+(a3>=0?1:0)+(a4>=0?1:0)+(a5>=0?1:0)+(a6>=0?1:0)+(a7>=0?1:0)+(a8>=0?1:0)+(a9>=0?1:0)+(a10>=0?1:0)+(a11>=0?1:0)+(a12>=0?1:0)+(a13>=0?1:0)+(a14>=0?1:0)+(a15>=0?1:0)+(a16>=0?1:0)+(a17>=0?1:0)+(a18>=0?1:0)+(a19>=0?1:0)+(a20>=0?1:0)+(a21>=0?1:0))
+      * 4) * 100) : NaN)'
+    inputs:
+    - heading: FAAM — Activities of Daily Living Subscale (21 items, 0–4)
+    - key: a1
+      label: ADL 1. Standing
+      type: select
+      options: &id001
+      - - '4'
+        - 4 — No difficulty at all
+      - - '3'
+        - 3 — Slight difficulty
+      - - '2'
+        - 2 — Moderate difficulty
+      - - '1'
+        - 1 — Extreme difficulty
+      - - '0'
+        - 0 — Unable to do
+      - - '-1'
+        - N/A — Not answered
+    - key: a2
+      label: ADL 2. Walking on even ground
+      type: select
+      options: *id001
+    - key: a3
+      label: ADL 3. Walking on even ground without shoes
+      type: select
+      options: *id001
+    - key: a4
+      label: ADL 4. Walking up hills
+      type: select
+      options: *id001
+    - key: a5
+      label: ADL 5. Walking down hills
+      type: select
+      options: *id001
+    - key: a6
+      label: ADL 6. Going up stairs
+      type: select
+      options: *id001
+    - key: a7
+      label: ADL 7. Going down stairs
+      type: select
+      options: *id001
+    - key: a8
+      label: ADL 8. Walking on uneven ground
+      type: select
+      options: *id001
+    - key: a9
+      label: ADL 9. Stepping up and down curbs
+      type: select
+      options: *id001
+    - key: a10
+      label: ADL 10. Squatting
+      type: select
+      options: *id001
+    - key: a11
+      label: ADL 11. Coming up on your toes
+      type: select
+      options: *id001
+    - key: a12
+      label: ADL 12. Walking initially
+      type: select
+      options: *id001
+    - key: a13
+      label: ADL 13. Walking approximately 5 minutes
+      type: select
+      options: *id001
+    - key: a14
+      label: ADL 14. Walking approximately 10 minutes
+      type: select
+      options: *id001
+    - key: a15
+      label: ADL 15. Walking 15 minutes or greater
+      type: select
+      options: *id001
+    - key: a16
+      label: ADL 16. Home responsibilities
+      type: select
+      options: *id001
+    - key: a17
+      label: ADL 17. Activities of daily living
+      type: select
+      options: *id001
+    - key: a18
+      label: ADL 18. Personal care
+      type: select
+      options: *id001
+    - key: a19
+      label: ADL 19. Light to moderate work (standing, walking)
+      type: select
+      options: *id001
+    - key: a20
+      label: ADL 20. Heavy work (push/pulling, climbing, carrying)
+      type: select
+      options: *id001
+    - key: a21
+      label: ADL 21. Recreational activities
+      type: select
+      options: *id001
+    - heading: FAAM — Sports Subscale (8 items, 0–4)
+    - key: s1
+      label: Sports 1. Running
+      type: select
+      options: *id001
+    - key: s2
+      label: Sports 2. Jumping
+      type: select
+      options: *id001
+    - key: s3
+      label: Sports 3. Landing
+      type: select
+      options: *id001
+    - key: s4
+      label: Sports 4. Starting and stopping quickly
+      type: select
+      options: *id001
+    - key: s5
+      label: Sports 5. Cutting / lateral movements
+      type: select
+      options: *id001
+    - key: s6
+      label: Sports 6. Low impact activities
+      type: select
+      options: *id001
+    - key: s7
+      label: Sports 7. Ability to perform activity with your normal technique
+      type: select
+      options: *id001
+    - key: s8
+      label: Sports 8. Ability to participate in your desired sport as long as you would like
+      type: select
+      options: *id001
+    outputs:
+    - when: v >= 0
+      text: 'FAAM-ADL: {v|1}% (MDC ±5.7, test–retest 0.89) · FAAM-Sports: {(((s1>=0?1:0)+(s2>=0?1:0)+(s3>=0?1:0)+(s4>=0?1:0)+(s5>=0?1:0)+(s6>=0?1:0)+(s7>=0?1:0)+(s8>=0?1:0))
+        > 0 ? (((s1>=0?s1:0)+(s2>=0?s2:0)+(s3>=0?s3:0)+(s4>=0?s4:0)+(s5>=0?s5:0)+(s6>=0?s6:0)+(s7>=0?s7:0)+(s8>=0?s8:0)) /
+        (((s1>=0?1:0)+(s2>=0?1:0)+(s3>=0?1:0)+(s4>=0?1:0)+(s5>=0?1:0)+(s6>=0?1:0)+(s7>=0?1:0)+(s8>=0?1:0)) * 4) * 100) : NaN)|1}%
+        (MDC ±12.3, test–retest 0.87) (Martin 2005)'
+      tone: good
+  sources:
+  - text: Martin 2005 Foot Ankle Int
+    url: https://doi.org/10.1177/107110070502601113
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
+  - text: Martin 2018 J Orthop Sports Phys Ther (midportion Achilles tendinopathy CPG)
+    url: https://doi.org/10.2519/jospt.2018.0302
+- id: cait
+  title: CAIT (Cumberland Ankle Instability Tool)
+  page: 4
+  type: info
+  review_status: draft
+  evidence: M
+  summary: 9-item discriminative questionnaire (total 0–30) quantifying perceived functional / chronic ankle instability (Hiller
+    2006, Wright 2014).
+  steps:
+  - Administer the 9 items of the CAIT for the involved ankle (total score 0–30).
+  - Apply the recalibrated threshold ≤ 25 for chronic ankle instability (CAI, Wright 2014) and compare with the 27.5 original
+    threshold (Hiller 2006).
+  - Combine with functional performance tests as recommended by the JOSPT 2021 lateral ankle sprain CPG (B).
+  positive: Score ≤ 25 identifies chronic ankle instability (sensitivity 96.6%, specificity 86.8%, Wright 2014); original
+    threshold 27.5 (sensitivity 82.9%, specificity 74.7%, Hiller 2006).
+  interpretation: 'Hiller 2006 & Wright 2014: original threshold 27.5 (sensitivity 82.9%, specificity 74.7%), ICC .96; recalibrated
+    ≤25 for CAI: sensitivity 96.6%, specificity 86.8%. Martin 2021 JOSPT LAS CPG: use a discriminative instrument "such as
+    the Cumberland Ankle Instability Tool or the Identification of Functional Ankle Instability" plus functional performance
+    tests (B).'
+  metrics: 'Original threshold 27.5 (sensitivity 82.9%, specificity 74.7%), ICC .96 (Hiller 2006) · Recalibrated ≤25 for CAI:
+    sensitivity 96.6%, specificity 86.8% (Wright 2014) · JOSPT LAS CPG (B) (Martin 2021)'
+  calculator:
+    kind: formula
+    decimals: 0
+    value_label: / 30 CAIT Score (≤ 25 CAI, Wright 2014; 27.5 original threshold, Hiller 2006)
+    expr: c1+c2+c3+c4+c5+c6+c7+c8+c9
+    inputs:
+    - heading: Cumberland Ankle Instability Tool (CAIT — 9 items, total 0–30)
+    - key: c1
+      label: 1. I have pain in my ankle
+      type: select
+      options:
+      - - '5'
+        - 5 — Never
+      - - '4'
+        - 4 — During sport
+      - - '3'
+        - 3 — Running on uneven surfaces
+      - - '2'
+        - 2 — Running on level surfaces
+      - - '1'
+        - 1 — Walking on uneven surfaces
+      - - '0'
+        - 0 — Walking on level surfaces
+    - key: c2
+      label: 2. My ankle feels UNSTABLE
+      type: select
+      options:
+      - - '4'
+        - 4 — Never
+      - - '3'
+        - 3 — Sometimes during sport (not every time)
+      - - '2'
+        - 2 — Frequently during sport (every time)
+      - - '1'
+        - 1 — Sometimes during daily activities
+      - - '0'
+        - 0 — Frequently during daily activities
+    - key: c3
+      label: 3. When I make SHARP turns, my ankle feels UNSTABLE
+      type: select
+      options:
+      - - '3'
+        - 3 — Never
+      - - '2'
+        - 2 — Sometimes when running
+      - - '1'
+        - 1 — Often when running
+      - - '0'
+        - 0 — When walking
+    - key: c4
+      label: 4. When going down the stairs, my ankle feels UNSTABLE
+      type: select
+      options:
+      - - '3'
+        - 3 — Never
+      - - '2'
+        - 2 — If I go fast
+      - - '1'
+        - 1 — Occasionally
+      - - '0'
+        - 0 — Always
+    - key: c5
+      label: 5. My ankle feels UNSTABLE when standing on ONE leg
+      type: select
+      options:
+      - - '2'
+        - 2 — Never
+      - - '1'
+        - 1 — On the ball of my foot
+      - - '0'
+        - 0 — With my foot flat
+    - key: c6
+      label: 6. My ankle feels UNSTABLE when
+      type: select
+      options:
+      - - '3'
+        - 3 — Never
+      - - '2'
+        - 2 — I hop from side to side
+      - - '1'
+        - 1 — I hop on the spot
+      - - '0'
+        - 0 — When I jump
+    - key: c7
+      label: 7. My ankle feels UNSTABLE when
+      type: select
+      options:
+      - - '4'
+        - 4 — Never
+      - - '3'
+        - 3 — I run on uneven surfaces
+      - - '2'
+        - 2 — I jog on uneven surfaces
+      - - '1'
+        - 1 — I walk on uneven surfaces
+      - - '0'
+        - 0 — I walk on a flat surface
+    - key: c8
+      label: 8. TYPICALLY, when I start to roll over (or 'twist') on my ankle, I can stop it
+      type: select
+      options:
+      - - '3'
+        - 3 — Immediately
+      - - '2'
+        - 2 — Often
+      - - '1'
+        - 1 — Sometimes
+      - - '0'
+        - 0 — Never
+      - - '3'
+        - 3 — I have never rolled over on my ankle
+    - key: c9
+      label: 9. Following a TYPICAL incident of my ankle rolling over, my ankle returns to 'normal'
+      type: select
+      options:
+      - - '3'
+        - 3 — Almost immediately
+      - - '2'
+        - 2 — Less than one day
+      - - '1'
+        - 1 — 1–2 days
+      - - '0'
+        - 0 — More than 2 days
+      - - '3'
+        - 3 — I have never rolled over on my ankle
+    outputs:
+    - when: v <= 25
+      text: 'CAIT: {v|0} / 30 — ≤ 25 CAI (Wright 2014: Sn 96.6%, Sp 86.8%) · 27.5 original threshold (Hiller 2006: Sn 82.9%,
+        Sp 74.7%, ICC .96)'
+      tone: bad
+    - when: v > 25 && v < 27.5
+      text: 'CAIT: {v|0} / 30 — above ≤ 25 CAI (Wright 2014) and below 27.5 original threshold (Hiller 2006)'
+      tone: warn
+    - when: v >= 27.5
+      text: 'CAIT: {v|0} / 30 — above ≤ 25 CAI (Wright 2014) and ≥ 27.5 original threshold (Hiller 2006)'
+      tone: good
+  sources:
+  - text: Hiller 2006 Arch Phys Med Rehabil
+    url: https://doi.org/10.1016/j.apmr.2006.05.022
+  - text: Wright 2014 Arch Phys Med Rehabil
+    url: https://doi.org/10.1016/j.apmr.2014.04.017
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
+- id: visa-a
+  title: VISA-A (Victorian Institute of Sport Assessment–Achilles)
+  page: 4
+  type: info
+  review_status: draft
+  evidence: M
+  summary: 8-item Achilles tendinopathy severity questionnaire scored from 0 to 100 points (Robinson 2001, Martin 2018).
+  steps:
+  - Administer the 8 items covering morning stiffness, pain with stretching/walking/stairs/heel raises, single-leg hopping,
+    and sport participation (total 0–100).
+  - Use as the primary patient-reported outcome measure in midportion Achilles tendinopathy (JOSPT CPG grade A, Martin 2018).
+  positive: Test–retest r = 0.93; controls exceeded 96 (Robinson 2001).
+  interpretation: 'Robinson 2001: test–retest r = 0.93; controls exceeded 96. Martin 2018 JOSPT midportion Achilles tendinopathy
+    CPG: "Clinicians should use the Victorian Institute of Sport Assessment-Achilles (VISA-A)" and either the FAAM or the
+    LEFS (A); hop and heel-raise endurance tests (B).'
+  metrics: Test–retest r = 0.93; controls exceeded 96 (Robinson 2001) · JOSPT Achilles CPG (A) (Martin 2018)
+  calculator:
+    kind: formula
+    decimals: 0
+    value_label: '/ 100 VISA-A Score (Robinson 2001: test–retest r = 0.93; controls exceeded 96)'
+    expr: v1+v2+v3+v4+v5+v6+v7+v8
+    inputs:
+    - heading: 'VISA-A — 8 items (items 1–7: 0–10; item 8: one of A / B / C, maximum 30; total 0–100)'
+    - key: v1
+      label: 1. Morning stiffness duration (10 = 0 mins, 0 = 100 mins)
+      type: select
+      options: &id002
+      - - '10'
+        - 10 / 10
+      - - '9'
+        - 9 / 10
+      - - '8'
+        - 8 / 10
+      - - '7'
+        - 7 / 10
+      - - '6'
+        - 6 / 10
+      - - '5'
+        - 5 / 10
+      - - '4'
+        - 4 / 10
+      - - '3'
+        - 3 / 10
+      - - '2'
+        - 2 / 10
+      - - '1'
+        - 1 / 10
+      - - '0'
+        - 0 / 10
+    - key: v2
+      label: 2. Pain stretching Achilles over edge of step (10 = no pain, 0 = strong severe pain)
+      type: select
+      options: *id002
+    - key: v3
+      label: 3. Pain after walking on flat ground for 30 minutes (10 = no pain, 0 = strong severe pain)
+      type: select
+      options: *id002
+    - key: v4
+      label: 4. Pain walking downstairs with normal gait cycle (10 = no pain, 0 = strong severe pain)
+      type: select
+      options: *id002
+    - key: v5
+      label: 5. Pain during or immediately after 10 single-leg heel raises (10 = no pain, 0 = strong severe pain)
+      type: select
+      options: *id002
+    - key: v6
+      label: 6. Single-leg hops without pain (10 = 10 hops, 0 = 0 hops)
+      type: select
+      options: *id002
+    - key: v7
+      label: 7. Are you currently undertaking sport or other physical activity?
+      type: select
+      options:
+      - - '0'
+        - 0 — Not at all
+      - - '4'
+        - 4 — Modified training ± modified competition
+      - - '7'
+        - 7 — Full training ± competition, but not at the same level as when symptoms began
+      - - '10'
+        - 10 — Competing at the same or higher level as when symptoms began
+    - key: v8
+      label: '8. Answer ONE of A, B or C — how long can you train / practise in Achilles-loading sport?'
+      type: select
+      options:
+      - - '0'
+        - A (no pain while training) — nil = 0
+      - - '7'
+        - A — 1–10 min = 7
+      - - '14'
+        - A — 11–20 min = 14
+      - - '21'
+        - A — 21–30 min = 21
+      - - '30'
+        - A — more than 30 min = 30
+      - - '0'
+        - B (some pain, but it does not stop me completing training) — nil = 0
+      - - '4'
+        - B — 1–10 min = 4
+      - - '10'
+        - B — 11–20 min = 10
+      - - '14'
+        - B — 21–30 min = 14
+      - - '20'
+        - B — more than 30 min = 20
+      - - '0'
+        - C (pain stops me completing training) — nil = 0
+      - - '2'
+        - C — 1–10 min = 2
+      - - '5'
+        - C — 11–20 min = 5
+      - - '7'
+        - C — 21–30 min = 7
+      - - '10'
+        - C — more than 30 min = 10
+    outputs:
+    - when: v >= 0
+      text: 'VISA-A Score: {v|0} / 100 · Robinson 2001: test–retest r = 0.93; controls exceeded 96'
+      tone: good
+  sources:
+  - text: Robinson 2001 Br J Sports Med
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC1724384/
+    free_full_text: true
+  - text: Martin 2018 J Orthop Sports Phys Ther (midportion Achilles tendinopathy CPG)
+    url: https://doi.org/10.2519/jospt.2018.0302
+- id: lefs
+  title: LEFS (Lower Extremity Functional Scale)
+  page: 4
+  type: info
+  review_status: draft
+  evidence: M
+  summary: 20-item lower-extremity functional disability scale scored 0–4 per item (total 0–80 points; Binkley 1999).
+  steps:
+  - Rate 20 lower-extremity functional activities from 0 (unable to perform) to 4 (no difficulty) and sum for a total of 0–80
+    points.
+  - Compare change across visits against Binkley 1999 MDC 9 and MCID 9 points.
+  positive: Change of 9 points or more meets both MDC 9 and MCID 9 points (Binkley 1999).
+  interpretation: 'Binkley 1999: test–retest R = .94; MDC 9 and MCID 9 points. Martin 2021 JOSPT LAS CPG: "Clinicians should
+    use validated patient-reported outcome measures, such as the ... Foot and Ankle Ability Measure, and the Lower Extremity
+    Functional Scale" (A).'
+  metrics: Test–retest R = .94; MDC 9 and MCID 9 points (Binkley 1999) · JOSPT CPG (A) (Martin 2021; Martin 2018)
+  calculator:
+    kind: formula
+    decimals: 0
+    value_label: / 80 LEFS Score (MDC 9 and MCID 9 points, Binkley 1999)
+    expr: l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19+l20
+    inputs:
+    - heading: LEFS — 20 items (0–4 each, total 0–80)
+    - key: l1
+      label: 1. Any of your usual work, housework, or school activities
+      type: select
+      options: &id003
+      - - '4'
+        - 4 — No difficulty
+      - - '3'
+        - 3 — Quite a bit of difficulty / mild
+      - - '2'
+        - 2 — Moderate difficulty
+      - - '1'
+        - 1 — Extreme difficulty
+      - - '0'
+        - 0 — Unable to perform activity
+    - key: l2
+      label: 2. Your usual hobbies, recreational, or sporting activities
+      type: select
+      options: *id003
+    - key: l3
+      label: 3. Getting into or out of the bath
+      type: select
+      options: *id003
+    - key: l4
+      label: 4. Walking between rooms
+      type: select
+      options: *id003
+    - key: l5
+      label: 5. Putting on your shoes or socks
+      type: select
+      options: *id003
+    - key: l6
+      label: 6. Squatting
+      type: select
+      options: *id003
+    - key: l7
+      label: 7. Lifting an object, like a bag of groceries from the floor
+      type: select
+      options: *id003
+    - key: l8
+      label: 8. Performing light activities around your home
+      type: select
+      options: *id003
+    - key: l9
+      label: 9. Performing heavy activities around your home
+      type: select
+      options: *id003
+    - key: l10
+      label: 10. Getting into or out of a car
+      type: select
+      options: *id003
+    - key: l11
+      label: 11. Walking 2 blocks
+      type: select
+      options: *id003
+    - key: l12
+      label: 12. Walking a mile
+      type: select
+      options: *id003
+    - key: l13
+      label: 13. Going up or down 10 stairs (about 1 flight of stairs)
+      type: select
+      options: *id003
+    - key: l14
+      label: 14. Standing for 1 hour
+      type: select
+      options: *id003
+    - key: l15
+      label: 15. Sitting for 1 hour
+      type: select
+      options: *id003
+    - key: l16
+      label: 16. Running on even ground
+      type: select
+      options: *id003
+    - key: l17
+      label: 17. Running on uneven ground
+      type: select
+      options: *id003
+    - key: l18
+      label: 18. Making sharp turns while running fast
+      type: select
+      options: *id003
+    - key: l19
+      label: 19. Hopping
+      type: select
+      options: *id003
+    - key: l20
+      label: 20. Rolling over in bed
+      type: select
+      options: *id003
+    outputs:
+    - when: v >= 0
+      text: 'LEFS Score: {v|0} / 80 · Binkley 1999: test–retest R = .94; MDC 9 and MCID 9 points'
+      tone: good
+  sources:
+  - text: Binkley 1999 Phys Ther
+    url: https://pubmed.ncbi.nlm.nih.gov/10201543/
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
+- id: atrs
+  title: ATRS (Achilles Tendon Total Rupture Score)
+  page: 4
+  type: info
+  review_status: draft
+  evidence: M
+  summary: Validated patient-reported outcome score evaluating symptoms and physical activity after Achilles tendon rupture
+    (Nilsson-Helander 2007).
+  steps:
+  - Administer the ATRS to track patient-perceived symptoms and functional recovery following operative or non-operative Achilles
+    tendon rupture management.
+  positive: Validated patient-reported score after Achilles rupture (Nilsson-Helander 2007).
+  interpretation: 'Nilsson-Helander 2007: validated patient-reported score after Achilles rupture.'
+  metrics: Validated patient-reported score after Achilles rupture (Nilsson-Helander 2007)
+  sources:
+  - text: Nilsson-Helander 2007 Am J Sports Med
+    url: https://doi.org/10.1177/0363546506294856
+- id: nprs
+  title: NPRS (Numeric Pain Rating Scale 0–10)
+  page: 4
+  type: info
+  review_status: draft
+  evidence: E
+  summary: Unidimensional 0–10 numeric pain rating scale for current, best, and worst ankle/foot pain and load pain monitoring.
+  steps:
+  - Ask the patient to rate current, resting, and activity-related pain from 0 (no pain) to 10 (worst imaginable pain).
+  - 'During tendon loading, apply the pain-monitoring model: pain should not exceed 5/10 on the NPRS during or immediately
+    after activity and should return to pre-activity levels by the following morning (Sprague 2021).'
+  positive: Low (0–2), acceptable (2–5) and high (5–10) risk zones were based on clinical experience (Cavaggion 2024).
+  interpretation: 'Sprague 2021: pain should not exceed 5/10 on the NPRS during or immediately after activity and should return
+    to pre-activity levels by the following morning. Cavaggion 2024: low (0–2), acceptable (2–5) and high (5–10) risk zones
+    were based on clinical experience.'
+  metrics: '0–10 rating scale · Pain-monitoring zones: low (0–2), acceptable (2–5), high (5–10) based on clinical experience
+    (Sprague 2021; Cavaggion 2024)'
+  calculator:
+    kind: scale
+    items: 1
+    min: 0
+    max: 10
+    step: 1
+    aggregate: sum
+    decimals: 0
+    value_label: / 10 NPRS Pain Rating
+    item_labels:
+    - Current ankle / foot pain (0 = no pain, 10 = worst imaginable pain)
+  sources:
+  - text: Sprague 2021 Pilot Feasibility Stud
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7905015/
+    free_full_text: true
+  - text: Cavaggion 2024 Open Access J Sports Med
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11616428/
+    free_full_text: true
+- id: psfs
+  title: PSFS (Patient-Specific Functional Scale)
+  page: 4
+  type: info
+  review_status: draft
+  evidence: E
+  summary: Patient-nominated activity scale rating 3 to 5 important ankle/foot tasks on a 0–10 scale.
+  steps:
+  - Ask the patient to nominate 3 to 5 important activities limited by their ankle or foot problem.
+  - Rate each activity from 0 (unable to perform) to 10 (able to perform at prior level) and compute the mean score.
+  positive: Increase in mean PSFS score across follow-up sessions.
+  interpretation: Expert clinical assessment (E) for individualised functional goal tracking.
+  metrics: Mean of 3 to 5 patient-nominated activities (0–10) (E)
+  calculator:
+    kind: formula
+    decimals: 1
+    value_label: / 10 PSFS Mean Score (3 to 5 activities, 0–10)
+    expr: ((a1>=0?a1:0)+(a2>=0?a2:0)+(a3>=0?a3:0)+(a4>=0?a4:0)+(a5>=0?a5:0)) / ((a1>=0)+(a2>=0)+(a3>=0)+(a4>=0)+(a5>=0))
+    inputs:
+    - heading: Rate 3 to 5 patient-nominated activities (0–10 each)
+    - key: a1
+      label: Activity 1 (0–10)
+      type: select
+      options: &id004
+      - &id005
+        - '0'
+        - 0 / 10
+      - &id006
+        - '1'
+        - 1 / 10
+      - &id007
+        - '2'
+        - 2 / 10
+      - &id008
+        - '3'
+        - 3 / 10
+      - &id009
+        - '4'
+        - 4 / 10
+      - &id010
+        - '5'
+        - 5 / 10
+      - &id011
+        - '6'
+        - 6 / 10
+      - &id012
+        - '7'
+        - 7 / 10
+      - &id013
+        - '8'
+        - 8 / 10
+      - &id014
+        - '9'
+        - 9 / 10
+      - &id015
+        - '10'
+        - 10 / 10
+    - key: a2
+      label: Activity 2 (0–10)
+      type: select
+      options: *id004
+    - key: a3
+      label: Activity 3 (0–10)
+      type: select
+      options: *id004
+    - key: a4
+      label: Activity 4 (optional, 0–10)
+      type: select
+      options: &id016
+      - - '-1'
+        - — Not used —
+      - *id005
+      - *id006
+      - *id007
+      - *id008
+      - *id009
+      - *id010
+      - *id011
+      - *id012
+      - *id013
+      - *id014
+      - *id015
+    - key: a5
+      label: Activity 5 (optional, 0–10)
+      type: select
+      options: *id016
+    outputs:
+    - when: v >= 0
+      text: 'PSFS Mean Score: {v|1} / 10 across {(a1>=0)+(a2>=0)+(a3>=0)+(a4>=0)+(a5>=0)|0} activities'
+      tone: good
+  sources: []
+- id: achilles-rupture-management
+  title: Achilles Rupture — Operative vs Non-Operative Evidence (Ochen 2019, Willits 2010, Xu 2025)
+  page: 5
+  type: info
+  review_status: draft
+  evidence: H
+  summary: Meta-analyses and randomised trial evidence comparing operative (open and minimally invasive) and non-operative
+    management of acute Achilles tendon rupture.
+  steps:
+  - POST-OP RESTRICTIONS ARE SURGEON-DIRECTED.
+  - 'Ochen 2019 (MA, 29 studies): re-rupture 2.3% vs 3.9% (RR 0.43); complications 4.9% vs 1.6% (RR 2.76); with accelerated
+    functional rehabilitation no significant re-rupture difference (RR 0.60).'
+  - 'Willits 2010 (RCT, accelerated non-operative protocol): outcomes clinically similar to operative treatment, avoiding
+    surgical complications.'
+  - 'Xu 2025 (RCT meta-analysis of early weight-bearing studies): fewer re-ruptures with minimally invasive (RR 0.28) and
+    open repair (RR 0.17); open repair complications RR 3.03; minimally invasive sural nerve injury RR 5.86.'
+  positive: POST-OP RESTRICTIONS ARE SURGEON-DIRECTED.
+  interpretation: 'Ochen 2019 (MA, 29 studies): re-rupture 2.3% vs 3.9% (RR 0.43); complications 4.9% vs 1.6% (RR 2.76); with
+    accelerated functional rehabilitation no significant re-rupture difference (RR 0.60). Willits 2010 (RCT): outcomes clinically
+    similar to operative treatment, avoiding surgical complications. Xu 2025 (RCT MA, early weight-bearing studies): fewer
+    re-ruptures with minimally invasive (RR 0.28) and open repair (RR 0.17); open repair complications RR 3.03; minimally
+    invasive sural nerve injury RR 5.86.'
+  metrics: 'Ochen 2019 (29 studies): re-rupture 2.3% vs 3.9% (RR 0.43), complications 4.9% vs 1.6% (RR 2.76), with accelerated
+    functional rehab RR 0.60 · Willits 2010: clinically similar outcomes · Xu 2025: MIS re-rupture RR 0.28, open RR 0.17;
+    open complications RR 3.03; MIS sural nerve injury RR 5.86'
+  sources:
+  - text: Ochen 2019 BMJ
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6322065/
+    free_full_text: true
+  - text: Willits 2010 J Bone Joint Surg Am
+    url: https://doi.org/10.2106/jbjs.i.01401
+  - text: Xu 2025 Ann Med
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12624965/
+    free_full_text: true
+- id: brostrom-lateral-repair
+  title: Lateral Ligament Repair — Broström + Suture Tape Outcomes (Coetzee 2018, Cho 2025)
+  page: 5
+  type: info
+  review_status: draft
+  evidence: L
+  summary: Clinical outcomes after Broström and modified Broström lateral ankle ligament repair with suture tape augmentation.
+  steps:
+  - POST-OP RESTRICTIONS ARE SURGEON-DIRECTED.
+  - 'Coetzee 2018 (case series, Broström + suture tape): mean return to sport 84.1 days; single-leg hop LSI normal / near
+    normal in 86.4%; FAAM Sports ≥ 90 in 79.0%.'
+  - 'Cho 2025 (modified Broström + suture tape, ≥ 3 years follow-up, n = 94): recurrent instability 2.1%; FAAM 90.5 at final
+    follow-up.'
+  positive: POST-OP RESTRICTIONS ARE SURGEON-DIRECTED.
+  interpretation: 'Coetzee 2018 (case series): mean return to sport 84.1 days; single-leg hop LSI normal / near normal in
+    86.4%; FAAM Sports ≥ 90 in 79.0%. Cho 2025 (≥ 3 years, n = 94): recurrent instability 2.1%; FAAM 90.5 at final follow-up.'
+  metrics: 'Coetzee 2018: mean return to sport 84.1 days; single-leg hop LSI normal / near normal in 86.4%; FAAM Sports ≥
+    90 in 79.0% · Cho 2025 (≥ 3 years, n = 94): recurrent instability 2.1%; FAAM 90.5'
+  sources:
+  - text: Coetzee 2018 Foot Ankle Int
+    url: https://doi.org/10.1177/1071100717742363
+  - text: Cho 2025 J Clin Med
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11899996/
+    free_full_text: true
+- id: talar-ocl-surgery
+  title: Talar Osteochondral Lesions — Bone Marrow Stimulation (Luca 2025)
+  page: 5
+  type: info
+  review_status: draft
+  evidence: L
+  summary: Meta-analysis of return-to-sport outcomes after bone marrow stimulation for talar osteochondral lesions (Luca 2025).
+  steps:
+  - POST-OP RESTRICTIONS ARE SURGEON-DIRECTED.
+  - 'Luca 2025 (MA, bone marrow stimulation for talar osteochondral lesions): return to sport 83.3%; return to pre-injury
+    level 52.7%.'
+  positive: POST-OP RESTRICTIONS ARE SURGEON-DIRECTED.
+  interpretation: 'Luca 2025 (MA): return to sport 83.3%; to pre-injury level 52.7%.'
+  metrics: Return to sport 83.3%; to pre-injury level 52.7% (Luca 2025)
+  sources:
+  - text: Luca 2025 Clin Sports Med
+    url: https://doi.org/10.1016/j.csm.2024.10.001
 - id: eswt-parameters
-  type: info
-  title: ESWT Parameters & Evidence Protocols
+  title: Shockwave Therapy & Corticosteroid Injection (Aqil 2013, Sun 2017, Rompe 2007, Whittaker 2019)
   page: 6
-  steps:
-  - 'Plantar Fasciopathy focused ESWT (fESWT): 0.15–0.28 mJ/mm², 2000 pulses, 4–8
-    Hz, medial calcaneal tubercle, coupling gel, patient-guided focus.'
-  - 'Plantar Fasciopathy radial ESWT (rESWT): 2.0–3.5 Bar, 2000 pulses, 8–10 Hz, circular
-    sweep over origin and proximal fascia.'
-  - 'Achilles Midportion rESWT: 2.0–3.5 Bar, 2000 pulses, 8–10 Hz, probe perpendicular
-    (90°) to tendon, pinch-grip stabilization.'
-  - 'Achilles Insertional rESWT: 1.5–2.2 Bar, 2000 pulses, 8–10 Hz, probe angled 30–45°
-    cephalad (avoid perpendicular cortical impact).'
-  - 'Course parameters: 3–5 sessions at 7-day intervals; avoid routine NSAIDs during
-    loading phase; NO ballistic loading for 48 h; isometrics 5 × 45 s at 48–72 h.'
-  - 'Black-box contraindication: current or recent (within 6 months) fluoroquinolone
-    exposure contraindicated due to elevated rupture risk.'
-  positive: Tissue regeneration, neovascularization, and analgesia for chronic recalcitrant
-    tendinopathies and fasciopathies.
-  metrics: 'fESWT: 0.15–0.28 mJ/mm² · rESWT: 1.5–3.5 Bar · 2000 Pulses · 3–5 Sessions
-    at 7-Day Intervals'
-  video_url: null
-  image: null
-  sources:
-  - ISMST Consensus Guidelines
-  - Gerdesmeyer L et al. (2008)
-  - Rompe JD et al. (2009)
-  review_status: draft
-- id: nmes-setup
   type: info
-  title: NMES Setup, Parameters & Electrode Placement
+  review_status: draft
+  evidence: M
+  summary: Evidence for extracorporeal shockwave therapy (ESWT) and corticosteroid injection in plantar heel pain and midportion
+    Achilles tendinopathy.
+  steps:
+  - 'Shockwave for chronic plantar fasciitis (Aqil 2013 MA): VAS reduction SMD 0.60 (0.34–0.85); 60% improvement on first
+    steps RR 1.30.'
+  - 'Focused shockwave for plantar fasciitis (Sun 2017 MA): improvement rate OR 2.58 (1.97–3.39) vs placebo.'
+  - 'Achilles tendinopathy — eccentric vs shockwave vs wait-and-see (Rompe 2007 RCT): "completely recovered / much improved"
+    60% vs 52% vs 24%; eccentric and low-energy shockwave comparable.'
+  - 'Corticosteroid injection — plantar heel pain (Whittaker 2019 MA): similar to placebo injection short and medium term;
+    less effective than dry needling in the longer term (SMD 1.45).'
+  positive: ESWT improves chronic plantar fasciitis pain (SMD 0.60, Aqil 2013; focused OR 2.58, Sun 2017) and is comparable
+    to eccentric loading in midportion Achilles tendinopathy (Rompe 2007).
+  interpretation: 'Aqil 2013 (MA): VAS reduction SMD 0.60 (0.34–0.85); 60% improvement on first steps RR 1.30. Sun 2017 (MA):
+    improvement rate OR 2.58 (1.97–3.39) vs placebo. Rompe 2007 (RCT): "completely recovered / much improved" 60% vs 52% vs
+    24%; eccentric and low-energy shockwave comparable. Whittaker 2019 (MA): similar to placebo injection short and medium
+    term; less effective than dry needling in the longer term (SMD 1.45).'
+  metrics: 'Aqil 2013: VAS SMD 0.60 (0.34–0.85), 60% improvement RR 1.30 · Sun 2017: OR 2.58 (1.97–3.39) · Rompe 2007: 60%
+    vs 52% vs 24% · Whittaker 2019: steroid similar to placebo short/medium term, less effective than dry needling longer
+    term (SMD 1.45)'
+  sources:
+  - text: Aqil 2013 Clin Orthop Relat Res
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3792262/
+    free_full_text: true
+  - text: Sun 2017 Medicine (Baltimore)
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5403108/
+    free_full_text: true
+  - text: Rompe 2007 Am J Sports Med
+    url: https://doi.org/10.1177/0363546506295940
+  - text: Whittaker 2019 BMC Musculoskelet Disord
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6698340/
+    free_full_text: true
+- id: cpg-epas-orthoses
+  title: 'JOSPT CPG Recommendations: Physical Agents, Orthoses & Night Splints (LAS 2021, Achilles 2018, Heel Pain 2023)'
   page: 6
-  steps:
-  - 'Waveform: biphasic symmetric pulsed current.'
-  - 'Frequency: 30–50 Hz (produces smooth tetanic contraction).'
-  - 'Pulse duration: 200–400 µs (penetrates motor nerve threshold comfortably).'
-  - 'Intensity: titrated to maximum tolerable contraction (target ≥ 50% maximal voluntary
-    isometric contraction, MVIC).'
-  - 'Duty cycle: 10–15 s on / 30–50 s off (1:3 or 1:4 ratio prevents premature muscular
-    fatigue), 10–20 contractions, 3×/week.'
-  - 'Clinical pearls: NMES works best superimposed on voluntary muscle contraction,
-    not as a passive replacement.'
-  - 'Motor-level NMES for muscle pump edema: 1–10 Hz, 200–300 µs, rhythmic contraction,
-    20–30 min with limb elevated.'
-  positive: Reverses arthrogenic muscle inhibition and accelerates quadriceps / triceps
-    surae force restoration post-injury or post-surgery.
-  metrics: 'Strength/post-op inhibition: 30–50 Hz · 200–400 µs · Max tolerable (target
-    ≥ 50% MVIC) · 10–15 s on / 30–50 s off · 10–20 reps · 3×/wk [H]'
-  video_url: null
-  image: null
-  sources:
-  - Snyder-Mackler L et al. (1995)
-  - Bax L et al. (2005)
-  review_status: draft
-- id: tens-dosing
   type: info
-  title: TENS Dosing, Frequency Tuning & Tolerance Prevention
-  page: 6
-  steps:
-  - 'Conventional TENS (acute / during activity): 80–120 Hz, 50–100 µs, strong but
-    comfortable sub-motor intensity, 30–60 min (can run during exercise) [M].'
-  - 'Acupuncture-like TENS (chronic / deep pain): 2–4 Hz, 150–250 µs, visible rhythmic
-    muscular twitching, 20–30 min [M].'
-  - 'Prevent tolerance: daily identical TENS produces analgesic tolerance in ~5 days;
-    use mixed-frequency mode (alternating 4 / 100 Hz) and re-titrate intensity mid-session.'
-  - 'Dominant dosing rule: intensity is the dominant parameter governing efficacy
-    — under-dosing is the commonest reason for treatment failure.'
-  - 'Review standard CI: cardiac pacemaker/ICD, anterior neck/carotid sinus, pregnancy
-    (low back/abdomen), active thrombosis, transthoracic placement.'
-  positive: Gate-control and endogenous opioid analgesia without pharmacological side
-    effects.
-  metrics: 'Conventional: 80–120 Hz, 50–100 µs [M] · Acupuncture-like: 2–4 Hz, 150–250
-    µs [M] · Mixed-frequency: 4/100 Hz [M]'
-  video_url: null
-  image: null
-  sources:
-  - Sluka KA et al. (2013)
-  - Johnson MI et al. (2015)
   review_status: draft
-- id: dry-needling-depth
-  type: info
-  title: Dry Needling Depth, Angle & Neurovascular Safety
-  page: 7
+  evidence: Guideline
+  summary: JOSPT clinical practice guideline grades and verbatim statements for physical agents, orthoses, night splints,
+    and taping across lateral ankle sprain, midportion Achilles tendinopathy, and plantar heel pain.
   steps:
-  - 'Gastrocnemius: needle 0.25–0.30 × 40–50 mm, depth 1.5–3 cm; patient prone; needle
-    medial and lateral bellies, strictly avoid midline to protect sural nerve and
-    small saphenous vein.'
-  - 'Soleus: needle 0.30 × 50–60 mm, depth 2.5–4.5 cm; insert medial/lateral to gastroc
-    border; remain superficial to deep posterior compartment.'
-  - 'Tibialis Posterior: needle 0.30 × 60–75 mm, depth 4–6 cm; medial approach, angled
-    15–20° under the posterior tibial cortex — protects posterior tibial neurovascular
-    bundle (artery, veins, nerve).'
-  - 'Peroneals: needle 0.25 × 30–40 mm, depth 1–2.5 cm; insert distal to fibular neck
-    (protects common peroneal nerve); protect superficial peroneal nerve in distal
-    third.'
-  - 'Screen safety list before every session: anticoagulants/bleeding, no active skin
-    infection or lymphedema, vasovagal history screened.'
-  positive: Deactivates myofascial trigger points safely without neurovascular puncture.
-  metrics: 'Gastroc: 1.5–3 cm · Soleus: 2.5–4.5 cm · Tib Post: 4–6 cm (angled 15–20°
-    under tibia) · Peroneals: 1–2.5 cm'
-  video_url: null
-  image: null
+  - 'LAS CPG 2021 (Martin 2021) — physical agents: ice with exercise (C); pulsed shortwave diathermy (C); low-level laser
+    for initial pain (C); electrotherapy conflicting (D); "Clinicians should not use ultrasound for the management of acute
+    ankle sprains" (A).'
+  - 'Achilles CPG 2018 (Martin 2018) — other interventions: stretching (C); iontophoresis with dexamethasone for acute presentations
+    (B); "should not use night splints" (C); "should not use therapeutic elastic tape" (F); heel lifts, orthoses, low-level
+    laser — no recommendation, contradictory evidence (D).'
+  - 'Heel Pain CPG 2023 (Koc 2023) — orthoses & night splints: "should not use orthoses ... as an isolated treatment for short-term
+    pain relief" (B); orthoses combined with other treatment (C); "a 1- to 3-month program of night splints" for first-step
+    morning pain (A).'
+  - 'Heel Pain CPG 2023 (Koc 2023) — physical agents & scope: "should not use ultrasound to enhance the benefits of stretching"
+    (A); low-level laser as part of rehabilitation for short-term pain (B); phonophoresis with ketoprofen (C); electrotherapy
+    second line — iontophoresis or premodulated interferential (D); shockwave, corticosteroid and PRP injection were outside
+    the CPG scope (scoping summary only).'
+  positive: 'Guideline grades as published: (A), (B), (C), (D), (F).'
+  interpretation: Martin 2021 (LAS CPG), Martin 2018 (Achilles CPG), and Koc 2023 (heel pain CPG) provide graded recommendations
+    on physical agents, orthoses, and night splints.
+  metrics: LAS CPG 2021 (Martin 2021) · Achilles CPG 2018 (Martin 2018) · Heel Pain CPG 2023 (Koc 2023)
   sources:
-  - Dunning J et al. (2014)
-  - Fernández-de-las-Peñas C et al. (2018)
-  review_status: draft
-- id: cupping-parameters
-  type: info
-  title: Cupping Modalities, Parameters & Safety
-  page: 7
-  steps:
-  - 'Dry cupping — static: light to moderate negative pressure suction, 5–10 minutes
-    duration [L].'
-  - 'Dynamic (sliding) cupping: apply skin lubricant; light suction; slide cup along
-    fiber direction for 3–5 minutes [L].'
-  - 'Cupping with active movement: cup maintained in place while patient performs
-    active joint ROM through 2–3 minutes [L].'
-  - 'Wet cupping (Hijamah): skin-breaching technique requiring single-use sterile
-    disposable equipment and bloodborne-pathogen precautions; confirm local legal
-    scope of practice and licensure [L].'
-  - 'Absolute contraindications: anticoagulants/bleeding disorders, fragile skin,
-    over active DVT or varicosities, open lesions, diabetic/neuropathic foot, active
-    malignancy, pregnancy.'
-  positive: Myofascial decompression, hyperemic local microcirculation, and neuromuscular
-    pain modulation.
-  metrics: 'Static: 5–10 min · Sliding: 3–5 min · Movement: 2–3 min · Wet cupping:
-    strict bloodborne pathogen precautions [L]'
-  video_url: null
-  image: null
-  sources:
-  - Al-Bedah AMN et al. (2019)
-  - Rozenfeld E, Kalichman L (2016)
-  review_status: draft
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
+  - text: Martin 2018 J Orthop Sports Phys Ther (midportion Achilles tendinopathy CPG)
+    url: https://doi.org/10.2519/jospt.2018.0302
+  - text: Koc 2023 J Orthop Sports Phys Ther (heel pain / plantar fasciitis CPG)
+    url: https://doi.org/10.2519/jospt.2023.0303
 - id: bfr-aop-calc
+  title: Blood Flow Restriction (BFR) Position Stand & Cuff Safety (Patterson 2019, Lorenz 2021)
+  page: 6
   type: info
-  title: BFR Arterial Occlusion Pressure (80% AOP) & Safety
-  page: 8
-  steps:
-  - Patient placed supine with cuff placed on the PROXIMAL THIGH only — NEVER below
-    the knee (avoids common peroneal nerve compression).
-  - Use vascular Doppler ultrasound on the posterior tibial artery to detect arterial
-    pulse.
-  - Gradually inflate cuff until arterial acoustic signal ceases; record this pressure
-    as 100% Arterial Occlusion Pressure (AOP).
-  - 'Calculate individualized working pressure: Working Pressure = AOP (mmHg) × 0.80
-    (80% AOP).'
-  - 'Active protocol: 30-15-15-15 repetitions @ 20–30% 1RM, 30 s rest between sets;
-    cuff remains inflated for maximum 15–20 min continuous.'
-  - 'Screen exclusions: DVT/VTE history, peripheral arterial disease (PAD), sickle
-    cell trait/disease, uncontrolled hypertension, active infection, malignancy.'
-  positive: Induces robust muscle hypertrophy and strength gains comparable to heavy
-    resistance training using low mechanical joint loads (20–30% 1RM).
-  metrics: '80% AOP Doppler calculation: AOP mmHg × 0.80 = mmHg working pressure ·
-    Active BFR: 30-15-15-15 reps @ 20–30% 1RM'
-  video_url: null
-  image: null
-  sources:
-  - Patterson SD et al. (2019) Front Physiol (PMC6530612)
-  - Loenneke JP et al. (2012)
   review_status: draft
+  evidence: Guideline
+  summary: 'Blood flow restriction exercise parameters from the Patterson 2019 position stand and Lorenz 2021 review: pressure,
+    load, volume, rest, frequency, and cuff placement.'
+  steps:
+  - Cuff on the PROXIMAL THIGH only.
+  - 'Position stand — pressure (Patterson 2019): 40 to 80 % of arterial occlusion pressure (AOP), set from a measured AOP.'
+  - 'Position stand — load and volume (Patterson 2019): 20–40 % 1RM; 75 repetitions as 30-15-15-15; rest 30–60 s; 2–3 sessions
+    per week.'
+  - 'Cuff width (Patterson 2019): a wide variety of cuff widths can be used if pressure is set from AOP.'
+  - 'Sports medicine BFR review (Lorenz 2021): resistance exercise typically 20 % to 40 % of 1-RM.'
+  positive: Cuff on the PROXIMAL THIGH only; pressure 40 to 80 % of AOP set from a measured AOP; load 20–40 % 1RM; 75 repetitions
+    as 30-15-15-15; rest 30–60 s; 2–3 sessions per week (Patterson 2019).
+  interpretation: 'Patterson 2019 position stand: pressure 40 to 80 % of arterial occlusion pressure (AOP), set from a measured
+    AOP; load and volume 20–40 % 1RM, 75 repetitions as 30-15-15-15, rest 30–60 s, 2–3 sessions per week; a wide variety of
+    cuff widths can be used if pressure is set from AOP. Lorenz 2021: resistance exercise typically 20 % to 40 % of 1-RM.'
+  metrics: 40 to 80 % of AOP · 20–40 % 1RM · 75 repetitions as 30-15-15-15 · rest 30–60 s · 2–3 sessions per week (Patterson
+    2019, Guideline; Lorenz 2021, L)
+  sources:
+  - text: Patterson 2019 Front Physiol
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6530612/
+    free_full_text: true
+  - text: Lorenz 2021 J Athl Train
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8448465/
+    free_full_text: true
+- id: ankle-manual-therapy
+  title: Manual Therapy, Joint Mobilisation, Stretching & Taping (Weerasekara 2018, LAS CPG 2021, Heel Pain CPG 2023)
+  page: 7
+  type: info
+  review_status: draft
+  evidence: M
+  summary: Evidence for joint mobilisation after ankle sprain (Weerasekara 2018) and JOSPT CPG recommendations on manual therapy,
+    mobilisation with movement, stretching, and taping.
+  steps:
+  - 'Joint mobilisation for ankle sprain (Weerasekara 2018 MA): immediate benefit for posteromedial dynamic balance; short-term
+    improvement in weight-bearing dorsiflexion (P = .003).'
+  - 'LAS CPG 2021 (Martin 2021) — acute sprain: manual therapy within pain-free movement alongside exercise (A).'
+  - 'LAS CPG 2021 (Martin 2021) — chronic ankle instability: manual therapy incl. mobilization with movement for dorsiflexion
+    and balance (A).'
+  - 'Heel Pain CPG 2023 (Koc 2023): manual therapy to lower-extremity joints and soft tissue (A); plantar-fascia-specific
+    and gastrocnemius / soleus stretching (A); rigid or elastic taping with other treatment for short-term pain and function
+    (A).'
+  positive: Short-term improvement in weight-bearing dorsiflexion (P = .003) and immediate benefit for posteromedial dynamic
+    balance (Weerasekara 2018).
+  interpretation: 'Weerasekara 2018 (MA): immediate benefit for posteromedial dynamic balance; short-term improvement in weight-bearing
+    dorsiflexion (P = .003). Martin 2021 (LAS CPG): manual therapy within pain-free movement alongside exercise (A); manual
+    therapy incl. mobilization with movement for dorsiflexion and balance (A). Koc 2023 (heel pain CPG): manual therapy to
+    lower-extremity joints and soft tissue (A); plantar-fascia-specific and gastrocnemius / soleus stretching (A); rigid or
+    elastic taping with other treatment for short-term pain and function (A).'
+  metrics: 'Weerasekara 2018 (MA): short-term weight-bearing dorsiflexion improvement (P = .003) and immediate posteromedial
+    dynamic balance benefit · LAS CPG (A) (Martin 2021) · Heel Pain CPG (A) (Koc 2023)'
+  sources:
+  - text: Weerasekara 2018 Arch Phys Med Rehabil
+    url: https://doi.org/10.1016/j.apmr.2017.07.019
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
+  - text: Koc 2023 J Orthop Sports Phys Ther (heel pain / plantar fasciitis CPG)
+    url: https://doi.org/10.2519/jospt.2023.0303
+- id: dry-needling-depth
+  title: Dry Needling Evidence & Safety (Cotchett 2014, CPGs, Brady 2014, Boyce 2020, Halle 2016, Kearns 2019)
+  page: 7
+  type: info
+  review_status: draft
+  evidence: M
+  summary: Clinical trial and CPG evidence for dry needling in plantar heel pain and chronic ankle instability alongside prospective
+    adverse-event rates and anticoagulant precautions.
+  steps:
+  - 'Dry needling for plantar heel pain (Cotchett 2014 RCT, 1 per week × 6): first-step pain −14.4 mm vs sham (below minimal
+    important difference); NNT 4; minor transient adverse events 32%.'
+  - 'JOSPT CPGs: dry needling of the fibularis group with proprioceptive training for CAI (C) (Martin 2021); "dry needling
+    to MTrP in the gastrocnemius, soleus, and plantar muscles" for short- and long-term pain (B) (Koc 2023).'
+  - 'Adverse events — 7,629 treatments (Brady 2014): mild AEs 19.18 %; upper risk rate for significant AEs ≤ 0.04 %; bruising
+    7.55 %, bleeding 4.65 %.'
+  - 'Adverse events — 20,464 treatments (Boyce 2020): minor AE 36.7 %; major AE < .1 %; most common major: prolonged symptom
+    aggravation .03 %, fainting .02 %, forgotten needles .01 %; major AEs most often with gluteal, lumbar paraspinal, suboccipital
+    and upper trapezius needling.'
+  - 'Known serious risks (Halle 2016): pneumothorax, cardiac tamponade, haematoma, infection, CNS injury; filament needles
+    32–36 gauge (.25–.20 mm).'
+  - 'Anticoagulants / coagulopathy (Kearns 2019): caution — possible increased incidence or severity of haematoma and bruising.'
+  positive: Plantar heel pain NNT 4 (first-step pain −14.4 mm vs sham, below minimal important difference; Cotchett 2014);
+    heel pain CPG grade (B) (Koc 2023); CAI fibularis needling grade (C) (Martin 2021).
+  interpretation: 'Cotchett 2014 (RCT, 1 per week × 6): first-step pain −14.4 mm vs sham (below minimal important difference);
+    NNT 4; minor transient adverse events 32%. Brady 2014 (7,629 treatments): mild AEs 19.18 %; upper risk rate for significant
+    AEs ≤ 0.04 %; bruising 7.55 %, bleeding 4.65 %. Boyce 2020 (20,464 treatments): minor AE 36.7 %; major AE < .1 %; prolonged
+    symptom aggravation .03 %, fainting .02 %, forgotten needles .01 %. Halle 2016: pneumothorax, cardiac tamponade, haematoma,
+    infection, CNS injury; filament needles 32–36 gauge (.25–.20 mm). Kearns 2019: anticoagulants / coagulopathy — caution
+    — possible increased incidence or severity of haematoma and bruising.'
+  metrics: 'Cotchett 2014: −14.4 mm vs sham, NNT 4, minor AEs 32% · Brady 2014 (7,629 tx): mild AEs 19.18 %, significant AEs
+    ≤ 0.04 %, bruising 7.55 %, bleeding 4.65 % · Boyce 2020 (20,464 tx): minor AE 36.7 %, major AE < .1 % (.03 %, .02 %, .01
+    %) · Halle 2016: 32–36 gauge (.25–.20 mm) · Kearns 2019 (E)'
+  sources:
+  - text: Cotchett 2014 Phys Ther
+    url: https://doi.org/10.2522/ptj.20130255
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
+  - text: Koc 2023 J Orthop Sports Phys Ther (heel pain / plantar fasciitis CPG)
+    url: https://doi.org/10.2519/jospt.2023.0303
+  - text: Brady 2014 J Man Manip Ther
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4101552/
+    free_full_text: true
+  - text: Boyce 2020 Int J Sports Phys Ther
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7015026/
+    free_full_text: true
+  - text: Halle 2016 Int J Sports Phys Ther
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4970854/
+    free_full_text: true
+  - text: Kearns 2019 J Man Manip Ther
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6598537/
+    free_full_text: true
 - id: tendon-loading-stages
-  type: info
-  title: Cook & Purdam 4-Stage Tendon Loading Continuum
+  title: Achilles & Plantar Fascia Loading Programs (Alfredson 1998, Beyer 2015, Rathleff 2015, JOSPT CPGs)
   page: 8
-  steps:
-  - 'Stage 1 — Isometrics: 5 × 45 s holds @ 70% MVC (Rio analgesic protocol); knee
-    90° for soleus vs 0° for gastrocnemius; progression: immediate post-set analgesia,
-    NPRS ≤ 3/10.'
-  - 'Stage 2 — Heavy Slow Resistance (HSR): Beyer 12-week protocol (3 s concentric
-    / 3 s eccentric); midportion off step, insertional strictly on flat ground; progression:
-    SLHR ≥ 25 reps, stable 24-h response.'
-  - 'Stage 3 — Energy Storage: Plyometrics including pogo hops, skipping, bounding,
-    jump-landing progressing to running; progression: SLHR LSI ≥ 90%, hop pain ≤ 3/10.'
-  - 'Stage 4 — Sport-Specific: High-speed cutting, deceleration, change of direction,
-    sprint exposures, and full-volume training; progression: RTS battery LSI ≥ 90–95%.'
-  - 'Load monitoring rule: Green (0–2/10) = safe; Amber (3–5/10) = acceptable if morning
-    pain returns to baseline within 24 h; Red (> 5/10 or flare) = regress 1 stage.'
-  positive: Criterion-based progression across reactive, dysrepair, and degenerative
-    tendon pathology stages.
-  metrics: 'Stage 1: Isometrics (5 × 45 s @ 70% MVC) · Stage 2: HSR (3s con/3s ecc)
-    · Stage 3: Energy Storage · Stage 4: Sport-Specific'
-  video_url: null
-  image: null
-  sources:
-  - Cook JL, Purdam CR (2009) BJSM
-  - Cook JL et al. (2016) BJSM
-  - Rio E et al. (2015)
-  - Beyer R et al. (2015)
+  type: info
   review_status: draft
+  evidence: H
+  summary: Evidence for heavy-load eccentric training, heavy slow resistance (HSR), and high-load plantar fascia strength
+    training alongside JOSPT CPG loading and activity-modification guidance.
+  steps:
+  - 'Achilles tendinosis — heavy-load eccentric (12 weeks, Alfredson 1998): all 15 patients back to preinjury running.'
+  - 'Achilles tendinopathy — HSR vs eccentric (Beyer 2015 RCT): equally good, lasting results; HSR greater satisfaction at
+    12 weeks.'
+  - 'Plantar fasciitis — high-load strength (Rathleff 2015 RCT): FFI 29 points lower than stretching at 3 months; no difference
+    at 1, 6, 12 months.'
+  - 'Achilles CPG 2018 (Martin 2018): "mechanical loading, which can be either in the form of eccentric exercise, or a heavy-load,
+    slow-speed (concentric/eccentric) exercise program" (A); "exercise at least twice weekly within their pain tolerance"
+    (F); complete rest is not indicated — continue recreational activity within pain tolerance (B).'
+  - 'Heel Pain CPG 2023 (Koc 2023): resistance training for foot and ankle musculature (B); education on lean body mass (E).'
+  positive: 'Beyer 2015: HSR and eccentric equally good, lasting results with greater HSR satisfaction at 12 weeks; Rathleff
+    2015: FFI 29 points lower than stretching at 3 months.'
+  interpretation: 'Alfredson 1998 (12 weeks): all 15 patients back to preinjury running. Beyer 2015 (RCT): equally good, lasting
+    results; HSR greater satisfaction at 12 weeks. Rathleff 2015 (RCT): FFI 29 points lower than stretching at 3 months; no
+    difference at 1, 6, 12 months. Martin 2018 (Achilles CPG): mechanical loading (A), exercise at least twice weekly within
+    pain tolerance (F), continue recreational activity within pain tolerance (B). Koc 2023 (heel pain CPG): resistance training
+    for foot and ankle musculature (B), education on lean body mass (E).'
+  metrics: 'Alfredson 1998 (12 weeks): all 15 patients back to running · Beyer 2015: HSR vs eccentric equally good, HSR greater
+    satisfaction at 12 weeks · Rathleff 2015: FFI 29 points lower at 3 months; no difference at 1, 6, 12 months · Achilles
+    CPG (A)/(B)/(F) (Martin 2018) · Heel CPG (B)/(E) (Koc 2023)'
+  sources:
+  - text: Alfredson 1998 Am J Sports Med
+    url: https://doi.org/10.1177/03635465980260030301
+  - text: Beyer 2015 Am J Sports Med
+    url: https://doi.org/10.1177/0363546515584760
+  - text: Rathleff 2015 Scand J Med Sci Sports
+    url: https://doi.org/10.1111/sms.12313
+  - text: Martin 2018 J Orthop Sports Phys Ther (midportion Achilles tendinopathy CPG)
+    url: https://doi.org/10.2519/jospt.2018.0302
+  - text: Koc 2023 J Orthop Sports Phys Ther (heel pain / plantar fasciitis CPG)
+    url: https://doi.org/10.2519/jospt.2023.0303
+- id: las-cpg-exercise-prevention
+  title: JOSPT Lateral Ankle Sprain CPG — Exercise, External Support & Prevention (Martin 2021)
+  page: 8
+  type: info
+  review_status: draft
+  evidence: Guideline
+  summary: JOSPT 2021 lateral ankle sprain clinical practice guideline recommendations for prevention, acute protection/loading,
+    structured exercise, and chronic ankle instability rehabilitation.
+  steps:
+  - 'Prevention: prophylactic bracing to reduce first-time sprain (A); after a first sprain: bracing + proprioceptive and
+    balance-focused exercise (A).'
+  - 'Acute sprain — protection and loading: "use external supports, such as braces or taping, and ... progressively bear weight"
+    (A); severe injuries: "immobilization ... may be indicated for up to 10 days post injury" (A).'
+  - 'Acute sprain — exercise and manual therapy: structured therapeutic exercise (A); manual therapy within pain-free movement
+    alongside exercise (A).'
+  - 'Chronic ankle instability — interventions: proprioceptive / neuromuscular exercise (A); manual therapy incl. mobilization
+    with movement for dorsiflexion and balance (A); dry needling of the fibularis group with proprioceptive training (C);
+    external support not as a stand-alone (B).'
+  positive: Grade (A) for prophylactic bracing, proprioceptive/balance exercise, progressive weight-bearing with external
+    support, and structured therapeutic exercise (Martin 2021).
+  interpretation: Martin 2021 JOSPT lateral ankle sprain CPG recommendations across primary/secondary prevention, acute sprain
+    protection and exercise, and chronic ankle instability.
+  metrics: Prevention (A) · Acute protection & progressive weight-bearing (A) · Structured therapeutic exercise (A) · CAI
+    proprioceptive / neuromuscular exercise (A), external support not as a stand-alone (B) (Martin 2021)
+  sources:
+  - text: Martin 2021 J Orthop Sports Phys Ther (lateral ankle sprain CPG)
+    url: https://doi.org/10.2519/jospt.2021.0302
+- id: pain-monitoring-model
+  title: Pain-Monitoring Traffic Light Model (Silbernagel 2007, Sprague 2021, Cavaggion 2024)
+  page: 8
+  type: info
+  review_status: draft
+  evidence: M
+  summary: Pain-monitoring model for continued tendon loading using low (0–2), acceptable (2–5), and high (5–10) NPRS risk
+    zones.
+  steps:
+  - 'Pain-monitoring model description (Sprague 2021): pain should not exceed 5/10 on the NPRS during or immediately after
+    activity and should return to pre-activity levels by the following morning.'
+  - 'Origin of the zones (Cavaggion 2024): low (0–2), acceptable (2–5) and high (5–10) risk zones were based on clinical experience.'
+  - 'Achilles tendinopathy RCT (Silbernagel 2007): continued tendon loading with a pain-monitoring model showed no negative
+    effects.'
+  positive: Pain ≤ 5/10 during/immediately after activity that returns to pre-activity levels by the following morning; low
+    (0–2), acceptable (2–5), and high (5–10) risk zones were based on clinical experience.
+  interpretation: 'Sprague 2021 (E): pain should not exceed 5/10 on the NPRS during or immediately after activity and should
+    return to pre-activity levels by the following morning. Cavaggion 2024 (E): low (0–2), acceptable (2–5) and high (5–10)
+    risk zones were based on clinical experience. Silbernagel 2007 (M): continued tendon loading with a pain-monitoring model
+    showed no negative effects.'
+  metrics: 'Zones: low (0–2), acceptable (2–5), high (5–10) based on clinical experience (Cavaggion 2024, E) · NPRS ≤ 5/10
+    and return to pre-activity levels by following morning (Sprague 2021, E) · Continued loading showed no negative effects
+    (Silbernagel 2007, M)'
+  sources:
+  - text: Silbernagel 2007 Am J Sports Med
+    url: https://doi.org/10.1177/0363546506298279
+  - text: Sprague 2021 Pilot Feasibility Stud
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7905015/
+    free_full_text: true
+  - text: Cavaggion 2024 Open Access J Sports Med
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11616428/
+    free_full_text: true
 - id: rts-hop-battery
-  type: info
-  title: Comprehensive Athletic RTS Hop Battery Protocol
+  title: Return to Sport After Lateral Ankle Sprain — PAASS Consensus (Smith 2021)
   page: 8
-  steps:
-  - 'Pre-requisite gate: complete Return-to-Running screen (pain-free 30 min brisk
-    walk, WBLT asymmetry ≤ 1.5 cm, SL balance 30 s eyes open, SLHR LSI ≥ 80%, 10 pain-free
-    SL hops, no next-day flare).'
-  - 'Single Hop for Distance (cm): jump forward from one leg and land on the same
-    leg, sticking landing 2 s without balance loss (LSI ≥ 90–95%).'
-  - 'Triple Hop for Distance (cm): 3 consecutive maximal forward hops on the same
-    leg (LSI ≥ 90–95%).'
-  - 'Crossover Hop for Distance (cm): 3 consecutive forward hops crossing over a 15
-    cm strip on floor (LSI ≥ 90–95%).'
-  - '6-Meter Timed Hop (s): hop along 6 m track as rapidly as possible (LSI = uninvolved
-    time ÷ involved time ≥ 90–95%).'
-  - '30 s Side Hop (reps): hop sideways over two parallel lines 30 cm apart for 30
-    seconds (Females ≥ 40–50 reps, Males ≥ 50–65 reps).'
-  positive: Demonstrates adequate limb symmetry and dynamic reactive landing stability
-    required for unrestricted sport clearance.
-  metrics: 'Pass criterion: LSI ≥ 90–95% across all 4 hop tests + 30s Side Hop (Females
-    ≥ 40–50, Males ≥ 50–65 reps)'
-  video_url: null
-  image: null
-  sources:
-  - Noyes FR et al. (1991)
-  - Gustavsson A et al. (2006)
-  - Reid A et al. (2007)
-  review_status: draft
-- id: lsi-caution
   type: info
-  title: Limb Symmetry Index (LSI) Caution & Deconditioning
-  page: 8
-  steps:
-  - 'Definition: LSI (%) = (Involved Limb Score / Uninvolved Limb Score) × 100.'
-  - 'The Bilateral Deconditioning Trap: during weeks/months of immobilization or reduced
-    activity, the ''uninjured'' limb also significantly deconditions in power, rate
-    of force development, and tendon stiffness.'
-  - 'Risk: an LSI of 90% or even 100% can give a false reassurance if the reference
-    limb has lost 20–30% of its baseline capacity.'
-  - 'Clinical mandate: always cross-reference absolute performance values against
-    pre-injury baselines or established normative data.'
-  - Monitor psychological readiness (TSK-11 ≤ 17 or Ankle-RSI ≥ 75%) concurrently
-    with physical battery clearance.
-  positive: Prevents premature return to sport caused by bilateral capacity loss masking
-    persistent deficits.
-  metrics: 'LSI caution: the uninvolved limb also deconditions. Interpret against
-    pre-injury or normative values where available.'
-  video_url: null
-  image: null
-  sources:
-  - Gokeler A et al. (2017)
-  - Wellsandt E et al. (2017)
   review_status: draft
-- id: achilles-midportion-cluster
-  type: info
-  title: Achilles Midportion Diagnostic Cluster
-  page: 4
+  evidence: Guideline
+  summary: International consensus domains (PAASS, Smith 2021) for return-to-sport decision-making after lateral ankle sprain.
   steps:
-  - Patient positioned prone with feet relaxed hanging over the examination table.
-  - Palpate midportion of Achilles tendon (2–6 cm proximal to calcaneal insertion)
-    for focal thickening or tender nodule.
-  - 'Perform Royal London Hospital Test: observe if focal tenderness significantly
-    decreases during full active/passive dorsiflexion.'
-  - 'Perform Arc Sign Test: observe whether tender swelling translates in an arc with
-    active plantarflexion/dorsiflexion.'
-  - 'Confirm cluster criteria: palpable thickening, localized pain, and positive Royal
-    London or Arc sign.'
-  positive: Presence of palpable tendon thickening plus either (+) Royal London Hospital
-    test or (+) Arc sign.
-  metrics: Sn 84% Sp 83% +LR 4.94 [M*] −LR 0.19
-  video_url: null
-  image: null
+  - 'P — Pain: evaluate ankle pain severity during sport-specific loading and the next morning.'
+  - 'A — Ankle impairments: assess ankle range of motion (weight-bearing lunge) and muscle strength/endurance.'
+  - 'A — Athlete perception: evaluate perceived ankle stability, confidence, and psychological readiness.'
+  - 'S — Sensorimotor control: assess proprioception, static single-limb balance, and dynamic postural control (SEBT).'
+  - 'S — Sport / functional performance: evaluate single-limb hopping, agility, and sport-specific drills.'
+  positive: 'Clearance across all five PAASS domains: Pain, Ankle impairments, Athlete perception, Sensorimotor control, and
+    Sport / functional performance (Smith 2021).'
+  interpretation: 'Smith 2021 (PAASS consensus, Guideline): Pain, Ankle impairments, Athlete perception, Sensorimotor control,
+    Sport / functional performance.'
+  metrics: 'PAASS five domains: Pain, Ankle impairments, Athlete perception, Sensorimotor control, Sport / functional performance
+    (Smith 2021, Guideline)'
   sources:
-  - Maffulli N et al. (2003)
-  - van Dijk CN et al. (2011)
-  review_status: draft
-- id: tsk-11
-  type: info
-  title: Tampa Scale of Kinesiophobia (TSK-11)
-  page: 8
-  steps:
-  - Screen for movement-related fear, pain catastrophizing, and somatic focus in persistent
-    tendon/joint disorders.
-  - Administer 11 validated items scored on a 4-point Likert scale (1 = Strongly Disagree
-    to 4 = Strongly Agree).
-  - 'Calculate total aggregate score across all 11 items (theoretical range: 11 to
-    44).'
-  - 'Evaluate score against validated clinical cutoffs: scores > 17 indicate elevated
-    kinesiophobia requiring cognitive reassurance, pain neurophysiology education,
-    and graded exposure loading.'
-  positive: Total score > 17 indicates elevated kinesiophobia / psychological guarding.
-  metrics: 'TSK-11 Total (11–44): ≤ 17 Low Fear / Cleared · > 17 High Kinesiophobia
-    [M]'
-  video_url: null
-  image: null
-  sources:
-  - Woby SR et al. (2005)
-  - Roelofs J et al. (2007)
-  - George SZ et al. (2008)
-  review_status: draft
+  - text: Smith 2021 Br J Sports Med
+    url: https://doi.org/10.1136/bjsports-2021-104087

@@ -1,0 +1,9 @@
+{
+  "name": "ankle-atlas",
+  "version": "1.0.0",
+  "description": "Ankle & Foot dossier build tooling (Tailwind CLI)",
+  "dependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "private": true
+}

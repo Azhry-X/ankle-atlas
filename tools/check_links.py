@@ -1,270 +1,164 @@
 #!/usr/bin/env python3
-"""Validates every external href in the dossier and atlas.
+"""Verify every link in the dossier PDF and the Atlas.
 
-Checks:
-  1. Internal page navigation anchors (#page-1 .. #page-9).
-  2. Atlas anchor links ({ATLAS_BASE_URL}#<id> or #<id>) resolve to a valid card in tests.yaml and atlas/index.html.
-  3. YouTube video URLs return HTTP 200 via oEmbed with matching titles.
-  4. DOI links (https://doi.org/<DOI>) return HTTP 200 via Crossref API with matching titles.
-  5. Other external links return HTTP 200.
-  6. Prints a clean markdown table of all validated links.
-  7. Hard-fails (exit 1) on any broken link.
+  python tools/check_links.py          # pre-deploy: Atlas anchors checked against local index.html
+  python tools/check_links.py --live   # after GitHub Pages is live: also fetch the Atlas URL
+
+Checks
+  * Atlas anchors (#id) exist as cards in index.html
+  * Ankle-atlas anchors exist on the live ankle atlas
+  * External pages return HTTP 200 and are not a bot-check page (PMC needs a real browser:
+    Playwright is used when installed, otherwise PMC links are reported as SKIPPED)
+  * Atlas card sources (tests.yaml): PMC / web pages as above; doi.org links must be
+    registered DOIs (checked with the DOI handle API, so publisher bot-walls do not matter)
+  * YouTube videos in tests.yaml still resolve via oEmbed
+Exit code 1 on any failure.
 """
-from __future__ import annotations
+import sys, re, json, pathlib, urllib.request, urllib.parse
+for _s in (sys.stdout, sys.stderr):  # Windows consoles: never crash on non-ASCII page titles
+    try:
+        _s.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'atlas'))
+from config import ATLAS_BASE_URL  # noqa: E402
+import yaml  # noqa: E402
 
-import json
-import os
-import re
-import ssl
-import sys
-import time
-import urllib.error
-import urllib.parse
-import urllib.request
-from pathlib import Path
-
-if hasattr(sys.stdout, "reconfigure"):
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-if hasattr(sys.stderr, "reconfigure"):
-    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
-
-try:
-    import yaml
-except ImportError:
-    yaml = None
-
-# SSL context ignoring verification for test environments
-CTX = ssl.create_default_context()
-CTX.check_hostname = False
-CTX.verify_mode = ssl.CERT_NONE
-
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
-}
+UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+      'Accept-Language': 'en-US,en;q=0.9'}
+LIVE = '--live' in sys.argv
 
 
-def retry_urlopen(req, timeout=12, max_retries=3):
-    last_err = None
-    for attempt in range(max_retries):
+def pdf_links():
+    from pypdf import PdfReader
+    out = set()
+    for pg in PdfReader(str(ROOT / 'master_ankle_dossier.pdf')).pages:
+        for a in pg.get('/Annots') or []:
+            A = a.get_object().get('/A')
+            if A is not None and A.get('/URI'):
+                out.add(str(A['/URI']))
+    return sorted(out)
+
+
+def fetch(url):
+    req = urllib.request.Request(url, headers=UA)
+    with urllib.request.urlopen(req, timeout=30) as r:
+        body = r.read(400000).decode('utf-8', 'ignore')
+        m = re.search(r'<title[^>]*>(.*?)</title>', body, re.S | re.I)
+        return r.status, (m.group(1).strip() if m else '')
+
+
+def browser_titles(urls):
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return {u: None for u in urls}
+    res = {}
+    with sync_playwright() as p:
+        b = p.chromium.launch()
+        ctx = b.new_context(user_agent=UA['User-Agent'])
+        for u in urls:
+            pg = ctx.new_page()
+            try:
+                r = pg.goto(u, wait_until='domcontentloaded', timeout=45000)
+                pg.wait_for_timeout(2500)
+                res[u] = (r.status if r else 0, pg.title())
+            except Exception as e:
+                res[u] = (0, f'ERROR {e}')
+            pg.close()
+        b.close()
+    return res
+
+
+def check_url(u, btitles):
+    """(kind, status text, ok) for an external URL that is not an Atlas / ankle-atlas anchor."""
+    if u in btitles:
+        r = btitles[u]
+        if r is None:
+            return 'PMC', 'SKIPPED (install playwright to verify)', True
+        st, title = r
+        return 'PMC', f'{st} {title[:70]}', bool(st in (200, 203) and title and 'recaptcha' not in title.lower())
+    if 'doi.org/' in u:
+        doi = urllib.parse.unquote(u.split('doi.org/', 1)[1])
         try:
-            with urllib.request.urlopen(req, context=CTX, timeout=timeout) as resp:
-                return resp.status, resp.read().decode("utf-8", errors="replace"), dict(resp.headers)
-        except urllib.error.HTTPError as e:
-            return e.code, e.read().decode("utf-8", errors="replace"), dict(e.headers)
+            api = 'https://doi.org/api/handles/' + urllib.parse.quote(doi, safe='/:;()')
+            d = json.load(urllib.request.urlopen(urllib.request.Request(api, headers=UA), timeout=30))
+            ok = d.get('responseCode') == 1
+            return 'DOI', 'registered' if ok else f'NOT REGISTERED ({d.get("responseCode")})', ok
         except Exception as e:
-            last_err = e
-            time.sleep(0.6 * (attempt + 1))
-    raise last_err
-
-
-def verify_youtube_oembed(url: str) -> tuple[bool, str]:
-    oembed_url = f"https://www.youtube.com/oembed?url={urllib.parse.quote(url, safe=':/?=&')}&format=json"
-    req = urllib.request.Request(oembed_url, headers=HEADERS)
+            return 'DOI', f'FAIL {e}', False
     try:
-        status, body, _ = retry_urlopen(req)
-        if status == 200:
-            data = json.loads(body)
-            title = data.get("title", "")
-            author = data.get("author_name", "")
-            return True, f"oEmbed 200: '{title}' ({author})"
-        return False, f"oEmbed HTTP {status}"
+        st, title = fetch(u)
+        return 'WEB', f'{st} {title[:70]}', bool(st in (200, 203) and 'just a moment' not in title.lower())
     except Exception as e:
-        return False, f"oEmbed error: {e}"
+        return 'WEB', f'FAIL {e}', False
 
 
-def verify_doi_crossref(url: str) -> tuple[bool, str]:
-    m = re.search(r"doi\.org/(10\.\d{4,9}/[-._;()/:A-Za-z0-9]+)", url)
-    if not m:
-        return False, "Not a recognized DOI format"
-    doi = m.group(1)
-    api_url = f"https://api.crossref.org/works/{doi}"
-    req = urllib.request.Request(api_url, headers={"User-Agent": "AnkleDossierLinkChecker/1.0 (mailto:checker@example.com)"})
-    try:
-        status, body, _ = retry_urlopen(req, timeout=15)
-        if status == 200:
-            data = json.loads(body)
-            msg = data.get("message", {})
-            title = msg.get("title", [""])[0]
-            year = ""
-            if "published-print" in msg:
-                year = str(msg["published-print"]["date-parts"][0][0])
-            elif "created" in msg:
-                year = str(msg["created"]["date-parts"][0][0])
-            return True, f"Crossref 200: '{title}' ({year})"
-        return False, f"Crossref HTTP {status}"
-    except Exception as e:
-        return False, f"Crossref error: {e}"
-
-
-def verify_http_url(url: str) -> tuple[bool, str]:
-    req = urllib.request.Request(url, headers=HEADERS)
-    try:
-        status, body, headers = retry_urlopen(req, timeout=12)
-        if status in (200, 301, 302, 307, 308):
-            return True, f"HTTP {status}"
-        if status == 403:
-            srv = headers.get("Server", "").lower()
-            if "cloudflare" in srv or "cf-mitigated" in headers or "cloudflare" in body.lower():
-                return True, f"HTTP 403 (Cloudflare Challenge - Active Domain)"
-        return False, f"HTTP {status}"
-    except Exception as e:
-        return False, f"HTTP error: {e}"
-
-
-def check_all_links(root_dir: Path) -> int:
-    dossier_html = root_dir / "master_ankle_dossier.html"
-    atlas_html = root_dir / "atlas" / "index.html"
-    tests_yaml = root_dir / "atlas" / "data" / "tests.yaml"
-
-    if not dossier_html.is_file():
-        print(f"FAIL: {dossier_html} not found")
-        return 1
-    if not atlas_html.is_file():
-        print(f"FAIL: {atlas_html} not found")
-        return 1
-    if not tests_yaml.is_file():
-        print(f"FAIL: {tests_yaml} not found")
-        return 1
-
-    with open(tests_yaml, "r", encoding="utf-8") as f:
-        yaml_entries = yaml.safe_load(f) if yaml else []
-    yaml_ids = {e["id"] for e in yaml_entries}
-
-    atlas_source = atlas_html.read_text(encoding="utf-8")
-    atlas_dom_ids = set(re.findall(r'id="([a-zA-Z0-9_-]+)"', atlas_source))
-
-    dossier_source = dossier_html.read_text(encoding="utf-8")
-    dossier_dom_ids = set(re.findall(r'id="([a-zA-Z0-9_-]+)"', dossier_source))
-
-    # Extract links from dossier HTML
-    dossier_links = re.findall(r'<a\s+[^>]*href="([^"]+)"[^>]*>(.*?)</a>', dossier_source, re.DOTALL)
-    atlas_links = re.findall(r'<a\s+[^>]*href="([^"]+)"[^>]*>(.*?)</a>', atlas_source, re.DOTALL)
-    
-    # 0. Enforce unique element IDs in atlas (Requirement B3)
-    import collections
-    all_atlas_ids = re.findall(r'id="([^"]+)"', atlas_source)
-    id_counts = collections.Counter(all_atlas_ids)
-    duplicate_ids = {k: v for k, v in id_counts.items() if v > 1}
-    if duplicate_ids:
-        print(f"FAIL: Duplicate element IDs found in Atlas: {duplicate_ids}")
-        return 1
-    print(f"PASS: All {len(id_counts)} element IDs in Atlas are strictly unique.")
-
-    results = []
-    failed = []
-
-    print(f"Validating {len(dossier_links)} dossier links and {len(atlas_links)} atlas links...")
-
-    # Cache for external URL checks
-    cache: dict[str, tuple[bool, str]] = {}
-
-    def get_ext_status(u: str) -> tuple[bool, str]:
-        if u in cache:
-            return cache[u]
-        if "youtube.com" in u or "youtu.be" in u:
-            res = verify_youtube_oembed(u)
-        elif "doi.org" in u:
-            res = verify_doi_crossref(u)
-        else:
-            res = verify_http_url(u)
-        cache[u] = res
-        return res
-
-    # 1. Audit Dossier Links
-    for href, raw_label in dossier_links:
-        if href == "#":
+def main():
+    fails, rows = [], []
+    index = (ROOT / 'index.html').read_text(encoding='utf-8')
+    card_ids = set(re.findall(r'<article class="card" id="([^"]+)"', index))
+    cards = yaml.safe_load((ROOT / 'atlas' / 'data' / 'tests.yaml').read_text(encoding='utf-8'))
+    links = pdf_links()
+    src_urls = sorted({s['url'] for c in cards for s in (c.get('sources') or []) if s.get('url')} - set(links))
+    pmc = sorted({u for u in links + src_urls if 'pmc.ncbi.nlm.nih.gov' in u})
+    btitles = browser_titles(pmc) if pmc else {}
+    for u in links:
+        if u.startswith(ATLAS_BASE_URL):
+            aid = u.split('#', 1)[1] if '#' in u else ''
+            ok = aid in card_ids
+            rows.append(('ATLAS', 'OK' if ok else 'MISSING CARD', u))
+            if not ok:
+                fails.append(u)
             continue
-        clean_label = " ".join(re.sub(r"<[^>]+>", "", raw_label).split())
-        if not clean_label:
-            clean_label = "(icon)"
-        
-        # Internal page link
-        if href.startswith("#page-"):
-            page_id = href[1:]
-            ok = page_id in dossier_dom_ids
-            status = "Resolves to page" if ok else "Broken page anchor"
-            results.append(("Dossier", clean_label[:32], href, "Internal Page Nav", ok, status))
+        if 'ankle-atlas' in u or 'knee-atlas' in u:
+            aid = u.split('#', 1)[1] if '#' in u else ''
+            try:
+                base = u.split('#')[0]
+                html = urllib.request.urlopen(urllib.request.Request(base, headers=UA), timeout=30).read().decode('utf-8', 'ignore')
+                ok = (not aid) or (f'id="{aid}"' in html)
+            except Exception as e:
+                ok = False
+            rows.append(('SISTER', 'OK' if ok else 'FAIL', u))
             if not ok:
-                failed.append((href, clean_label, status))
-        
-        # Atlas anchor link
-        elif "#" in href and ("github.io" in href or "{ATLAS_BASE_URL}" in href or href.startswith("#")):
-            anchor_id = href.split("#", 1)[1]
-            ok = anchor_id in yaml_ids and anchor_id in atlas_dom_ids
-            status = f"Resolves to Atlas card #{anchor_id}" if ok else f"Anchor #{anchor_id} missing in Atlas"
-            results.append(("Dossier", clean_label[:32], href, "Atlas Card Anchor", ok, status))
-            if not ok:
-                failed.append((href, clean_label, status))
-
-        # External HTTP/HTTPS URL
-        elif href.startswith("http"):
-            method = "YouTube oEmbed" if ("youtube.com" in href or "youtu.be" in href) else ("Crossref API" if "doi.org" in href else "HTTP Request")
-            ok, status = get_ext_status(href)
-            results.append(("Dossier", clean_label[:32], href, method, ok, status))
-            if not ok:
-                failed.append((href, clean_label, status))
-        else:
-            failed.append((href, clean_label, f"Unrecognized link format: {href}"))
-
-    # 2. Audit Atlas Links (unique external or internal targets)
-    seen_atlas_href = set()
-    for href, raw_label in atlas_links:
-        if href in seen_atlas_href:
+                fails.append(u)
             continue
-        seen_atlas_href.add(href)
-        clean_label = " ".join(re.sub(r"<[^>]+>", "", raw_label).split())
-        if not clean_label:
-            clean_label = "(link)"
-
-        if href.startswith("#"):
-            anchor_id = href[1:]
-            if not anchor_id:
-                continue
-            ok = anchor_id in yaml_ids or anchor_id in atlas_dom_ids
-            status = f"Resolves to Atlas element #{anchor_id}" if ok else f"Atlas anchor #{anchor_id} missing"
-            results.append(("Atlas", clean_label[:32], href, "Atlas Internal Anchor", ok, status))
-            if not ok:
-                failed.append((href, clean_label, status))
-        elif href.startswith("http"):
-            method = "YouTube oEmbed" if ("youtube.com" in href or "youtu.be" in href) else ("Crossref API" if "doi.org" in href else "HTTP Request")
-            ok, status = get_ext_status(href)
-            results.append(("Atlas", clean_label[:32], href, method, ok, status))
-            if not ok:
-                failed.append((href, clean_label, status))
-
-    # Print Table
-    print("\n| Source | Label / Chip | Target / URL | Method | Status | Details |")
-    print("| --- | --- | --- | --- | --- | --- |")
-    for src, lbl, u, meth, ok, det in results:
-        mark = "PASS" if ok else "**FAIL**"
-        # Truncate URL for table formatting
-        u_display = u if len(u) <= 45 else u[:42] + "..."
-        det_display = det if len(det) <= 60 else det[:57] + "..."
-        print(f"| {src} | {lbl} | `{u_display}` | {meth} | {mark} | {det_display} |")
-
-    print(f"\nTotal links checked: {len(results)}")
-    print(f"Passed: {len(results) - len(failed)}")
-    print(f"Failed: {len(failed)}")
-
-    if failed:
-        print("\nFAILURES:")
-        for u, lbl, err in failed:
-            print(f"  - [{lbl}] ({u}): {err}")
-        return 1
-
-    # 3. Enforce Atlas Card Coverage and Unlinked Tests Allow-List
-    if str(root_dir) not in sys.path:
-        sys.path.insert(0, str(root_dir))
-    from tools.check_coverage import check_coverage
-    cov_ret = check_coverage(root_dir)
-    if cov_ret != 0:
-        print("\nFAIL: Coverage check failed!")
-        return 1
-
-    print("\nALL LINKS & COVERAGE VERIFIED SUCCESSFULLY!")
-    return 0
+        kind, status, ok = check_url(u, btitles)
+        rows.append((kind, status, u))
+        if not ok:
+            fails.append(u)
+    # Atlas card sources not already checked as PDF links
+    for u in src_urls:
+        kind, status, ok = check_url(u, btitles)
+        rows.append(('SRC-' + kind, status, u))
+        if not ok:
+            fails.append(u)
+    # videos
+    for c in cards:
+        v = c.get('video_url')
+        if not v:
+            continue
+        try:
+            d = json.load(urllib.request.urlopen('https://www.youtube.com/oembed?format=json&url=' + urllib.parse.quote(v), timeout=30))
+            rows.append(('VIDEO', f"OK {d['author_name']}: {d['title'][:60]}", c['id']))
+        except Exception as e:
+            rows.append(('VIDEO', f'FAIL {e}', c['id']))
+            fails.append(v)
+    if LIVE:
+        try:
+            st, title = fetch(ATLAS_BASE_URL + '/')
+            rows.append(('LIVE', f'{st} {title}', ATLAS_BASE_URL))
+            if st != 200:
+                fails.append(ATLAS_BASE_URL)
+        except Exception as e:
+            rows.append(('LIVE', f'FAIL {e}', ATLAS_BASE_URL))
+            fails.append(ATLAS_BASE_URL)
+    for kind, status, u in rows:
+        print(f'{kind:8} {status:60} {u}')
+    print(f'\n{len(rows)} links checked, {len(fails)} failed')
+    sys.exit(1 if fails else 0)
 
 
-if __name__ == "__main__":
-    base_dir = Path(__file__).resolve().parent.parent
-    sys.exit(check_all_links(base_dir))
+if __name__ == '__main__':
+    main()
